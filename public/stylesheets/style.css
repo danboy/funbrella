@@ -1,0 +1,61 @@
+@import url("http://fonts.googleapis.com/css?family=Roboto:300,100,100italic,300italic,900,900italic");
+@font-face {
+  font-family: 'ClimaconsRegular';
+  src: url("fonts/Climacons.eot");
+  src: url("fonts/Climacons.eot?#iefix") format('embedded-opentype'), url("fonts/Climacons.woff") format('woff'), url("fonts/Climacons.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  padding: 0;
+  margin: 0;
+  font: 14px "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  scroll: none;
+  background: #999;
+}
+a {
+  color: #666;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 300;
+}
+.widget {
+  width: 25%;
+  min-height: 50vh;
+  max-height: 50vh;
+  padding: 1%;
+  display: block;
+  float: left;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  vertical-align: top;
+  background: #999;
+  color: #555;
+  overflow: hidden;
+}
+.widget:first-child {
+  width: 50%;
+  min-height: 100vh;
+  max-height: 100vh;
+}
+.widget:nth-child(5n+1) {
+  background: #bbb;
+  color: #777;
+}
+.widget:nth-child(5n+2) {
+  background: #777;
+  color: #444;
+}
+.widget:nth-child(5n+3) {
+  background: #aaa;
+  color: #666;
+}
+.widget:nth-child(5n+4) {
+  background: #888;
+  color: #555;
+}

@@ -1,0 +1,49 @@
+.climacon,
+.climacons{
+  font-family: "ClimaconsRegular";
+}
+.climacon.large,
+.climacons.large{
+  font-size: 1000%;
+  line-height: 100%;
+}
+
+h1.climacon{
+  margin: 0 auto;
+  text-align: center;
+  padding: 0;
+}
+
+.weather h2{
+  margin: 0 auto 5%;
+  text-align: center;
+  font-size: 2.5em;
+}
+
+.forecast{
+  margin:  0;
+  padding: 0;
+  text-align: center;
+}
+.forecast li{
+  display: inline-block;
+  vertical-align: top;
+  list-style: none;
+  width: 20%;
+}
+.forecast li h2{
+  font-size: 1em;
+}
+.forecast li figure{
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 2rem;
+}
+.forecast li figcaption{
+  font-family: 'Roboto';
+  font-size: 1rem;
+}
+.temp{
+  margin: 0;
+}

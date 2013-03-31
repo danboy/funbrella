@@ -1,0 +1,30 @@
+@-webkit-keyframes pulsate {
+  0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
+  50% {opacity: 1.0;}
+  100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
+}
+.semaphore .passed{
+  color: #88AA00;
+}
+.semaphore .passed.ring{
+  background: #8A0;
+}
+.semaphore .failed{
+  color: #ad3b0e;
+}
+.semaphore .failed.ring{
+  background: #ad3b0e;
+  -webkit-animation: pulsate 1s ease-out;
+  -webkit-animation-iteration-count: infinite;
+}
+.semaphore strong{
+  font-weight: 300;
+}
+.ring{
+  display: inline-block;
+  -webkit-border-radius: 20px;
+  height: 1rem;
+  width: 1rem;
+  margin: 0 .25rem 0 0;
+  text-align: center;
+}

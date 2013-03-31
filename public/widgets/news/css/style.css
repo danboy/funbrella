@@ -1,0 +1,11 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:300,100,100italic,300italic,900,900italic);
+
+.news{
+  font-family: 'Roboto', sans-serif;
+}
+.news h2{
+  font-size: 3.0vh;
+}
+.news p{
+  font-size: 2.2vh;
+}
