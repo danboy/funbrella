@@ -1,0 +1,16 @@
+{{#error}}
+  <p>{{error}}</p>
+{{/error}}
+{{^board}}
+  <p class="error">No board found with id {{socket}}.</p>
+{{/board}}
+<div id="board">
+  {{#widgets}}
+    <div class="widget {{id}}" id="{{id}}">
+      loading...
+    </div>
+  {{/widgets}}
+</div>
+{{#widgets}}
+  <link rel="stylesheet" href="/widgets/{{name}}/css/style.css" />
+{{/widgets}}

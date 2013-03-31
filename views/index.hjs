@@ -1,0 +1,5 @@
+<ul>
+  {{#boards}}
+  <li><a href="/boards/{{name}}">{{name}}</a></li>
+  {{/boards}}
+</ul>

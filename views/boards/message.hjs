@@ -1,0 +1,25 @@
+<form action="/boards/send" method="post">
+  <fieldset>
+    <div>
+      <label for="socket">Socket</label>
+      <select name="socket">
+        {{#sockets}}
+          <option type="text/css" value="{{name}}">{{name}}</option>
+        {{/sockets}}
+      </select>
+    </div>
+    <div>
+      <label for="html">html</html>
+      <textarea name="html" placeholder="<h1>Write some HTML</h1>">
+      </textarea>
+    </div>
+    <div>
+      <label for="javascript">Javascript</html>
+      <textarea name="javascript" placeholder="var addSomeScripts = function(){}">
+      </textarea>
+    </div>
+    <div>
+      <input type="submit" />
+    </div>
+  </fieldset>
+</form>
