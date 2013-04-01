@@ -19,7 +19,7 @@ Funbrella['semaphore'] = function(container, options){
 Funbrella.semaphore.prototype = {
   fetch: function(cb){
     var self = this;
-    $.ajax('http://localhost:3000/fetch'
+    $.ajax(document.location.origin+'/fetch'
     , { type: 'POST'
       , data: {'url': self.getUrl() }
       , success: function(r){
