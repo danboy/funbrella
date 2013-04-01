@@ -1,12 +1,11 @@
-var express   = require('express')
-  , controllers    = require('./lib/controllers')
-  , http      = require('http')
-  , sockjs    = require('sockjs')
-  , h4e       = require('h4e')
-  , path      = require('path')
-  , mongoose  = require('mongoose');
-
-var app = express();
+var express     = require('express')
+  , controllers = require('./lib/controllers')
+  , http        = require('http')
+  , h4e         = require('h4e')
+  , path        = require('path')
+  , mongoose    = require('mongoose')
+  , app         = express()
+  , server      = http.createServer(app);
 
 mongoose.connect('mongodb://localhost/funbrella');
 
@@ -33,7 +32,9 @@ app.configure(function(){
   app.use(express.static(path.join(__dirname, 'public')));
 });
 
+global.sjs = require('sockjs');
 global.app = app;
+global.server = server;
 
 app.configure('development', function(){
   app.use(express.errorHandler());
@@ -41,6 +42,6 @@ app.configure('development', function(){
 
 require('./lib/routes')(app, controllers)
 
-http.createServer(app).listen(app.get('port'), function(){
+server.listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });

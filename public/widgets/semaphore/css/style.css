@@ -17,14 +17,31 @@
   -webkit-animation: pulsate 1s ease-out;
   -webkit-animation-iteration-count: infinite;
 }
+.semaphore .building{
+  color: #fc4;
+}
+.semaphore .building.ring{
+  background: #FC0;
+  -webkit-animation: pulsate 1s ease-out;
+  -webkit-animation-iteration-count: infinite;
+}
 .semaphore strong{
   font-weight: 300;
 }
 .ring{
   display: inline-block;
-  -webkit-border-radius: 20px;
-  height: 1rem;
-  width: 1rem;
+  -webkit-border-radius: 1.5vh;
+  height: 3vh;
+  width: 3vh;
   margin: 0 .25rem 0 0;
   text-align: center;
+}
+.semaphore h1{
+  font-size: 3.0vh;
+}
+.semaphore h3{
+  font-size: 2.8vh;
+}
+.semaphore p{
+  font-size: 2.2vh;
 }
