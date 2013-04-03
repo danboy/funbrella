@@ -1,0 +1,1 @@
+db.boards.insert({"name": "one", "widgets": [ { "name": "news", "params": { "randomize": false, "query": "monkey", "category": 36, "type": "search" } }, {"name": "weather", "params": {"zip": "60647"} }, {"name": "ltrain"}, {"name": "bus"}, {"name": "semaphore"} ] });

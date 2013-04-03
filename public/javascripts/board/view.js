@@ -1,15 +1,16 @@
 var Funbrella = Funbrella || {};
 
-Funbrella.loadScript = function(url, callback){
-  var script = document.createElement("script")
-  script.type = "text/javascript";
-    script.onload = function(){
-      callback();
-    };
-  script.src = url;
-  document.getElementsByTagName("body")[0].appendChild(script);
+Funbrella.addEl = function(el, url, callback){
+  var element = document.createElement(el);
+  if(el === 'script'){
+    element.type = "text/javascript";
+  }
+  element.onload = function(){
+    callback();
+  };
+  element.src = url;
+  document.getElementsByTagName("body")[0].appendChild(element);
 };
-
 
 Funbrella.BoardView = Backbone.View.extend({
   initialize: function(options){
@@ -28,7 +29,7 @@ Funbrella.BoardView = Backbone.View.extend({
   }
 , runScript: function(){
     this.collection.toJSON().forEach(function(widget){
-      Funbrella.loadScript('/widgets/'+widget.name+'/script.js'
+      Funbrella.addEl('script', '/widgets/'+widget.name+'/script.js'
     , function(){
         new Funbrella[widget.name]("#"+widget.id, widget.params, this.socket);
       }.bind(this));

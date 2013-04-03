@@ -17,10 +17,10 @@
   -webkit-animation: pulsate 1s ease-out;
   -webkit-animation-iteration-count: infinite;
 }
-.semaphore .building{
+.semaphore .pending{
   color: #fc4;
 }
-.semaphore .building.ring{
+.semaphore .pending.ring{
   background: #FC0;
   -webkit-animation: pulsate 1s ease-out;
   -webkit-animation-iteration-count: infinite;

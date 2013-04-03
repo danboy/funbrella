@@ -1,0 +1,25 @@
+.bus img{
+  display: block;
+  margin: 4vh auto;
+  opacity: .47;
+  height: 10vh;
+}
+.bus h1{
+  color: #000;
+  opacity: .3;
+  display: block;
+  margin: 0 auto 2vh;
+  text-align: center;
+}
+.bus table{
+  width: 100%;
+}
+.bus table tr td{
+
+}
+.bus table tr td:nth-child(1n+2){
+  text-align: right;
+}
+.bus .arriving{
+  font-weight: 300;
+}

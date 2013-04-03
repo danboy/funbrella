@@ -59,3 +59,7 @@ h5 {
   background: #888;
   color: #555;
 }
+.widget:nth-child(5n+5) {
+  background: #bbb;
+  color: #777;
+}

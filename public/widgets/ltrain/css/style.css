@@ -1,0 +1,43 @@
+.ltrain img{
+  display: block;
+  margin: 4vh auto;
+  opacity: .47;
+  height: 10vh;
+}
+.ltrain h1{
+  color: #000;
+  opacity: .3;
+  display: block;
+  margin: 0 auto 2vh;
+  text-align: center;
+}
+.ltrain table{
+  width: 100%;
+  table-layout:fixed;
+}
+.ltrain table tr td{
+  white-space: nowrap;
+}
+.ltrain table tr td:nth-child(1n+2){
+  text-align: right;
+}
+.ltrain .arriving{
+  font-weight: 300;
+}
+.ltrain table tr td:nth-child(even):after{
+  content: "";
+  background-color: #784421;
+  display: inline-block;
+  -webkit-border-radius: .75vh;
+  height: 1.5vh;
+  width: 1.5vh;
+  margin: 0 0 0 .25rem;
+  opacity: .5;
+}
+.ltrain table tr.Red td:nth-child(even):after{
+  color: #802c2c;
+}
+.ltrain table tr.P td:nth-child(even):after{
+  background-color: #892C80;
+}
+

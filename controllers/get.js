@@ -1,4 +1,5 @@
-var request = require('request');
+var request = require('request')
+  , parser = require('xml2json');
 
 var Get = {
   fetch: function(req, res){
@@ -6,7 +7,11 @@ var Get = {
       url: req.body.url
     , headers: req.params.data
       },function(err,resp,body){
-        res.send(body);
+        if(req.body.xml){
+          res.send(parser.toJson(body));
+        }else{
+          res.send(body)
+        }
     });
   }
 
