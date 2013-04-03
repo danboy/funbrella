@@ -7,7 +7,7 @@ var express     = require('express')
   , app         = express()
   , server      = http.createServer(app);
 
-mongoose.connect('mongodb://localhost/funbrella');
+mongoose.connect('mongodb://nodejitsu:dd33b5018e3800b0a03e056f5f2188c3@linus.mongohq.com:10013/nodejitsudb1270992453');
 
 h4e.setup({
   app: app
