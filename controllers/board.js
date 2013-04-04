@@ -12,6 +12,12 @@ module.exports = {
 
 , show: function(req, res){
     Board.findOne({name: req.params.id.toString() }, function(err, board){
+      console.log(board);
+      if(!board){
+        console.log('no')
+        res.redirect('/')
+        return
+      }
       Widgets.get(board, function(widgets){
         res.format({
           html: function(){
@@ -35,7 +41,11 @@ module.exports = {
     });
   }
 , create: function(req, res){
-    var board = new Board(req.body);
+    var board = { name: req.body.name, widgets: [] }
+    req.body.widgets.forEach(function(widget){
+      board.widgets.push({ name: widget })
+    });
+    var board = new Board(board);
     board.save(function(err,b){
       res.send(b);
     });

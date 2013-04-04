@@ -31,11 +31,6 @@ Funbrella.bus.prototype = {
     return this.options.urls[this.url];
   }
 , render: function(data, self){
-    if(!data['bustime-response']){
-      var template = self.template.render({stop: "No busses running"});
-      $(self.container).html(template)
-        return false;
-    };
     var data = JSON.parse(data)
       , busses = data['bustime-response']['prd']
       , mustache = {
