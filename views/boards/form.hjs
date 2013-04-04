@@ -1,4 +1,4 @@
-<form action="/boards{{#board}}/update{{/board}}" class="sixteen" method="post" id="test">
+<form action="/boards{{#board}}/update{{/board}}" class="sixteen" method="post">
   <fieldset>
     <div class="text">
       <label for="name">Name</label>
@@ -9,12 +9,46 @@
     </div>
   </fieldset>
   <fieldset>
-    <h2>Select your modules</h2>
-    {{#widgets}}
-      <div class="check">
-        <label><input name="widgets[]" value="{{id}}" type="checkbox" {{#checked}}checked="true"{{/checked}}/>{{name}}</label>
-      </div>
-    {{/widgets}}
+    <div class="widget">
+      <label>{{name}}</label>
+      <select name="widgets[]">
+        {{#widgets}}
+        <option value="{{name}}">{{name}}</option>
+        {{/widgets}}
+      </select>
+    </div>
+    <div class="widget">
+      <label>{{name}}</label>
+      <select name="widgets[]">
+        {{#widgets}}
+        <option value="{{name}}">{{name}}</option>
+        {{/widgets}}
+      </select>
+    </div>
+    <div class="widget">
+      <label>{{name}}</label>
+      <select name="widgets[]">
+        {{#widgets}}
+        <option value="{{name}}">{{name}}</option>
+        {{/widgets}}
+      </select>
+    </div>
+    <div class="widget">
+      <label>{{name}}</label>
+      <select name="widgets[]">
+        {{#widgets}}
+        <option value="{{name}}">{{name}}</option>
+        {{/widgets}}
+      </select>
+    </div>
+    <div class="widget">
+      <label>{{name}}</label>
+      <select name="widgets[]">
+        {{#widgets}}
+        <option value="{{name}}">{{name}}</option>
+        {{/widgets}}
+      </select>
+    </div>
   </fieldset>
   <fieldset>
     <div class="submit">

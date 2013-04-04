@@ -29,9 +29,15 @@ module.exports = {
     });
   }
 , new: function(req, res){
-    Widget.find(function(err, widgets){
-      if(err){ throw err;}
+    Widgets.getAvailable(function(widgets){
+      console.log(widgets);
       res.render('layout',{values:{widgets: widgets},partials: { content: '{{>boards/form}}'} })
+    });
+  }
+, create: function(req, res){
+    var board = new Board(req.body);
+    board.save(function(err,b){
+      res.send(b);
     });
   }
 , message: function(req, res){
