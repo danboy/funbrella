@@ -24,7 +24,7 @@ Funbrella.ltrain.prototype = {
       }
     });
   }
-, template: Hogan.compile('<h1>{{{name}}}</h1><img src="/widgets/bus/images/train.png" /><table>{{#trains}}<tr class="{{rt}}"><td>{{stpDe}}</td><td>{{arrival}}</td></tr>{{/trains}}</dl>')
+, template: Hogan.compile('<h1>{{{name}}}</h1><img src="/widgets/ltrain/images/train.png" /><table>{{#trains}}<tr class="{{rt}}"><td>{{stpDe}}</td><td>{{arrival}}</td></tr>{{/trains}}</dl>')
 , getUrl: function(){
     this.url = (this.url < this.options.urls.length-1) ? this.url+1 : 0;
     return this.options.urls[this.url];
@@ -42,7 +42,6 @@ Funbrella.ltrain.prototype = {
   }
 , cleanDate: function(data){
     data = _.map(data,function(stop){
-      console.log(stop)
       var time = this.getDate(stop.arrT);
       stop.arrival = (time > 0) ? time+' min' : 'now';
       if(stop.arrival == 'arriving')
@@ -57,7 +56,6 @@ Funbrella.ltrain.prototype = {
     var arrival = new Date(date);
     var now = new Date();
     var minutesTil = Math.floor( ( arrival.getTime() - now.getTime() )/6e4 );
-    console.log(date, minutesTil);
     return minutesTil;
   }
 }
