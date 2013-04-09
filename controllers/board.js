@@ -61,4 +61,7 @@ module.exports = {
     }
     res.send(JSON.stringify(req.body)+'\n');
   }
+, static: function(req, res){
+    res.render('layout',{ partials: { content: '{{>boards/static}}'} });
+  }
 }

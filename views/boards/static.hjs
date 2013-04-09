@@ -1,0 +1,102 @@
+<link rel="stylesheet" href="/widgets/bus/css/style.css" />
+<link rel="stylesheet" href="/widgets/weather/css/style.css" />
+<link rel="stylesheet" href="/widgets/ltrain/css/style.css" />
+<link rel="stylesheet" href="/widgets/semaphore/css/style.css" />
+<link rel="stylesheet" href="/widgets/news/css/style.css" />
+<div id="board">
+  <div class="widget news" id="news0">
+    <article class="news">
+      <h2>Popstar Justin Bieber given month to collect pet monkey (reuters)</h2>
+      <p>
+        BERLIN (Reuters) - Teenage pop sensation Justin Bieber has been given a month to provide German authorities with the papers they need to release his pet monkey "Mally".
+      </p>
+    </article>
+  </div>
+  <div class="widget weather" id="weather1">
+    <h1 class="climacon large">!</h1>
+    <h2 class="temp">38 <small>Mostly Cloudy</small></h2>
+    <ul class="forecast">
+      <li class="icon">
+        <h2>Fri</h2>
+        <figure class="climacon">"
+          <figcaption>34/<strong>45</strong></figcaption>
+        </figure>
+      </li>
+      <li class="icon">
+        <h2>Sat</h2>
+        <figure class="climacon">z<figcaption>39/<strong>66</strong></figcaption></figure>
+      </li>
+      <li class="icon">
+        <h2>Sun</h2><figure class="climacon">"<figcaption>39/<strong>54</strong></figcaption></figure>
+      </li>
+      <li class="icon">
+        <h2>Mon</h2><figure class="climacon">'<figcaption>39/<strong>61</strong></figcaption></figure>
+      </li>
+    </ul>
+  </div>
+  <div class="widget ltrain" id="ltrain2">
+    <h1>Chicago</h1>
+    <img src="/widgets/ltrain/images/train.png">
+    <table>
+      <tbody>
+        <tr class="P">
+          <td>Service toward Kimball or Linden</td>
+          <td>1 min</td>
+        </tr>
+        <tr class="Brn">
+          <td>Service toward Kimball or Linden</td>
+          <td>now</td>
+        </tr>
+        <tr class="Brn">
+          <td>Service toward Loop</td>
+          <td>5 min</td>
+        </tr>
+        <tr class="Brn">
+          <td>Service toward Kimball or Linden</td>
+          <td>7 min</td>
+        </tr>
+        <tr class="P">
+          <td>Service toward Kimball or Linden</td>
+          <td>12 min</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="widget bus" id="bus3">
+    <h1>Chicago&amp;Franklin</h1>
+    <img src="/widgets/bus/images/bus.png">
+    <table>
+      <tbody>
+        <tr>
+          <td>West Bound to Pulaski</td>
+          <td>5 min</td>
+        </tr>
+        <tr>
+          <td>West Bound to Austin</td>
+          <td>6 min</td>
+        </tr>
+        <tr>
+          <td>West Bound to Austin</td>
+          <td>10 min</td>
+        </tr>
+        <tr>
+          <td>West Bound to Austin</td>
+          <td>15 min</td>
+        </tr>
+        <tr>
+          <td>West Bound to Austin</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>West Bound to Austin</td>
+          <td>27 min</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="widget semaphore" id="semaphore4" style="display: block;">
+    <h1><a name="ring" class="passed ring"></a>sixosix: <strong class="passed">master</strong></h1>
+    <h3>Michael Mesker</h3>
+    <p>Updated Home page typography.</p>
+  </div>
+</div>

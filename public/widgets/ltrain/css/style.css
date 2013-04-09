@@ -1,14 +1,14 @@
 .ltrain img{
   display: block;
-  margin: 4vh auto;
+  margin: 4% auto;
   opacity: .47;
-  height: 10vh;
+  height: 12vh;
 }
 .ltrain h1{
   color: #000;
   opacity: .3;
   display: block;
-  margin: 0 auto 2vh;
+  margin: 0 auto 2%;
   text-align: center;
 }
 .ltrain table{
