@@ -17,6 +17,7 @@
 }
 .ltrain table tr td{
   white-space: nowrap;
+  font-size: 115%;
 }
 .ltrain table tr td:nth-child(1n+2){
   text-align: right;

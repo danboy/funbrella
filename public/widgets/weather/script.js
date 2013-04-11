@@ -34,7 +34,7 @@ Funbrella.weather.prototype = {
 , getIcon: function(icon, time){
     var time = time || 'day';
     var iconMap = { 'chancerain': "'"
-                , 'chancetstorms': 'z'
+                , 'chancetstorms': 'Z'
                 , 'chancesnow': '9'
                 , 'chanceflurries': ':'
                 , 'chancesleet': '*'
