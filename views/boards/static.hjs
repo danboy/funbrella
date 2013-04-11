@@ -95,7 +95,7 @@
     </table>
   </div>
   <div class="widget semaphore" id="semaphore4" style="display: block;">
-    <h1><a name="ring" class="passed ring"></a>sixosix: <strong class="passed">master</strong></h1>
+    <a name="ring" class="passed ring"></a><h1>sixosix: <strong class="passed">master</strong></h1>
     <h3>Michael Mesker</h3>
     <p>Updated Home page typography.</p>
   </div>

@@ -1,7 +1,7 @@
 @-webkit-keyframes pulsate {
   0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
   50% {opacity: 1.0;}
-  100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
+  100% {-webkit-transform: scale(1, 1); opacity: 0.0;}
 }
 .semaphore .passed{
   color: #88AA00;
@@ -29,11 +29,12 @@
   font-weight: 300;
 }
 .ring{
-  display: inline-block;
-  -webkit-border-radius: 1.5vh;
-  height: 3vh;
-  width: 3vh;
-  margin: 0 .25rem 0 0;
+  display: block;
+  -webkit-border-radius: 8vh;
+  height: 16vh;
+  width: 16vh;
+  margin: 2vh auto 4vh;
+  clear: both;
   text-align: center;
 }
 .semaphore h1{
