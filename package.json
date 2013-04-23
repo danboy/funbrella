@@ -1,10 +1,8 @@
 {
   "name": "funbrella",
-  "version": "0.0.1-8",
+  "version": "0.0.1-9",
   "private": true,
-  "scripts": {
-    "start": "node app.js"
-  },
+  "main": "index.html",
   "dependencies": {
     "express": "3.1.0",
     "h4e": "*",
