@@ -31,7 +31,7 @@ Funbrella.BoardView = Backbone.View.extend({
     this.collection.toJSON().forEach(function(widget){
       Funbrella.addEl('script', '/widgets/'+widget.name+'/script.js'
     , function(){
-        new Funbrella[widget.name]("#"+widget.id, widget.params, this.socket);
+        new Funbrella[widget.name]({ model: widget });
       }.bind(this));
     }.bind(this));
   }
