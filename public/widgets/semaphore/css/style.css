@@ -1,6 +1,4 @@
 .widget.semaphore{
-  color: #EEE;
-  background: #333;
 }
 @-webkit-keyframes pulsate {
   0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
