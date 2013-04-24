@@ -1,6 +1,6 @@
 var Funbrella = Funbrella || {};
 
-Funbrella.news = Backbone.View.extend({
+Funbrella.news = Funbrella.Widget.extend({
   template: Hogan.compile('<h2>{{title}}</h2><p>{{summary}}</p>')
 , initialize: function(options){
     this.model = options.model

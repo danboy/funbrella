@@ -13,10 +13,7 @@ Funbrella.addEl = function(el, url, callback){
 };
 
 Funbrella.BoardView = Backbone.View.extend({
-  events: {
-    'click .widget': 'showConfig'
-  }
-, initialize: function(options){
+  initialize: function(options){
     this.socket = options.board;
     this.collection = new Funbrella.Widgets();
     this.collection.url = '/boards/'+options.board;
@@ -34,17 +31,8 @@ Funbrella.BoardView = Backbone.View.extend({
     this.collection.toJSON().forEach(function(widget){
       Funbrella.addEl('script', '/widgets/'+widget.name+'/script.js'
     , function(){
-        new Funbrella[widget.name]({ model: widget });
+        new Funbrella[widget.name]({ model: widget , el: '#'+widget.id });
       }.bind(this));
-      this.setConfig(widget);
     }.bind(this));
-  }
-, setConfig: function(widget){
-    widget.prefs = $('#widget-prefs-'+widget.id)
-    $('#'+widget.id).append(widget.prefs.html())
-    console.log(widget.id);
-  }
-, showConfig: function(e){
-    console.log(e);
   }
 });

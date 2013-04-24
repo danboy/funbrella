@@ -24,7 +24,27 @@ h4,
 h5 {
   font-weight: 300;
 }
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+label {
+  min-width: 35%;
+  display: inline-block;
+}
+input {
+  border: 1px solid #ccc;
+  line-height: 2em;
+  height: 2em;
+  padding: 0 1em;
+}
+menu {
+  margin: 0;
+  padding: 0;
+}
 .widget {
+  position: relative;
   width: 25%;
   min-height: 50vh;
   max-height: 50vh;
@@ -65,4 +85,13 @@ h5 {
 }
 .widget-prefs {
   display: none;
+  margin: 2%;
+  padding: 2%;
+  position: absolute;
+  top: 2%;
+  background: #eee;
+  border: 4px solid #ccc;
+  margin: 0 auto;
+  min-width: 92%;
+  -webkit-box-sizing: border-box;
 }

@@ -70,121 +70,121 @@ line-height: 1;
 -webkit-font-smoothing: antialiased;
 }
 .climacon.partly-cloudy-day:before,
-.climacon.cloud:before {
+.climacon.cloudy:before {
 content: "\e000";
 }
-.climacon.cloud.sun:before {
+.climacon.cloudy.sun:before {
 content: "\e001";
 }
-.climacon.cloud.moon:before {
+.climacon.cloudy.moon:before {
 content: "\e002";
 }
 .climacon.rain:before,
-.climacon.rain.cloud:before {
+.climacon.rain.cloudy:before {
 content: "\e003";
 }
 .climacon.rain.sun:before,
-.climacon.rain.cloud.sun:before {
+.climacon.rain.cloudy.sun:before {
 content: "\e004";
 }
 .climacon.rain.moon:before,
-.climacon.rain.cloud.moon:before {
+.climacon.rain.cloudy.moon:before {
 content: "\e005";
 }
 .climacon.showers:before,
-.climacon.showers.cloud:before {
+.climacon.showers.cloudy:before {
 content: "\e006";
 }
 .climacon.showers.sun:before,
-.climacon.showers.cloud.sun:before {
+.climacon.showers.cloudy.sun:before {
 content: "\e007";
 }
 .climacon.showers.moon:before,
-.climacon.showers.cloud.moon:before {
+.climacon.showers.cloudy.moon:before {
 content: "\e008";
 }
 .climacon.downpour:before,
-.climacon.downpour.cloud:before {
+.climacon.downpour.cloudy:before {
 content: "\e009";
 }
 .climacon.downpour.sun:before,
-.climacon.downpour.cloud.sun:before {
+.climacon.downpour.cloudy.sun:before {
 content: "\e00a";
 }
 .climacon.downpour.moon:before,
-.climacon.downpour.cloud.moon:before {
+.climacon.downpour.cloudy.moon:before {
 content: "\e00b";
 }
 .climacon.drizzle:before,
-.climacon.drizzle.cloud:before {
+.climacon.drizzle.cloudy:before {
 content: "\e00c";
 }
 .climacon.drizzle.sun:before,
-.climacon.drizzle.cloud.sun:before {
+.climacon.drizzle.cloudy.sun:before {
 content: "\e00d";
 }
 .climacon.drizzle.moon:before,
-.climacon.drizzle.cloud.moon:before {
+.climacon.drizzle.cloudy.moon:before {
 content: "\e00e";
 }
 .climacon.sleet:before,
-.climacon.sleet.cloud:before {
+.climacon.sleet.cloudy:before {
 content: "\e00f";
 }
 .climacon.sleet.sun:before,
-.climacon.sleet.cloud.sun:before {
+.climacon.sleet.cloudy.sun:before {
 content: "\e010";
 }
 .climacon.sleet.moon:before,
-.climacon.sleet.cloud.moon:before {
+.climacon.sleet.cloudy.moon:before {
 content: "\e011";
 }
 .climacon.hail:before,
-.climacon.hail.cloud:before {
+.climacon.hail.cloudy:before {
 content: "\e012";
 }
 .climacon.hail.sun:before,
-.climacon.hail.cloud.sun:before {
+.climacon.hail.cloudy.sun:before {
 content: "\e013";
 }
 .climacon.hail.moon:before,
-.climacon.hail.cloud.moon:before {
+.climacon.hail.cloudy.moon:before {
 content: "\e014";
 }
 .climacon.flurries:before,
-.climacon.flurries.cloud:before {
+.climacon.flurries.cloudy:before {
 content: "\e015";
 }
 .climacon.flurries.sun:before,
-.climacon.flurries.cloud.sun:before {
+.climacon.flurries.cloudy.sun:before {
 content: "\e016";
 }
 .climacon.flurries.moon:before,
-.climacon.flurries.cloud.moon:before {
+.climacon.flurries.cloudy.moon:before {
 content: "\e017";
 }
 .climacon.snow:before,
-.climacon.snow.cloud:before {
+.climacon.snow.cloudy:before {
 content: "\e018";
 }
 .climacon.snow.sun:before,
-.climacon.snow.cloud.sun:before {
+.climacon.snow.cloudy.sun:before {
 content: "\e019";
 }
 .climacon.snow.moon:before,
-.climacon.snow.cloud.moon:before {
+.climacon.snow.cloudy.moon:before {
 content: "\e01a";
 }
 .climacon.fog:before,
-.climacon.fog.cloud:before {
+.climacon.fog.cloudy:before {
 content: "\e01b";
 }
 .climacon.fog.sun:before,
-.climacon.fog.cloud.sun:before {
+.climacon.fog.cloudy.sun:before {
 content: "\e01c";
 }
 .climacon.fog.moon:before,
-.climacon.fog.cloud.moon:before {
+.climacon.fog.cloudy.moon:before {
 content: "\e01d";
 }
 .climacon.haze:before {
@@ -199,27 +199,27 @@ content: "\e020";
 .climacon.wind:before {
 content: "\e021";
 }
-.climacon.wind.cloud:before {
+.climacon.wind.cloudy:before {
 content: "\e022";
 }
 .climacon.wind.sun:before,
-.climacon.wind.cloud.sun:before {
+.climacon.wind.cloudy.sun:before {
 content: "\e023";
 }
 .climacon.wind.moon:before,
-.climacon.wind.cloud.moon:before {
+.climacon.wind.cloudy.moon:before {
 content: "\e024";
 }
 .climacon.lightning:before,
-.climacon.lightning.cloud:before {
+.climacon.lightning.cloudy:before {
 content: "\e025";
 }
 .climacon.lightning.sun:before,
-.climacon.lightning.cloud.sun:before {
+.climacon.lightning.cloudy.sun:before {
 content: "\e026";
 }
 .climacon.lightning.moon:before,
-.climacon.lightning.cloud.moon:before {
+.climacon.lightning.cloudy.moon:before {
 content: "\e027";
 }
 .climacon.clear-day:before,
@@ -337,16 +337,16 @@ content: "\e045";
 .climacon.sunglasses:before {
 content: "\e046";
 }
-.climacon.cloud.cycle:before,
-.climacon.cloud.refresh:before {
+.climacon.cloudy.cycle:before,
+.climacon.cloudy.refresh:before {
 content: "\e047";
 }
-.climacon.cloud.down:before,
-.climacon.cloud.download:before {
+.climacon.cloudy.down:before,
+.climacon.cloudy.download:before {
 content: "\e048";
 }
-.climacon.cloud.up:before,
-.climacon.cloud.upload:before {
+.climacon.cloudy.up:before,
+.climacon.cloudy.upload:before {
 content: "\e049";
 }
 

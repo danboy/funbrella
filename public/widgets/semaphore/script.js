@@ -1,6 +1,6 @@
 var Funbrella = Funbrella || {};
 
-Funbrella.semaphore = Backbone.View.extend({
+Funbrella.semaphore = Funbrella.Widget.extend({
   initialize: function(options){
     this.model = options.model;
     this.options = $.extend( {

@@ -1,4 +1,4 @@
 module.exports = { prefs: [
-  { "pref": "urls",   "type": "array" }
-, { "pref": "timer",  "type":"integer" }
-, { "pref": "strip",  "type": "regex" } ] }
+  { "pref": "location",   "type": "string" }
+, { "pref": "key",   "type": "string" }
+, { "pref": "frequency",  "type":"integer" } ] }

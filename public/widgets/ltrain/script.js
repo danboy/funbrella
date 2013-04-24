@@ -1,6 +1,6 @@
 var Funbrella = Funbrella || {};
 
-Funbrella.ltrain = Backbone.View.extend({
+Funbrella.ltrain = Funbrella.widget.extend({
   initialize: function(options){
 
   this.url = 0;

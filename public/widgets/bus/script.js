@@ -1,6 +1,6 @@
 var Funbrella = Funbrella || {};
 
-Funbrella.bus = Backbone.View.extend({
+Funbrella.bus = Funbrella.Widget.extend({
   initialize: function(options){
     this.url = 0;
     this.options = $.extend( {
