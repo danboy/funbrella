@@ -1,6 +1,3 @@
-.widget.weather{
-  color: #FFF;
-}
 .climacon,
 .climacons{
   font-family: 'Climacons-Font';
@@ -15,20 +12,17 @@ h1.climacon{
   margin: 0 auto;
   text-align: center;
   padding: 0;
-  color: #FFF;
 }
 
 .weather h2{
   margin: 0 auto 5%;
   text-align: center;
   font-size: 2.5vh;
-  color: #FFF;
 }
 .weather h3{
   margin: 0 auto 5%;
   text-align: center;
   font-size: 2.5vh;
-  color: #FFF;
 }
 
 .forecast{
@@ -41,7 +35,6 @@ h1.climacon{
   vertical-align: top;
   list-style: none;
   width: 20%;
-  color: #FFF;
 }
 .forecast li h2{
   font-size: 1vh;
@@ -50,7 +43,7 @@ h1.climacon{
   margin: 0;
   padding: 0;
   text-align: center;
-  font-size: 4vh;
+  font-size: 2vh;
 }
 .forecast li figcaption{
   font-family: 'Roboto';

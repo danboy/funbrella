@@ -1,13 +1,12 @@
-.widget.bus{
-  color: #333;
-}
 .bus img{
   display: block;
   margin: 4% auto;
+  opacity: .47;
   height: 12vh;
-  opacity: .7;
 }
 .bus h1{
+  color: #000;
+  opacity: .3;
   display: block;
   margin: 0 auto 2%;
   text-align: center;
