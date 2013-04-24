@@ -19,7 +19,6 @@ module.exports = {
       Widgets.get(board, function(widgets){
         res.format({
           html: function(){
-            console.log(widgets);
             res.render('layout',  { values: { error: err
                                             , board: board
                                             , script: "var board = new Funbrella.BoardView({ board: '"+ board.name + "', el: '#board' });"
@@ -35,7 +34,6 @@ module.exports = {
   }
 , new: function(req, res){
     Widgets.getAvailable(function(widgets){
-      console.log(widgets);
       res.render('layout',{values:{widgets: widgets},partials: { content: '{{>boards/form}}'} })
     });
   }
