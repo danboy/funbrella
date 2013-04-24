@@ -1,6 +1,6 @@
 var Funbrella = Funbrella || {};
 
-Funbrella.ltrain = Funbrella.widget.extend({
+Funbrella.ltrain = Funbrella.Widget.extend({
   initialize: function(options){
 
   this.url = 0;
