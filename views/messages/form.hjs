@@ -1,0 +1,17 @@
+<form action="/messages{{#message}}/update{{/message}}" class="sixteen" method="post">
+  <fieldset>
+    <div class="text">
+      <label for="content">Message</label>
+      <textarea id="content" name="content">{{message.content}}</textarea>
+      {{#message}}
+       <input content="id" value="{{id}}" type="hidden" />
+      {{/message}}
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="submit">
+      <input type="submit" class="button" id="submit" />
+    </div>
+  </fieldset>
+</form>

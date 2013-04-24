@@ -11,7 +11,7 @@ app.configure('production', function(){
   app.db = 'mongodb://funbrella:password@dharma.mongohq.com:10064/funbrella'
 });
 app.configure('development', function(){
-  app.db = 'mongodb://localhost/dannawara'
+  app.db = 'mongodb://localhost/funbrella'
 });
 mongoose.connect(app.db);
 

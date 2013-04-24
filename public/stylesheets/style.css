@@ -1,8 +1,8 @@
 @import url("http://fonts.googleapis.com/css?family=Roboto:300,100,100italic,300italic,900,900italic");
 @font-face {
-  font-family: 'ClimaconsRegular';
-  src: url("fonts/Climacons.eot");
-  src: url("fonts/Climacons.eot?#iefix") format('embedded-opentype'), url("fonts/Climacons.woff") format('woff'), url("fonts/Climacons.ttf") format('truetype');
+  font-family: 'Climacons-Font';
+  src: url("fonts/climacons-webfont.eot");
+  src: url("fonts/climacons-webfont.eot?#iefix") format('embedded-opentype'), url("fonts/climacons-webfont.svg#Climacons-Font") format('svg'), url("fonts/climacons-webfont.woff") format('woff'), url("fonts/climacons-webfont.ttf") format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -62,4 +62,7 @@ h5 {
 .widget:nth-child(5n+5) {
   background: #bbb;
   color: #777;
+}
+.widget-prefs {
+  display: none;
 }

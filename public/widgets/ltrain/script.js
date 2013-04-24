@@ -1,20 +1,19 @@
 var Funbrella = Funbrella || {};
-//30137,30138,40710
-Funbrella['ltrain'] = function(container, options){
+
+Funbrella.ltrain = Backbone.View.extend({
+  initialize: function(options){
+
   this.url = 0;
   this.options = $.extend( {
     urls: [ 'http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=3654c77e9dcd4acaa89b6e5ded7fbf86&max=5&mapid=40710']
   , timer: 30000
-  }, options);
-  this.container = container;
+  }, options.model.params);
   this.fetch(this.render);
   setInterval(function(){
     this.fetch(this.render);
   }.bind(this), this.options.timer);
-};
-
-Funbrella.ltrain.prototype = {
-  fetch: function(cb){
+  }
+, fetch: function(cb){
     var self = this;
     $.ajax(document.location.origin+'/fetch'
     , { type: 'POST'
@@ -37,7 +36,7 @@ Funbrella.ltrain.prototype = {
     };
       window.trains = trains;
     var template = self.template.render(station)
-    $(self.container).html( template );
+    $('#'+self.model.id).html( template );
 
   }
 , cleanDate: function(data){
@@ -58,4 +57,4 @@ Funbrella.ltrain.prototype = {
     var minutesTil = Math.floor( ( arrival.getTime() - now.getTime() )/6e4 );
     return minutesTil;
   }
-}
+});

@@ -1,10 +1,13 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:300,100,100italic,300italic,900,900italic);
 
-.news{
+.widget.news{
   font-family: 'Roboto', sans-serif;
+  background: #FFF;
+  color: #000;
 }
 .news h2{
   font-size: 3.5vh;
+  color: #900;
 }
 .news p{
   font-size: 2.5vh;

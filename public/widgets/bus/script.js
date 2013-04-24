@@ -1,21 +1,20 @@
 var Funbrella = Funbrella || {};
 
-Funbrella['bus'] = function(container, options){
-  this.url = 0;
-  this.options = $.extend( {
-    urls: [ 'http://www.ctabustracker.com/bustime/api/v1/getpredictions?key=ET5WjsrDL2XZ9eD9qLVRiWuRq&rt=66&stpid=606']
-  , strip: / &amp;&#35;40;Brown Line&#41;/g
-  , timer: 30000
-  }, options);
-  this.container = container;
-  this.fetch(this.render);
-  setInterval(function(){
+Funbrella.bus = Backbone.View.extend({
+  initialize: function(options){
+    this.url = 0;
+    this.options = $.extend( {
+      urls: [ 'http://www.ctabustracker.com/bustime/api/v1/getpredictions?key=ET5WjsrDL2XZ9eD9qLVRiWuRq&rt=66&stpid=606']
+    , strip: / &amp;&#35;40;Brown Line&#41;/g
+    , timer: 30000
+    }, options.model.params);
     this.fetch(this.render);
-  }.bind(this), this.options.timer);
-};
+    setInterval(function(){
+      this.fetch(this.render);
+    }.bind(this), this.options.timer);
+  }
 
-Funbrella.bus.prototype = {
-  fetch: function(cb){
+, fetch: function(cb){
     var self = this;
     $.ajax(document.location.origin+'/fetch'
     , { type: 'POST'
@@ -38,7 +37,7 @@ Funbrella.bus.prototype = {
         , stop: busses[0].stpnm.replace(self.options.strip, '')
         };
     var template = self.template.render(mustache);
-    $(self.container).html( template );
+    $('#'+self.model.id).html( template );
   }
 , cleanDate: function(data){
     data = data.map(function(stop){
@@ -58,4 +57,4 @@ Funbrella.bus.prototype = {
     var minutesTil = Math.floor( ( arrival.getTime() - now.getTime() )/6e4 );
     return minutesTil;
   }
-}
+})

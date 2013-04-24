@@ -1,3 +1,4 @@
-{ urls: 'array'
-, timer: 'integer'
-, strip: 'regex' }
+module.exports = { prefs: [
+  { "pref": "urls",   "type": "array" }
+, { "pref": "timer",  "type":"integer" }
+, { "pref": "strip",  "type": "regex" } ] }

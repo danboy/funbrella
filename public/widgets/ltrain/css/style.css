@@ -1,8 +1,11 @@
+.widget.ltrain{
+  color: #222;
+}
 .ltrain img{
   display: block;
   margin: 4% auto;
-  opacity: .47;
   height: 12vh;
+  opacity: .7;
 }
 .ltrain h1{
   display: block;

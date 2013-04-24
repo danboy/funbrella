@@ -6,8 +6,7 @@
   </head>
   <body>
     {{>content}}
-    <script src="speakClient.js"></script>
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="/speakClient.js" type="text/javascript"></script>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="/javascripts/lib/hogan.js"></script>
     <script src="/javascripts/get.js"></script>
@@ -15,23 +14,7 @@
     <script src="/javascripts/lib/backbone-min.js"></script>
     <script src="/javascripts/board/widget.js"></script>
     <script src="/javascripts/board/view.js"></script>
-    <script src="http://js.pusher.com/2.0/pusher.min.js" type="text/javascript"></script>
     <script type="text/javascript">
-      // Enable pusher logging - don't include this in production
-      Pusher.log = function(message) {
-        if (window.console && window.console.log) window.console.log(message);
-      };
-
-      // Flash fallback logging - don't include this in production
-      WEB_SOCKET_DEBUG = true;
-
-      var pusher = new Pusher('af719fa4d52a3ee3a392');
-      var channel = pusher.subscribe('test_channel');
-      channel.bind('my_event', function(data) {
-        console.log(data);
-      });
-    </script>
-    <script>
       {{{script}}}
     </script>
     <div id="audio"></div>
