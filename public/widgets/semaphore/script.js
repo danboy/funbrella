@@ -50,7 +50,7 @@ Funbrella.semaphore = Funbrella.Widget.extend({
     });
   }
 , render: function(data,self){
-    $('#'+self.model.id).html(self.template.render(data))
+    $('#'+self.model._id).html(self.template.render(data))
   }
 
 });

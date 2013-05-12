@@ -37,7 +37,7 @@ Funbrella.bus = Funbrella.Widget.extend({
         , stop: busses[0].stpnm.replace(self.options.strip, '')
         };
     var template = self.template.render(mustache);
-    $('#'+self.model.id).html( template );
+    $('#'+self.model._id).html( template );
   }
 , cleanDate: function(data){
     data = data.map(function(stop){

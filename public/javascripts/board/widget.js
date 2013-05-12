@@ -13,10 +13,16 @@ Funbrella.Widget = Backbone.View.extend({
     $.ajax({  url: this.url
             , dataType: "jsonp"
             , success: function(data){
-              data.daily.data = data.daily.data.splice(0,4);
-              self.render(data)
+              self.sanitize(data,function(data){self.render(data)});
             }
     });
+  }
+, sanitize: function(data, cb){
+    if(typeof(data) === 'string'){
+      cb(JSON.parse(data));
+    }else{
+      cb(data)
+    }
   }
 , render: function(data){
     console.log(this.$el);

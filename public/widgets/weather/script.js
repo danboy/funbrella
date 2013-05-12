@@ -13,8 +13,10 @@ Funbrella.weather = Funbrella.Widget.extend({
     this.fetch();
     setInterval(function(){this.fetch();}.bind(this), this.options.frequency*1000);
   }
-, events: {
-    "click": "showPrefs"
+, sanitize: function(data, cb){
+    console.log(data);
+    data.daily.data = data.daily.data.splice(0,4);
+    cb(data)
   }
 , template: Hogan.compile('{{#currently}}<h1 class="climacon large {{icon}}"></h1><h2 class="temp">{{temperature}}<small>{{summary}}</small></h2>{{/currently}}{{#minutely}}<h3>{{summary}}</h3>{{/minutely}}<ul class="forecast">{{#daily.data}}<li class="icon"><h2>{{date.weekday_short}}</h2><figure class="climacon {{icon}}"><figcaption>{{temperatureMin}}/<strong>{{temperatureMax}}</strong></figcaption></figure></li>{{/daily.data}}</ul>')
 });

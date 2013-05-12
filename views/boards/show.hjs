@@ -1,24 +1,18 @@
 {{#error}}
   <p>{{error}}</p>
 {{/error}}
+{{#board}}
+  <div id="board">
+    {{#widgets}}
+      <div class="widget {{name}}" id="widget-{{name}}">
+        loading...
+      </div>
+    {{/widgets}}
+  </div>
+  {{#widgets}}
+    <link rel="stylesheet" href="/widgets/{{name}}/css/style.css" />
+  {{/widgets}}
+{{/board}}
 {{^board}}
   <p class="error">No board found with id {{socket}}.</p>
 {{/board}}
-<div id="board">
-  {{#widgets}}
-    <div class="widget {{id}}" id="widget-{{id}}">
-      loading...
-    </div>
-  {{/widgets}}
-</div>
-{{#widgets}}
-  <link rel="stylesheet" href="/widgets/{{name}}/css/style.css" />
-  <menu class="widget-prefs" id="widget-prefs-{{id}}">
-    {{#prefs}}
-      <li>
-        <label>{{pref}}</label>
-        <input name="{{pref}}" placeholder="{{type}}" />
-      </li>
-    {{/prefs}}
-  </menu>
-{{/widgets}}

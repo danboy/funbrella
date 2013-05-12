@@ -1,5 +1,5 @@
 var Board   = require('../models/board.js')
-  , Widgets = require('../lib/widgets.js');
+  , Widget = require('../models/widget.js');
 
 
 module.exports = {
@@ -11,39 +11,36 @@ module.exports = {
   }
 
 , show: function(req, res){
-    Board.findOne({name: req.params.id.toString() }, function(err, board){
+    Board.findOne({name: req.params.id.toString() }).populate('widgets').exec( function(err, board){
+      console.log(board);
       if(!board){
         res.redirect('/')
         return
       }
-      Widgets.get(board, function(widgets){
         res.format({
           html: function(){
             res.render('layout',  { values: { error: err
                                             , board: board
                                             , script: "var board = new Funbrella.BoardView({ board: '"+ board.name + "', el: '#board' });"
-                                            , widgets: widgets }
+                                            }
                                 , partials: { content: '{{>boards/show}}' }});
           }
         , json: function(){
-            res.send(widgets)
+            res.send(board)
           }
-        });
       });
     });
   }
 , new: function(req, res){
-    Widgets.getAvailable(function(widgets){
+    Widget.find(function(err, widgets){
       res.render('layout',{values:{widgets: widgets},partials: { content: '{{>boards/form}}'} })
-    });
+    })
   }
 , create: function(req, res){
-    var board = { name: req.body.name, widgets: [] }
-    req.body.widgets.forEach(function(widget){
-      board.widgets.push({ name: widget })
-    });
-    var board = new Board(board);
+    console.log('BOARD', req.body)
+    var board = new Board(req.body);
     board.save(function(err,b){
+      console.log(err, b);
       res.send(b);
     });
   }

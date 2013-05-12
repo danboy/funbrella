@@ -1,0 +1,3 @@
+{{#widgets}}
+  <p>widget <strong>{{name}}</strong> added..</p>
+{{/widgets}}

@@ -14,25 +14,7 @@
       <select name="widgets[]">
         <option>...</option>
         {{#widgets}}
-          <option value="{{name}}">{{name}}</option>
-        {{/widgets}}
-      </select>
-      {{#widgets}}
-        <div class="prefs {{name}}">
-          {{#prefs}}
-          <div>
-            <label for="{{name}}[{{pref}}]">{{pref}} ({{type}})</label>
-            <input name="{{name}}[{{pref}}]" />
-          </div>
-          {{/prefs}}
-        </div>
-      {{/widgets}}
-    </div>
-    <div class="widget">
-      <label>{{name}}</label>
-      <select name="widgets[]">
-        {{#widgets}}
-        <option value="{{name}}">{{name}}</option>
+          <option value="{{id}}">{{name}}</option>
         {{/widgets}}
       </select>
     </div>
@@ -40,7 +22,7 @@
       <label>{{name}}</label>
       <select name="widgets[]">
         {{#widgets}}
-        <option value="{{name}}">{{name}}</option>
+        <option value="{{id}}">{{name}}</option>
         {{/widgets}}
       </select>
     </div>
@@ -48,7 +30,7 @@
       <label>{{name}}</label>
       <select name="widgets[]">
         {{#widgets}}
-        <option value="{{name}}">{{name}}</option>
+        <option value="{{id}}">{{name}}</option>
         {{/widgets}}
       </select>
     </div>
@@ -56,7 +38,15 @@
       <label>{{name}}</label>
       <select name="widgets[]">
         {{#widgets}}
-        <option value="{{name}}">{{name}}</option>
+        <option value="{{id}}">{{name}}</option>
+        {{/widgets}}
+      </select>
+    </div>
+    <div class="widget">
+      <label>{{name}}</label>
+      <select name="widgets[]">
+        {{#widgets}}
+        <option value="{{id}}">{{name}}</option>
         {{/widgets}}
       </select>
     </div>

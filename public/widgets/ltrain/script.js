@@ -36,7 +36,7 @@ Funbrella.ltrain = Funbrella.Widget.extend({
     };
       window.trains = trains;
     var template = self.template.render(station)
-    $('#'+self.model.id).html( template );
+    $('#'+self.model._id).html( template );
 
   }
 , cleanDate: function(data){

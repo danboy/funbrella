@@ -6,7 +6,7 @@ var mongoose = require('mongoose')
     , name: { type: String, unique: true }
     , script: { type: String }
     , template: { type: String}
-    , params: { type: Schema.Types.ObjectId, ref: 'Param' }
+    , prefs: []
     , current_status: { type: Number, default: 0}
   });
 

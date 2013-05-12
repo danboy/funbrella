@@ -3,7 +3,8 @@ var Funbrella = Funbrella || {};
 Funbrella.news = Funbrella.Widget.extend({
   template: Hogan.compile('<h2>{{title}}</h2><p>{{summary}}</p>')
 , initialize: function(options){
-    this.model = options.model
+    this.model = options.model;
+    this.el = options.el;
     this.options = $.extend( {
       category: 25
     , categories: [36, 25, 10, 16, 8, 31]
@@ -34,7 +35,7 @@ Funbrella.news = Funbrella.Widget.extend({
     return articles[Math.floor((Math.random()*articles.length))];
   }
 , render: function(article){
-    $('#'+this.model.id).html(this.template.render(article))
+    $(this.el).html(this.template.render(article))
   }
 , buildUrl: function(){
     if(this.options.randomize){

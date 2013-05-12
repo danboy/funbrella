@@ -21,17 +21,17 @@ Funbrella.BoardView = Backbone.View.extend({
       this.render();
     }.bind(this)});
   }
-, template:   Hogan.compile('{{#widgets}}<div class="widget {{name}}" id="{{id}}">loading... it up...</div>{{/widgets}}')
+, template:   Hogan.compile('{{#board}}{{#widgets}}<div class="widget {{name}}" id="{{_id}}">loading... it up...</div>{{/widgets}}{{/board}}')
 , render:     function(){
-    var template = this.template.render({ widgets: this.collection.toJSON() });
+    var template = this.template.render({ board: this.collection.toJSON() });
     this.$el.html(template);
     this.runScript();
   }
 , runScript: function(){
-    this.collection.toJSON().forEach(function(widget){
+    this.collection.toJSON()[0].widgets.forEach(function(widget,i){
       Funbrella.addEl('script', '/widgets/'+widget.name+'/script.js'
     , function(){
-        new Funbrella[widget.name]({ model: widget , el: '#'+widget.id });
+        var w = new Funbrella[widget.name]({ model: widget , el: '#'+widget._id });
       }.bind(this));
     }.bind(this));
   }
