@@ -14,9 +14,17 @@ Funbrella.weather = Funbrella.Widget.extend({
     setInterval(function(){this.fetch();}.bind(this), this.options.frequency*1000);
   }
 , sanitize: function(data, cb){
-    console.log(data);
     data.daily.data = data.daily.data.splice(0,4);
+    for (i=0;i < data.daily.data.length;i++){
+      data.daily.data[i] = this.roundFloats(data.daily.data[i], ['temperatureMax','temperatureMin']);
+    }
     cb(data)
   }
+, roundFloats: function(data, fields){
+  fields.forEach(function(field){
+    data[field] = Math.round(data[field])
+  });
+  return data;
+}
 , template: Hogan.compile('{{#currently}}<h1 class="climacon large {{icon}}"></h1><h2 class="temp">{{temperature}}<small>{{summary}}</small></h2>{{/currently}}{{#minutely}}<h3>{{summary}}</h3>{{/minutely}}<ul class="forecast">{{#daily.data}}<li class="icon"><h2>{{date.weekday_short}}</h2><figure class="climacon {{icon}}"><figcaption>{{temperatureMin}}/<strong>{{temperatureMax}}</strong></figcaption></figure></li>{{/daily.data}}</ul>')
 });
