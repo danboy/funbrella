@@ -1,6 +1,6 @@
 {
   "name": "funbrella",
-  "version": "0.0.1-16",
+  "version": "0.0.1-17",
   "private": true,
   "main": "index.html",
   "dependencies": {

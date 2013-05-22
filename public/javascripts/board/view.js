@@ -31,7 +31,11 @@ Funbrella.BoardView = Backbone.View.extend({
     this.collection.toJSON()[0].widgets.forEach(function(widget,i){
       Funbrella.addEl('script', '/widgets/'+widget.name+'/script.js'
     , function(){
-        var w = new Funbrella[widget.name]({ model: widget , el: '#'+widget._id });
+        if(widget.script === 'messageBoard'){
+          Funbrella.Messages = new Funbrella[widget.script]({ model: widget , el: '#'+widget._id });
+        }else{
+          var w = new Funbrella[widget.script]({ model: widget , el: '#'+widget._id });
+        }
       }.bind(this));
     }.bind(this));
   }

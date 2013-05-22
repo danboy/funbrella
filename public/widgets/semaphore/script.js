@@ -1,6 +1,6 @@
 var Funbrella = Funbrella || {};
 
-Funbrella.semaphore = Funbrella.Widget.extend({
+Funbrella.semaphore = Funbrella.WidgetView.extend({
   initialize: function(options){
     this.model = options.model;
     this.options = $.extend( {
@@ -31,10 +31,14 @@ Funbrella.semaphore = Funbrella.Widget.extend({
     if(result !== self.options.status ){
       self.options.status = result;
       if(result == 'passed'){
-        speak(data.project_name+' branch '+data.branch_name+' '+data.result+' thanks to '+data.commit.author_name)
+        var message = data.project_name+' branch '+data.branch_name+' '+data.result+' thanks to '+data.commit.author_name;
+        speak(message);
+        Funbrella.Messages.send({type: "semaphore", sender: data.commit.author_name, content: message })
       }
-      if(result == 'failed'){
-        speak(data.commit.author_name+' broke '+data.project_name+' branch '+data.branch_name)
+      else if(result == 'failed'){
+        var message = data.commit.author_name+' broke '+data.project_name+' branch '+data.branch_name;
+        speak(message);
+        Funbrella.Messages.send({type: "semaphore", sender: data.commit.author_name, content: message })
       }
     }
   }

@@ -3,7 +3,8 @@ var mongoose = require('mongoose')
   , ObjectId = Schema.ObjectId
   , widgetSchema = new Schema({
       date: { type: Date, default: Date.now }
-    , name: { type: String, unique: true }
+    , _board: { type: Number, ref: 'Board' }
+    , name: { type: String }
     , script: { type: String }
     , template: { type: String}
     , prefs: []

@@ -70,6 +70,7 @@ line-height: 1;
 -webkit-font-smoothing: antialiased;
 }
 .climacon.partly-cloudy-day:before,
+.climacon.partly-cloudy-night:before,
 .climacon.cloudy:before {
 content: "\e000";
 }

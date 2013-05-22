@@ -1,6 +1,6 @@
 var Funbrella = Funbrella || {};
 
-Funbrella.weather = Funbrella.Widget.extend({
+Funbrella.weather = Funbrella.WidgetView.extend({
   initialize: function(options){
 
     this.options = $.extend( {
@@ -13,7 +13,7 @@ Funbrella.weather = Funbrella.Widget.extend({
     this.fetch();
     setInterval(function(){this.fetch();}.bind(this), this.options.frequency*1000);
   }
-, sanitize: function(data, cb){
+, data: function(data, cb){
     data.daily.data = data.daily.data.splice(0,4);
     for (i=0;i < data.daily.data.length;i++){
       data.daily.data[i] = this.roundFloats(data.daily.data[i], ['temperatureMax','temperatureMin']);

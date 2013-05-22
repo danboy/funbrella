@@ -1,5 +1,9 @@
 var Board   = require('../models/board.js')
-  , Widget = require('../models/widget.js');
+  , mongoose = require('mongoose')
+  , Schema = mongoose.Schema
+  , ObjectId = Schema.ObjectId
+  , Widget = require('../models/widget.js')
+  , WidgetTemplates = require('../lib/widgets.js');
 
 
 module.exports = {
@@ -12,7 +16,6 @@ module.exports = {
 
 , show: function(req, res){
     Board.findOne({name: req.params.id.toString() }).populate('widgets').exec( function(err, board){
-      console.log(board);
       if(!board){
         res.redirect('/')
         return
@@ -32,16 +35,26 @@ module.exports = {
     });
   }
 , new: function(req, res){
-    Widget.find(function(err, widgets){
-      res.render('layout',{values:{widgets: widgets},partials: { content: '{{>boards/form}}'} })
-    })
+    res.render('layout',{partials: { content: '{{>boards/form}}'} })
   }
 , create: function(req, res){
-    console.log('BOARD', req.body)
-    var board = new Board(req.body);
-    board.save(function(err,b){
-      console.log(err, b);
-      res.send(b);
+    WidgetTemplates.getAvailable(function(templates, defaults){
+      var createBoard = function(w){
+        board = new Board({ name: req.body.name, widgets: w })
+        board.save(function(err, board){
+          res.send({ board: board, errors: err });
+        });
+      }
+      var widgets = [];
+      defaults.forEach(function(name){
+        widget = new Widget(templates[name]);
+        widget.save(function(err,w){
+          widgets.push(w.id);
+          if(widgets.length == defaults.length){
+            createBoard(widgets);
+          }
+        });
+      });
     });
   }
 , message: function(req, res){

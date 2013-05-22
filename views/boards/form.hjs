@@ -1,4 +1,4 @@
-<form action="/boards{{#board}}/update{{/board}}" class="sixteen" method="post">
+<form action="/boards{{#board}}/update{{/board}}" method="post">
   <fieldset>
     <div class="text">
       <label for="name">Name</label>
@@ -6,49 +6,6 @@
       {{#board}}
         <input name="id" value="{{id}}" type="hidden" />
       {{/board}}
-    </div>
-  </fieldset>
-  <fieldset>
-    <div class="widget">
-      <label>{{name}}</label>
-      <select name="widgets[]">
-        <option>...</option>
-        {{#widgets}}
-          <option value="{{id}}">{{name}}</option>
-        {{/widgets}}
-      </select>
-    </div>
-    <div class="widget">
-      <label>{{name}}</label>
-      <select name="widgets[]">
-        {{#widgets}}
-        <option value="{{id}}">{{name}}</option>
-        {{/widgets}}
-      </select>
-    </div>
-    <div class="widget">
-      <label>{{name}}</label>
-      <select name="widgets[]">
-        {{#widgets}}
-        <option value="{{id}}">{{name}}</option>
-        {{/widgets}}
-      </select>
-    </div>
-    <div class="widget">
-      <label>{{name}}</label>
-      <select name="widgets[]">
-        {{#widgets}}
-        <option value="{{id}}">{{name}}</option>
-        {{/widgets}}
-      </select>
-    </div>
-    <div class="widget">
-      <label>{{name}}</label>
-      <select name="widgets[]">
-        {{#widgets}}
-        <option value="{{id}}">{{name}}</option>
-        {{/widgets}}
-      </select>
     </div>
   </fieldset>
   <fieldset>

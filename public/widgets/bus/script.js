@@ -1,6 +1,6 @@
 var Funbrella = Funbrella || {};
 
-Funbrella.bus = Funbrella.Widget.extend({
+Funbrella.bus = Funbrella.WidgetView.extend({
   initialize: function(options){
     this.url = 0;
     this.options = $.extend( {
