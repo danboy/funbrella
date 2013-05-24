@@ -46,3 +46,9 @@
 .semaphore p{
   font-size: 2.2vh;
 }
+.message-list .semaphore strong{
+  color: #8A0;
+}
+.message-list .semaphore.failed strong{
+  color: #ad3b0e;
+}

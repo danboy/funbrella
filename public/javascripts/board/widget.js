@@ -9,10 +9,14 @@ Funbrella.WidgetView = Backbone.View.extend({
   initialize: function(options){
     this.collection = new Funbrella.Widgets;
     this.options = $.extend( this.options, options.model.params);
+    this.setup();
     this.fetch();
     setInterval(function(){this.fetch();}.bind(this), this.options.frequency*1000);
     this.collection.bind('add', this.fetch, this);
   }
+, setup: function(){
+
+}
 , options: {
     interval: 60
   }

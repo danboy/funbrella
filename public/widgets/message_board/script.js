@@ -8,9 +8,17 @@ Funbrella.messageBoard = Funbrella.WidgetView.extend({
 , template: Hogan.compile('<h1 class="clock">{{time}}</h1><ul class="message-list">{{#messages}}<li class="{{type}}">{{#sender}}<strong>{{sender}}:</strong> {{/sender}}{{content}}</li>{{/messages}}</ul>')
 , send: function(message){
     console.log(message);
-    this.collection.push(message);
+    message.timestamp = new Date();
+    var m = this.collection.push(message);
+    console.log(m.get("timestamp").getTime());
+  }
+, setup: function(){
+    this.collection.comparator = function(message){
+      return -message.get('timestamp').getTime();
+    }
   }
 , data: function(data, cb){
+    this.collection.sort();
     cb({time: this.getTime(), messages: this.collection.toJSON()});
   }
 , getTime: function(time){

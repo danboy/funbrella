@@ -19,6 +19,14 @@ Funbrella.weather = Funbrella.WidgetView.extend({
       data.daily.data[i] = this.roundFloats(data.daily.data[i], ['temperatureMax','temperatureMin']);
     }
     cb(data)
+    if(data.alerts){
+      this.send(data.alerts);
+    }
+  }
+, send: function(alerts){
+    alerts.forEach(function(a){
+      Funbrella.Messages.send({type: "weather", sender: a.icon, content: a.summary })
+    });
   }
 , roundFloats: function(data, fields){
   fields.forEach(function(field){
