@@ -6,7 +6,7 @@ Funbrella.Watch.News = Funbrella.Watcher.extend({
     , type: 0
     , query: 'design'
     , count: 10
-    , frequency: 15
+    , frequency: 300
     , randomize: true
   }
 , setup: function(){
