@@ -1,24 +1,17 @@
 var Funbrella = Funbrella || {};
-Funbrella.Widget = Backbone.Model.extend({});
 
-Funbrella.Widgets = Backbone.Collection.extend({
-    model:  Funbrella.Widget
-});
-
-Funbrella.WidgetView = Backbone.View.extend({
+Funbrella.Watcher = Backbone.View.extend({
   initialize: function(options){
-    this.collection = new Funbrella.Widgets;
     this.options = $.extend( this.options, options.model.params);
     this.setup();
     this.fetch();
     setInterval(function(){this.fetch();}.bind(this), this.options.frequency*1000);
-    this.collection.bind('add', this.fetch, this);
   }
 , setup: function(){
-
+  return true;
 }
 , options: {
-    interval: 60
+    frequency: 10
   }
 , template: Hogan.compile("<h1>{{data}}</h1>")
 
@@ -43,6 +36,6 @@ Funbrella.WidgetView = Backbone.View.extend({
     }
   }
 , render: function(data){
-    this.$el.html(this.template.render(data));
+    Funbrella.Messages.send(data);
   }
 });

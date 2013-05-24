@@ -95,3 +95,10 @@ menu {
   min-width: 92%;
   -webkit-box-sizing: border-box;
 }
+.message-list strong {
+  vertical-align: top;
+}
+.message-list img {
+  border: 0.5em solid #eee;
+  border-bottom-width: 1em;
+}

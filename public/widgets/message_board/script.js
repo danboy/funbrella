@@ -2,15 +2,13 @@ var Funbrella = Funbrella || {};
 
 Funbrella.messageBoard = Funbrella.WidgetView.extend({
   options: {
-    frequency: 30
+    frequency: 300
   , fetch: false
   }
-, template: Hogan.compile('<h1 class="clock">{{time}}</h1><ul class="message-list">{{#messages}}<li class="{{type}}">{{#sender}}<strong>{{sender}}:</strong> {{/sender}}{{content}}</li>{{/messages}}</ul>')
+, template: Hogan.compile('<h1 class="clock">{{time}}</h1><ul class="message-list">{{#messages}}<li class="{{type}}">{{#sender}}<strong>{{sender}}:</strong> {{/sender}}{{{content}}}</li>{{/messages}}</ul>')
 , send: function(message){
-    console.log(message);
     message.timestamp = new Date();
     var m = this.collection.push(message);
-    console.log(m.get("timestamp").getTime());
   }
 , setup: function(){
     this.collection.comparator = function(message){

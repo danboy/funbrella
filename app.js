@@ -8,11 +8,13 @@ var express     = require('express')
   , server      = http.createServer(app);
 
 app.configure('production', function(){
-  app.db = 'mongodb://funbrella:password@dharma.mongohq.com:10064/funbrella'
+  app.db = 'mongodb://funbrella:koCbUkLM5@dharma.mongohq.com:10064/funbrella'
 });
+
 app.configure('development', function(){
   app.db = 'mongodb://localhost/funbrella'
 });
+
 mongoose.connect(app.db);
 
 h4e.setup({

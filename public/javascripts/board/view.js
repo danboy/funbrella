@@ -1,4 +1,5 @@
 var Funbrella = Funbrella || {};
+Funbrella.Messages = {send: function(message){console.log(message);return message;}}
 
 Funbrella.addEl = function(el, url, callback){
   var element = document.createElement(el);

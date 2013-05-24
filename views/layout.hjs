@@ -13,7 +13,9 @@
     <script src="/javascripts/lib/underscore-min.js"></script>
     <script src="/javascripts/lib/backbone-min.js"></script>
     <script src="/javascripts/board/widget.js"></script>
+    <script src="/javascripts/board/watcher.js"></script>
     <script src="/javascripts/board/view.js"></script>
+    <script src="/widgets/news/watcher.js"></script>
     <script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
     <script type="text/javascript">
       {{{script}}}
@@ -30,6 +32,7 @@
       sock.onclose = function(c) {
         console.log('close',c);
       };
+      var news = new Funbrella.Watch.News({model: {params: []}});
     </script>
     <div id="audio"></div>
   </body>
