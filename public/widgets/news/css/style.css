@@ -9,6 +9,10 @@
 .news p{
   font-size: 2.5vh;
 }
-.news-snippet h2{
-  font-size: 1vh;
+.message-list .news-snippet h2{
+  font-size: 4.5vh;
+  font-weight: 200;
+}
+.message-list .news-snippet p{
+  font-size: 3vh;
 }

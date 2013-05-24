@@ -3,6 +3,8 @@
   <head>
     <title>{{ title }}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/widgets/news/css/style.css' />
+
   </head>
   <body>
     {{>content}}
