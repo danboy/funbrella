@@ -60,6 +60,7 @@ Funbrella.WidgetView = Backbone.View.extend({
     console.log(this.model);
     this.model.set("prefs", this.prefs);
     this.model.save(function(err, r){console.log(err,r)});
+    this.togglePrefs();
   }
 , togglePrefs: function(){
   this.$el.find('.prefs').toggle();
