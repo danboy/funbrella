@@ -12,17 +12,18 @@ h1.climacon{
   margin: 0 auto;
   text-align: center;
   padding: 0;
+  font-size: 300%;
 }
 
 .weather h2{
   margin: 0 auto 5%;
   text-align: center;
-  font-size: 2.5vh;
+  font-size: 200%;
 }
 .weather h3{
-  margin: 0 auto 5%;
+  margin: 0 auto;
   text-align: center;
-  font-size: 2.5vh;
+  font-size: 100%;
 }
 
 .temp{
@@ -32,6 +33,7 @@ h1.climacon{
 .temp small{
   margin: 0 1%;
   font-weight: normal;
+  font-size: 50%;
 }
 .forecast{
   margin:  0;
@@ -46,17 +48,17 @@ h1.climacon{
   margin: 1%;
 }
 .forecast li h2{
-  font-size: 1vh;
+  font-size: 100%;
 }
 .forecast li figure{
   margin: 0;
   padding: 0;
   text-align: center;
-  font-size: 2.5vh;
+  font-size: 100%;
 }
 .forecast li figcaption{
   font-family: 'Roboto';
-  font-size: 1.6vh;
+  font-size: 60%;
 }
 .temp{
   margin: 0;
