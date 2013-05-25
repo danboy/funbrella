@@ -57,7 +57,7 @@ menu {
   background: #eee;
   color: #555;
   overflow: hidden;
-  border: 2px solid #eee;
+  border: 2px solid #666;
 }
 .widget:first-child {
   width: 50%;
@@ -67,25 +67,25 @@ menu {
   color: #777;
 }
 .widget:nth-child(5n+2) {
-  background: #adbbd9;
+  background: #bbb;
   color: #444;
   border-left: 0 none;
   border-right: 0 none;
   border-bottom: 0 none;
 }
 .widget:nth-child(5n+3) {
-  background: #d5edcc;
+  background: #eee;
   color: #666;
   border-bottom: 0 none;
 }
 .widget:nth-child(5n+4) {
-  background: #e6ce9c;
+  background: #ddd;
   color: #555;
   border-left: 0 none;
   border-right: 0 none;
 }
 .widget:nth-child(5n+5) {
-  background: #d9adae;
+  background: #ccc;
   color: #777;
 }
 .widget .prefs-button {
