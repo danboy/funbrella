@@ -1,4 +1,11 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:300,100,100italic,300italic,900,900italic);
+border-color = #eee;
+border-width = 2px;
+
+background-one = #ADBBD9;
+background-two = #D5EDCC;
+background-three = #E6CE9C;
+background-four = #D9ADAE;
 @font-face {
   font-family: 'Climacons-Font';
   src:url('fonts/climacons-webfont.eot');
@@ -56,33 +63,60 @@ menu{
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   vertical-align: top;
-  background: #999;
+  background: #EEE;
   color: #555;
   overflow: hidden;
+  border: border-width solid border-color;
   &:first-child{
     width: 50%;
     min-height: 100%vh;
     max-height: 100%vh;
-  }
-  &:nth-child(5n+1){
-    background: #BBB;
+    background: #EEE;
     color: #777;
   }
   &:nth-child(5n+2){
-    background: #777;
+    background: background-one;
     color: #444;
+    border-left: 0 none;
+    border-right: 0 none;
+    border-bottom: 0 none;
   }
   &:nth-child(5n+3){
-    background: #AAA;
+    background: background-two;
     color: #666;
+    border-bottom: 0 none;
   }
   &:nth-child(5n+4){
-    background: #888;
+    background: background-three;
     color: #555;
+    border-left: 0 none;
+    border-right: 0 none;
   }
   &:nth-child(5n+5){
-    background: #BBB;
+    background: background-four;
     color: #777;
+  }
+  .prefs-button{
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  &:hover .prefs-button{
+    display: block;
+  }
+  .prefs{
+    display: none;
+    position: absolute;
+    top: 10px;
+    margin: 0 auto;
+    padding: 10px;
+    background: #EEE;
+    border: border-width solid #AAA;
+    width: 80%;
+    input{
+      clear: both;
+    }
   }
 }
 .widget-prefs{
@@ -104,5 +138,10 @@ menu{
   img{
     border: .5em solid #eee;
     border-bottom-width: 1em;
+  }
+  li{
+    background: #fff;
+    border-bottom: 8px solid #EEE;
+    padding: .5em;
   }
 }

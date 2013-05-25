@@ -1,7 +1,7 @@
 var Funbrella = Funbrella || {};
 
 Funbrella.messageBoard = Funbrella.WidgetView.extend({
-  options: {
+  prefs: {
     frequency: 300
   , fetch: false
   }
@@ -35,7 +35,7 @@ Funbrella.messageBoard = Funbrella.WidgetView.extend({
       }
     }
     var time = hour.toString().fatten()+":"+minutes.toString().fatten();
-    if(this.options.showSeconds)
+    if(this.prefs.showSeconds)
       time = time + date.getSeconds().toString().fatten();
     return time;
   }

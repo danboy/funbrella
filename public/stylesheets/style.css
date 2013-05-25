@@ -54,34 +54,61 @@ menu {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   vertical-align: top;
-  background: #999;
+  background: #eee;
   color: #555;
   overflow: hidden;
+  border: 2px solid #eee;
 }
 .widget:first-child {
   width: 50%;
   min-height: 100vh;
   max-height: 100vh;
-}
-.widget:nth-child(5n+1) {
-  background: #bbb;
+  background: #eee;
   color: #777;
 }
 .widget:nth-child(5n+2) {
-  background: #777;
+  background: #adbbd9;
   color: #444;
+  border-left: 0 none;
+  border-right: 0 none;
+  border-bottom: 0 none;
 }
 .widget:nth-child(5n+3) {
-  background: #aaa;
+  background: #d5edcc;
   color: #666;
+  border-bottom: 0 none;
 }
 .widget:nth-child(5n+4) {
-  background: #888;
+  background: #e6ce9c;
   color: #555;
+  border-left: 0 none;
+  border-right: 0 none;
 }
 .widget:nth-child(5n+5) {
-  background: #bbb;
+  background: #d9adae;
   color: #777;
+}
+.widget .prefs-button {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.widget:hover .prefs-button {
+  display: block;
+}
+.widget .prefs {
+  display: none;
+  position: absolute;
+  top: 10px;
+  margin: 0 auto;
+  padding: 10px;
+  background: #eee;
+  border: 2px solid #aaa;
+  width: 80%;
+}
+.widget .prefs input {
+  clear: both;
 }
 .widget-prefs {
   display: none;
@@ -101,4 +128,9 @@ menu {
 .message-list img {
   border: 0.5em solid #eee;
   border-bottom-width: 1em;
+}
+.message-list li {
+  background: #fff;
+  border-bottom: 8px solid #eee;
+  padding: 0.5em;
 }

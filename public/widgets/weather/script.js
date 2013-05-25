@@ -1,18 +1,14 @@
 var Funbrella = Funbrella || {};
 
 Funbrella.weather = Funbrella.WidgetView.extend({
-  initialize: function(options){
-
-    this.options = $.extend( {
+  setup: function(){
+    this.url = "https://api.forecast.io/forecast/"+this.prefs.key+"/"+this.prefs.location;
+  }
+, prefs: {
       key: "cdcab8b7f08c89677d0b5053b787bf0a"
     , location: "41.919932687221504,-87.71064193658447"
     , frequency: 900
-    }, options.model.params);
-
-    this.url = "https://api.forecast.io/forecast/"+this.options.key+"/"+this.options.location;
-    this.fetch();
-    setInterval(function(){this.fetch();}.bind(this), this.options.frequency*1000);
-  }
+}
 , data: function(data, cb){
     data.daily.data = data.daily.data.splice(0,4);
     for (i=0;i < data.daily.data.length;i++){

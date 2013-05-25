@@ -5,7 +5,6 @@ var Board   = require('../models/board.js')
   , Widget = require('../models/widget.js')
   , WidgetTemplates = require('../lib/widgets.js');
 
-
 module.exports = {
 
   index: function(req, res){
