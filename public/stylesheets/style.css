@@ -33,6 +33,7 @@ li {
 label {
   min-width: 35%;
   display: inline-block;
+  font-size: 50%;
 }
 input {
   border: 1px solid #ccc;
@@ -109,6 +110,8 @@ menu {
   background: #eee;
   border: 2px solid #aaa;
   width: 80%;
+  height: 40vh;
+  overflow: auto;
 }
 .widget .prefs input {
   clear: both;

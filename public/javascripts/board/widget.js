@@ -7,7 +7,6 @@ Funbrella.Widgets = Backbone.Collection.extend({
 
 Funbrella.WidgetView = Backbone.View.extend({
   initialize: function(options){
-    console.log('PREFS', options.model.prefs[0]);
     this.model = new Funbrella.Widget(options.model)
     this.collection = new Funbrella.Widgets;
     this.prefs = $.extend( this.prefs, options.model.prefs[0]);
@@ -56,14 +55,16 @@ Funbrella.WidgetView = Backbone.View.extend({
 , savePrefs: function(){
     $('.prefs input').each(function(index,input){
       input = $(input);
-      if(input.data('type') == 'array'){
-        val = input.val(A).split(',');
+      if(input.data('type') == 'object'){
+        val = input.val().split(',');
+      }else if(input.data('type') == 'boolean'){
+        val = (input.val() == "true") ? true : false;
       }else{
         val = input.val();
       }
-      this.prefs[$(input).attr('name')] = $(input).val();
+      this.prefs[$(input).attr('name')] = val;
     }.bind(this));
-    console.log(this.model);
+      console.log(this.prefs);
     this.model.set("prefs", this.prefs);
     this.model.save(function(err, r){console.log(err,r)});
     this.togglePrefs();
