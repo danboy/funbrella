@@ -16,7 +16,6 @@ module.exports = {
     var id = req.body._id;
     delete(req.body._id)
     Widget.update({_id: id },{$set: req.body}, function(err,w){
-      console.log(err,w, req.body);
       if(err){res.send(err)}
       res.send(w);
     }) 

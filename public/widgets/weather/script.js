@@ -21,7 +21,7 @@ Funbrella.weather = Funbrella.WidgetView.extend({
   }
 , send: function(alerts){
     alerts.forEach(function(a){
-      Funbrella.Messages.send({type: "weather", sender: a.icon, content: a.summary })
+      Funbrella.Messages.send({type: "weather", sender: "weather alert", content: a.title })
     });
   }
 , roundFloats: function(data, fields){

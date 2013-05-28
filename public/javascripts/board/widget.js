@@ -23,6 +23,7 @@ Funbrella.WidgetView = Backbone.View.extend({
 }
 , prefs: {
     interval: 60
+  , xml: false
   }
 , template: Hogan.compile("<h1>{{data}}</h1>")
 , prefsTemplate: Hogan.compile('<form class="prefs">{{#prefs}}<div class="input"><label for="{{name}}">{{name}}</label><input name="{{name}}" data-type="{{type}}" value="{{value}}" /></div>{{/prefs}}<a name="save" class="btn save">save</a></form>')
@@ -33,11 +34,16 @@ Funbrella.WidgetView = Backbone.View.extend({
       this.data({},function(data){self.render(data)});
       return true;
     };
-    $.ajax({  url: this.url
-            , dataType: "jsonp"
-            , success: function(data){
-              self.data(data,function(data){self.render(data)});
-            }
+    $.ajax(document.location.origin+'/fetch'
+      , { type: 'POST'
+      , data: {'url': self.url, xml: self.prefs.xml }
+      , success: function(data){
+        if(typeof(data) === 'string'){
+          self.data(JSON.parse(data), function(data){self.render(data)});
+        }else{
+          self.data(data,function(data){self.render(data)});
+        }
+      }
     });
   }
 , data: function(data, cb){
@@ -64,7 +70,6 @@ Funbrella.WidgetView = Backbone.View.extend({
       }
       this.prefs[$(input).attr('name')] = val;
     }.bind(this));
-      console.log(this.prefs);
     this.model.set("prefs", this.prefs);
     this.model.save(function(err, r){console.log(err,r)});
     this.togglePrefs();
