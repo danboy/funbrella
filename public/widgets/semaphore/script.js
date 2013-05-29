@@ -31,7 +31,7 @@ Funbrella.semaphore = Funbrella.WidgetView.extend({
         var message = data.commit.author_name+' broke '+data.project_name+' branch '+data.branch_name;
       }
       else{
-        var message = data.commit.author_name+ ' pushed "'+data.message+'" to branch '+ data.branch_name + ' on '+ data.project_name
+        var message = data.commit.author_name+ ' pushed "'+data.commit.message+'" to branch '+ data.branch_name + ' on '+ data.project_name
       }
       if(this.prefs.alerts){speak(message)};
       Funbrella.Messages.send({type: "semaphore "+data.result, sender: "semaphore", content: message })
