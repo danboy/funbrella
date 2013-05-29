@@ -1,6 +1,4 @@
 var Funbrella = Funbrella || {};
-
-Funbrella.semaphore = Funbrella.WidgetView.extend({
   prefs: {
     urls: [ 'https://semaphoreapp.com/api/v1/projects/7a700eece71d476cf3e79f9b28ff4c85f936ecd9/28707/status?auth_token=bKYHFCwNyygF4U5RKY2z'
           , 'https://semaphoreapp.com/api/v1/projects/7a700eece71d476cf3e79f9b28ff4c85f936ecd9/42382/status?auth_token=bKYHFCwNyygF4U5RKY2z'
