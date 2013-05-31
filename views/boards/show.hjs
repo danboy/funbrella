@@ -1,6 +1,11 @@
 {{#error}}
   <p>{{error}}</p>
 {{/error}}
+<ul id="available-widgets">
+{{#allWidgets}}
+  <li data-widget='{ "name": "{{name}}", "script": "{{script}}" }'>{{name}}</li>
+{{/allWidgets}}
+</ul>
 {{#board}}
   <div id="board">
     {{#widgets}}

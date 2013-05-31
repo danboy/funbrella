@@ -6,6 +6,7 @@ var mongoose = require('mongoose')
       date: {type: Date, default: Date.now}
     , name: {type: String, unique: true }
     , widgets: [{ type: Schema.Types.ObjectId, ref: 'Widget' }]
+    , watchers: [{ type: Schema.Types.ObjectId, ref: 'Widget' }]
     , current_status: { type: Number, default: 0}
   });
 

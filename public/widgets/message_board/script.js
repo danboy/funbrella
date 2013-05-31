@@ -14,6 +14,7 @@ Funbrella.messageBoard = Funbrella.WidgetView.extend({
     this.collection.comparator = function(message){
       return -message.get('timestamp').getTime();
     }
+    this.addMessageForm();
   }
 , data: function(data, cb){
     this.collection.sort();
@@ -38,5 +39,13 @@ Funbrella.messageBoard = Funbrella.WidgetView.extend({
     if(this.prefs.showSeconds)
       time = time + date.getSeconds().toString().fatten();
     return time;
+  }
+, messageTemplate: Hogan.compile('<div id="message"><textarea placeholder="send a message."></textarea><a class="send btn">send</a></div>')
+, addMessageForm: function(){
+    $('body').append(this.messageTemplate.render());
+    $('#message .send').click(function(){
+      sock.socket.send(JSON.stringify({ content: $('#message textarea').val() }));
+      $('#message textarea').val('')
+    });
   }
 });

@@ -12,6 +12,7 @@
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="/javascripts/lib/hogan.js"></script>
     <script src="/javascripts/get.js"></script>
+    <script src="/javascripts/socket.js"></script>
     <script src="/javascripts/lib/underscore-min.js"></script>
     <script src="/javascripts/lib/backbone-min.js"></script>
     <script src="/javascripts/board/widget.js"></script>
@@ -21,19 +22,7 @@
     <script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
     <script type="text/javascript">
       {{{script}}}
-      var sock = new SockJS('/board/{{board.name}}');
-      sock.onopen = function() {
-        console.log('open');
-      };
-      sock.onmessage = function(e) {
-        console.log(e);
-        var message = JSON.parse(e.data);
-        console.log(message);
-        Funbrella.Messages.send(message);
-      };
-      sock.onclose = function(c) {
-        console.log('close',c);
-      };
+      var sock = new Socket( '/board/{{board.name}}', function(message){Funbrella.Messages.send(message)} );
       var news = new Funbrella.Watch.News({model: {params: []}});
     </script>
     <div id="audio"></div>

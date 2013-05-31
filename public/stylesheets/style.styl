@@ -152,3 +152,50 @@ menu{
     padding: .5em;
   }
 }
+#available-widgets{
+  display: none;
+  li{
+    display: inline-block;
+    width: 24vh;
+    height: 24vh;
+    text-align: center;
+    border: 2px solid #333;
+  }
+}
+#message{
+  opacity: 0;
+  overflow: hidden;
+  width: 25%vw;
+  height: 2%vh;
+  background: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -12%;
+  border: border-width solid border-color;
+  textarea{
+    display: block;
+    margin: 10px auto;
+    width: 24%vw;
+    height: 20%vh;
+  }
+  .btn{
+    float: right;
+    margin: 10px 20px 10px;
+  
+  }
+  -webkit-transition: opacity 2s;
+}
+#message:hover{
+  opacity: 1;
+  height: 30%vh;
+  -webkit-transition: opacity 2s;
+}
+#audio{
+  width: 30px;
+  height: 30px;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}

@@ -141,3 +141,49 @@ menu {
   border-bottom: 8px solid #eee;
   padding: 0.5em;
 }
+#available-widgets {
+  display: none;
+}
+#available-widgets li {
+  display: inline-block;
+  width: 24vh;
+  height: 24vh;
+  text-align: center;
+  border: 2px solid #333;
+}
+#message {
+  opacity: 0;
+  overflow: hidden;
+  width: 25vw;
+  height: 2vh;
+  background: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -12%;
+  border: 2px solid #666;
+  -webkit-transition: opacity 2s;
+}
+#message textarea {
+  display: block;
+  margin: 10px auto;
+  width: 24vw;
+  height: 20vh;
+}
+#message .btn {
+  float: right;
+  margin: 10px 20px 10px;
+}
+#message:hover {
+  opacity: 1;
+  height: 30vh;
+  -webkit-transition: opacity 2s;
+}
+#audio {
+  width: 30px;
+  height: 30px;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}

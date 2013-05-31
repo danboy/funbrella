@@ -19,17 +19,21 @@ module.exports = {
         res.redirect('/')
         return
       }
-        res.format({
-          html: function(){
-            res.render('layout',  { values: { error: err
-                                            , board: board
-                                            , script: "var board = new Funbrella.BoardView({ board: '"+ board.name + "', el: '#board' });"
-                                            }
-                                , partials: { content: '{{>boards/show}}' }});
-          }
-        , json: function(){
-            res.send(board)
-          }
+        WidgetTemplates.getAll(function(w){
+          console.log('WIDGETS',w);
+          res.format({
+            html: function(){
+              res.render('layout',  { values: { error: err
+                                              , board: board
+                                              , allWidgets: w
+                                              , script: "var board = new Funbrella.BoardView({ board: '"+ board.name + "', el: '#board' });"
+                                              }
+                                  , partials: { content: '{{>boards/show}}' }});
+            }
+          , json: function(){
+              res.send(board)
+            }
+        });
       });
     });
   }

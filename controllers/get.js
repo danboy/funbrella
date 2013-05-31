@@ -8,7 +8,6 @@ var Get = {
     , headers: req.params.data
       },function(err,resp,body){
         if(req.body.xml){
-          console.log(err,body);
           res.send(parser.toJson(body));
         }else{
           res.send(body)

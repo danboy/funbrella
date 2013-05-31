@@ -12,8 +12,15 @@ Funbrella.WidgetView = Backbone.View.extend({
     this.prefs = $.extend( this.prefs, options.model.prefs[0]);
     this.setup();
     this.fetch();
-    setInterval(function(){this.fetch();}.bind(this), this.prefs.frequency*1000);
+    this.start();
     this.collection.bind('add', this.fetch, this);
+  }
+, start: function(){
+    this.timer = setInterval(function(){this.fetch();}.bind(this), this.prefs.frequency*1000);
+  }
+, stop: function(){
+    clearInterval(this.timer);
+    this.timer = false;
   }
 , events: {
   'click .prefs-button': 'togglePrefs'
@@ -76,6 +83,7 @@ Funbrella.WidgetView = Backbone.View.extend({
   }
 , togglePrefs: function(){
   this.$el.find('.prefs').toggle();
+  this.timer ? this.stop() : this.start();
 }
 , getPrefs: function(){
     var prefs = [];
