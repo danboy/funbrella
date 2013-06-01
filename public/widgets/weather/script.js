@@ -11,6 +11,7 @@ Funbrella.weather = Funbrella.WidgetView.extend({
 }
 , data: function(data, cb){
     data.daily.data = data.daily.data.splice(0,4);
+    data.currently.temperature = Math.round(data.currently.temperature)
     for (i=0;i < data.daily.data.length;i++){
       data.daily.data[i] = this.roundFloats(data.daily.data[i], ['temperatureMax','temperatureMin']);
     }

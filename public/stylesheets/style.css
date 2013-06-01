@@ -166,20 +166,28 @@ menu {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   vertical-align: top;
+  padding: 1%;
 }
 #available-widgets li {
   position: relative;
   display: inline-block;
-  width: 24vh;
-  height: 24vh;
+  width: 18vh;
+  height: 18vh;
   text-align: center;
   border: 2px solid #666;
+  font-size: 70%;
+}
+#available-widgets li:hover {
+  border-color: #38c0f4;
+  color: #38c0f4;
 }
 .widget-item {
-  width: 24vh;
-  height: 24vh;
+  width: 18vh;
+  height: 18vh;
   text-align: center;
-  border: 2px solid #666;
+  border: 2px solid #38c0f4;
+  background: #fff;
+  opacityt: 0.7;
 }
 #available-widgets:hover {
   opacity: 1;

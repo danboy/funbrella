@@ -1,6 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:300,100,100italic,300italic,900,900italic);
 border-color = #666;
 border-width = 2px;
+border-active = #38c0f4;
 
 background-one = #BBB;
 background-two = #EEE;
@@ -177,20 +178,28 @@ menu{
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   vertical-align: top;
+  padding: 1%;
   li{
     position: relative;
     display: inline-block;
-    width: 24vh;
-    height: 24vh;
+    width: 18vh;
+    height: 18vh;
     text-align: center;
     border: border-width solid border-color;
+    font-size: 70%;
+    &:hover{
+      border-color: border-active;
+      color: border-active;
+    }
   }
 }
 .widget-item{
-  width: 24vh;
-  height: 24vh;
+  width: 18vh;
+  height: 18vh;
   text-align: center;
-  border: border-width solid border-color;
+  border: border-width solid border-active;
+  background: #fff;
+  opacityt: .7;
 }
 #available-widgets:hover{
   opacity: 1;
@@ -216,7 +225,7 @@ menu{
   .btn{
     float: right;
     margin: 10px 20px 10px;
-  
+
   }
   -webkit-transition: opacity 2s;
 }
