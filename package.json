@@ -1,6 +1,6 @@
 {
   "name": "funbrella",
-  "version": "0.0.2",
+  "version": "0.0.2-2",
   "private": true,
   "main": "index.html",
   "dependencies": {
@@ -10,7 +10,7 @@
     "sockjs": "*",
     "request": "*",
     "xml2json": "*",
-    "mongoose": "*"
+    "mongoose": "*",
     "everyauth": "*"
   },
   "subdomain": "funbrella",

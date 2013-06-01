@@ -21,7 +21,7 @@ Funbrella.WidgetView = Backbone.View.extend({
     return array[position];
   }
 , start: function(){
-    this.timer = setInterval(function(){this.get();}.bind(this), this.prefs.frequency*1000);
+    this.timer = setInterval(function(){this.doesFetch();}.bind(this), this.prefs.frequency*1000);
   }
 , stop: function(){
     clearInterval(this.timer);
