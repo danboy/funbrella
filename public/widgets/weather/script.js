@@ -9,6 +9,7 @@ Funbrella.weather = Funbrella.WidgetView.extend({
     , location: "41.919932687221504,-87.71064193658447"
     , frequency: 900
 }
+, requires: ['key','location']
 , data: function(data, cb){
     data.daily.data = data.daily.data.splice(0,4);
     data.currently.temperature = Math.round(data.currently.temperature)

@@ -11,6 +11,7 @@
     "request": "*",
     "xml2json": "*",
     "mongoose": "*"
+    "everyauth": "*"
   },
   "subdomain": "funbrella",
   "engines": {

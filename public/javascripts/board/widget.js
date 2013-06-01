@@ -12,10 +12,9 @@ Funbrella.WidgetView = Backbone.View.extend({
     this.collection = new Funbrella.Widgets;
     this.prefs = $.extend( this.prefs, options.model.prefs[0]);
     this.setup();
-    this.get();
-    this.start();
-    this.drop();
-    this.collection.bind('add', this.get, this);
+    this.doesFetch();
+    this.setDropTarget();
+    this.collection.bind('add', this.doesFetch, this);
   }
 , random: function(array){
     position = Math.floor((Math.random()*array.length));
@@ -28,19 +27,21 @@ Funbrella.WidgetView = Backbone.View.extend({
     clearInterval(this.timer);
     this.timer = false;
   }
-, get: function(){
+, doesFetch: function(){
     if(this.doFetch == false){
       console.log('skip fetch');
       this.data('{"data": "no widget."}',function(data){this.render(data)}.bind(this));
     }else{
       this.fetch();
     }
+    this.start();
   }
 , events: {
   'click .prefs-button': 'togglePrefs'
 , 'click .save': 'savePrefs'
 }
 , setup: function(){
+    //for folks to add init stuff to.
   }
 , prefs: {
     frequency: 60
@@ -77,7 +78,7 @@ Funbrella.WidgetView = Backbone.View.extend({
     this.$el.append($('<a/>',{text: 'prefs', 'class': 'prefs-button'}))
     this.getPrefs();
   }
-, drop: function(){
+, setDropTarget: function(){
     this.$el.droppable({drop: function(w){
       this.updateWidget($(w.toElement).data('widget'));
     }.bind(this)})
