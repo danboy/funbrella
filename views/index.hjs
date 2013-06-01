@@ -1,5 +1,8 @@
+<h1>try one of these dashboards</h1>
 <ul>
   {{#boards}}
-  <li><a href="/boards/{{name}}">{{name}}</a></li>
+    <li><a href="/boards/{{name}}">{{name}}</a></li>
   {{/boards}}
 </ul>
+<h2>or create a new one</h2>
+{{>boards/form}}

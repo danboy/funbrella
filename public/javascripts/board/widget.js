@@ -11,16 +11,24 @@ Funbrella.WidgetView = Backbone.View.extend({
     this.collection = new Funbrella.Widgets;
     this.prefs = $.extend( this.prefs, options.model.prefs[0]);
     this.setup();
-    this.fetch();
+    this.get();
     this.start();
-    this.collection.bind('add', this.fetch, this);
+    this.drop();
+    this.collection.bind('add', this.get, this);
   }
 , start: function(){
-    this.timer = setInterval(function(){this.fetch();}.bind(this), this.prefs.frequency*1000);
+    this.timer = setInterval(function(){this.get();}.bind(this), this.prefs.frequency*1000);
   }
 , stop: function(){
     clearInterval(this.timer);
     this.timer = false;
+  }
+, get: function(){
+    if(this.prefs.fetch == false){
+      this.data('{"data": "no widget."}',function(data){this.render(data)}.bind(this));
+    }else{
+      this.fetch();
+    }
   }
 , events: {
   'click .prefs-button': 'togglePrefs'
@@ -29,18 +37,14 @@ Funbrella.WidgetView = Backbone.View.extend({
 , setup: function(){
 }
 , prefs: {
-    interval: 60
+    frequency: 60
   , xml: false
   }
-, template: Hogan.compile("<h1>{{data}}</h1>")
+, template: Hogan.compile("<h1>Please add a widget.</h1>")
 , prefsTemplate: Hogan.compile('<form class="prefs">{{#prefs}}<div class="input"><label for="{{name}}">{{name}}</label><input name="{{name}}" data-type="{{type}}" value="{{value}}" /></div>{{/prefs}}<a name="save" class="btn save">save</a></form>')
 
 , fetch: function(){
     var self = this;
-    if(this.prefs.fetch == false){
-      this.data({},function(data){self.render(data)});
-      return true;
-    };
     $.ajax(document.location.origin+'/fetch'
       , { type: 'POST'
       , data: {'url': self.url, xml: self.prefs.xml }
@@ -50,6 +54,9 @@ Funbrella.WidgetView = Backbone.View.extend({
         }else{
           self.data(data,function(data){self.render(data)});
         }
+      }
+      , error: function(e){
+        console.log('WIDGET.js ERROR', self.url, e);
       }
     });
   }
@@ -65,6 +72,21 @@ Funbrella.WidgetView = Backbone.View.extend({
     this.$el.append($('<a/>',{text: 'prefs', 'class': 'prefs-button'}))
     this.getPrefs();
   }
+, drop: function(){
+    this.$el.droppable({drop: function(w){
+      this.updateWidget($(w.toElement).data('widget'));
+    }.bind(this)})
+  }
+, updateWidget: function(widget){
+    this.model.save(widget, {
+      success: function(err, r){
+        console.log('SUCCESS');
+        location.reload();
+      }, error: function(m,e,o){
+        console.log('ERROR',m,e,o,m._id);
+        location.reload();
+      }});
+  }
 , savePrefs: function(){
     $('.prefs input').each(function(index,input){
       input = $(input);
@@ -77,7 +99,9 @@ Funbrella.WidgetView = Backbone.View.extend({
       }
       this.prefs[$(input).attr('name')] = val;
     }.bind(this));
-    this.model.set("prefs", this.prefs);
+    var prefs = this.prefs;
+    delete( prefs['fetch'] )
+    this.model.set("prefs", prefs);
     this.model.save(function(err, r){console.log(err,r)});
     this.togglePrefs();
   }
@@ -88,7 +112,11 @@ Funbrella.WidgetView = Backbone.View.extend({
 , getPrefs: function(){
     var prefs = [];
     for( var pref in this.prefs ){
-      prefs.push({ name: pref, value: this.prefs[pref] , type: typeof(this.prefs[pref])});
+      if( pref == 'fetch'){
+        return;
+      }else{
+        prefs.push({ name: pref, value: this.prefs[pref] , type: typeof(this.prefs[pref])});
+      }
     }
     this.$el.append(this.prefsTemplate.render({prefs: prefs}));
   }

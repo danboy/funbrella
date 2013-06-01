@@ -45,7 +45,7 @@ module.exports = {
       var createBoard = function(w){
         board = new Board({ name: req.body.name, widgets: w })
         board.save(function(err, board){
-          res.send({ board: board, errors: err });
+          res.redirect('/boards/'+ board.name)
         });
       }
       var widgets = [];

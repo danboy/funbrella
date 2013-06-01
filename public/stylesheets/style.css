@@ -12,7 +12,7 @@ body {
   font: 100% "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 100;
   font-size: 3vh;
-  scroll: none;
+  scroll: none !important;
   background: #999;
 }
 a {
@@ -30,15 +30,22 @@ li {
   margin: 0;
   padding: 0;
 }
+fieldset {
+  border: 0 none;
+}
 label {
-  min-width: 35%;
+  min-width: 25%;
   display: inline-block;
-  font-size: 50%;
+  font-size: 110%;
+  clear: both;
 }
 input {
+  display: block;
+  clear: both;
   border: 1px solid #ccc;
   line-height: 2em;
   height: 2em;
+  margin: 0 0 1em;
   padding: 0 1em;
 }
 menu {
@@ -142,14 +149,41 @@ menu {
   padding: 0.5em;
 }
 #available-widgets {
-  display: none;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2vh;
+  opacity: 0;
+  z-index: 2;
+  overflow: hidden;
+  text-align: center;
+  background: #fff;
+  border: 2px solid #666;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  vertical-align: top;
 }
 #available-widgets li {
+  position: relative;
   display: inline-block;
   width: 24vh;
   height: 24vh;
   text-align: center;
-  border: 2px solid #333;
+  border: 2px solid #666;
+}
+.widget-item {
+  width: 24vh;
+  height: 24vh;
+  text-align: center;
+  border: 2px solid #666;
+}
+#available-widgets:hover {
+  opacity: 1;
+  height: auto;
 }
 #message {
   opacity: 0;

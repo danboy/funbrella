@@ -1,52 +1,40 @@
 var Funbrella = Funbrella || {};
 
-Funbrella.news = Funbrella.Widget.extend({
+Funbrella.news = Funbrella.WidgetView.extend({
   template: Hogan.compile('<h2>{{title}}</h2><p>{{summary}}</p>')
-, initialize: function(options){
-    this.model = options.model;
-    this.el = options.el;
-    this.options = $.extend( {
+, prefs: {
       category: 25
-    , categories: [36, 25, 10, 16, 8, 31]
+    , categories: [36, 25, 10, 16, 8, 31, 13, 22, 1168, 11, 14, 28, 20, 29, 34, 30, 26, 19]
     , type: 0
     , query: 'design'
     , count: 10
     , frequency: 30
     , randomize: true
-    }, this.model.params);
-    this.fetch();
-    setInterval(function(){this.fetch();}.bind(this), this.options.frequency*1000);
   }
-, fetch: function(url){
-    self = this;
+, setup: function(){
     this.buildUrl();
-    $.ajax({  url: this.url
-            , dataType: "jsonp"
-            , success: function(data){
-              self.render(self.choose(data.articles));
-            }
-    });
   }
 , random: function(array){
     position = Math.floor((Math.random()*array.length));
     return array[position];
   }
-, choose: function(articles){
-    return articles[Math.floor((Math.random()*articles.length))];
-  }
-, render: function(article){
-    $(this.el).html(this.template.render(article))
+, data: function(data, cb){
+    this.buildUrl();
+    console.log('dsjkakdaslkjjldska',data,data.articles);
+    var article = this.random(data.articles);
+    console.log('ARTICLE',article)
+    cb(article)
   }
 , buildUrl: function(){
-    if(this.options.randomize){
-      this.options.category = this.random(this.options.categories);
+    if(this.prefs.randomize){
+      this.prefs.category = this.random(this.prefs.categories);
     }
-    switch(this.options.type){
+    switch(this.prefs.type){
       case 'search':
-        this.url = 'http://api.feedzilla.com/v1/categories/'+this.options.category+'/articles/search.json?count='+this.options.count+'&q='+this.options.query
+        this.url = 'http://api.feedzilla.com/v1/categories/'+this.prefs.category+'/articles/search.json?count='+this.prefs.count+'&q='+this.prefs.query
         break;
       default:
-        this.url = 'http://api.feedzilla.com/v1/categories/'+this.options.category+'/articles.json?count='+this.options.count
+        this.url = 'http://api.feedzilla.com/v1/categories/'+this.prefs.category+'/articles.json?count='+this.prefs.count
         break;
     }
   }

@@ -7,10 +7,8 @@
         <input name="id" value="{{id}}" type="hidden" />
       {{/board}}
     </div>
-  </fieldset>
-  <fieldset>
     <div class="submit">
-      <input type="submit" class="button" id="submit" />
+      <input type="submit" class="button" id="submit" value="create a new board"/>
     </div>
   </fieldset>
 </form>

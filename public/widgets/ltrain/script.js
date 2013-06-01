@@ -1,43 +1,27 @@
 var Funbrella = Funbrella || {};
 
 Funbrella.ltrain = Funbrella.WidgetView.extend({
-  initialize: function(options){
-
-  this.url = 0;
-  this.options = $.extend( {
+  prefs: {
     urls: [ 'http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=3654c77e9dcd4acaa89b6e5ded7fbf86&max=5&mapid=40710']
-  , timer: 30000
-  }, options.model.params);
-  this.fetch(this.render);
-  setInterval(function(){
-    this.fetch(this.render);
-  }.bind(this), this.options.timer);
+  , frequency: 30
+  , xml: true
   }
-, fetch: function(cb){
-    var self = this;
-    $.ajax(document.location.origin+'/fetch'
-    , { type: 'POST'
-      , data: {'url': self.getUrl(), xml: true }
-      , success: function(r){
-          cb(r, self);
-      }
-    });
+, setup: function(){
+    this.url = this.getUrl();
   }
 , template: Hogan.compile('<h1>{{{name}}}</h1><img src="/widgets/ltrain/images/train.png" /><table>{{#trains}}<tr class="{{rt}}"><td>{{stpDe}}</td><td>{{arrival}}</td></tr>{{/trains}}</dl>')
 , getUrl: function(){
-    this.url = (this.url < this.options.urls.length-1) ? this.url+1 : 0;
-    return this.options.urls[this.url];
+    this.url = (this.url < this.prefs.urls.length-1) ? this.url+1 : 0;
+    return this.prefs.urls[this.url];
   }
-, render: function(data, self){
-    var trains = JSON.parse(data)
+, data: function(data, cb){
+    var trains = data
+      , self = this
       , station = {
-        trains: self.cleanDate(trains.ctatt.eta)
-      , name: trains.ctatt.eta[0].staNm
-    };
-      window.trains = trains;
-    var template = self.template.render(station)
-    $('#'+self.model._id).html( template );
-
+          trains: self.cleanDate(trains.ctatt.eta)
+        , name: trains.ctatt.eta[0].staNm
+      };
+    cb(station);
   }
 , cleanDate: function(data){
     data = _.map(data,function(stop){
