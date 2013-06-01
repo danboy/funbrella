@@ -1,0 +1,19 @@
+.imgur{
+  width: 25%vh;
+  height: 50%vh;
+  padding: 0;
+  overflow: hidden;
+}
+.imgur img{
+  width: 100%;
+}
+.imgur h1{
+  opacity: .5;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #EEE;
+  margin: 0;
+  padding: 10px;
+  font-size: 60%;
+}
