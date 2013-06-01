@@ -7,6 +7,7 @@ Funbrella.Widgets = Backbone.Collection.extend({
 
 Funbrella.WidgetView = Backbone.View.extend({
   initialize: function(options){
+    this.doFetch = true;
     this.model = new Funbrella.Widget(options.model)
     this.collection = new Funbrella.Widgets;
     this.prefs = $.extend( this.prefs, options.model.prefs[0]);
@@ -24,7 +25,8 @@ Funbrella.WidgetView = Backbone.View.extend({
     this.timer = false;
   }
 , get: function(){
-    if(this.prefs.fetch == false){
+    if(this.doFetch == false){
+      console.log('skip fetch');
       this.data('{"data": "no widget."}',function(data){this.render(data)}.bind(this));
     }else{
       this.fetch();
@@ -35,14 +37,13 @@ Funbrella.WidgetView = Backbone.View.extend({
 , 'click .save': 'savePrefs'
 }
 , setup: function(){
-}
+  }
 , prefs: {
     frequency: 60
   , xml: false
   }
 , template: Hogan.compile("<h1>Please add a widget.</h1>")
 , prefsTemplate: Hogan.compile('<form class="prefs">{{#prefs}}<div class="input"><label for="{{name}}">{{name}}</label><input name="{{name}}" data-type="{{type}}" value="{{value}}" /></div>{{/prefs}}<a name="save" class="btn save">save</a></form>')
-
 , fetch: function(){
     var self = this;
     $.ajax(document.location.origin+'/fetch'
@@ -78,6 +79,7 @@ Funbrella.WidgetView = Backbone.View.extend({
     }.bind(this)})
   }
 , updateWidget: function(widget){
+    this.model.prefs = [{fetch: null}]
     this.model.save(widget, {
       success: function(err, r){
         console.log('SUCCESS');
