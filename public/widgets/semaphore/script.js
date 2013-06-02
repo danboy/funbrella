@@ -13,11 +13,11 @@ Funbrella.semaphore = Funbrella.WidgetView.extend({
   , frequency: 20
   }
 , getUrl: function(){
-    this.url = (this.url < this.prefs.urls.length-1) ? this.url+1 : 0;
-    return 'https://semaphoreapp.com/api/v1/projects/'+this.prefs.urls[this.url]+'/status?auth_token='+this.prefs.token;
+    this.prefs.url = (this.prefs.url < this.prefs.urls.length-1) ? this.prefs.url+1 : 0;
+    this.url = 'https://semaphoreapp.com/api/v1/projects/'+this.prefs.urls[this.prefs.url]+'/status?auth_token='+this.prefs.token;
   }
 , setup: function(){
-    this.url = this.getUrl();
+    this.getUrl();
   }
 , template: Hogan.compile('<a name="ring" class="{{result}} ring"/><h1>{{project_name}}: <strong class="{{result}}">{{branch_name}}</strong></h1>{{#commit}}<h3>{{author_name}}</h3><p>{{message}}</p>{{/commit}}')
 , alertStatusChange: function(data){
@@ -40,6 +40,8 @@ Funbrella.semaphore = Funbrella.WidgetView.extend({
     }
   }
 , data: function(data, cb){
+  console.log(data);
+    this.getUrl();
     this.alertStatusChange(data);
     cb(data);
   }

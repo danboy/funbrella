@@ -15,11 +15,11 @@ Funbrella.ltrain = Funbrella.WidgetView.extend({
     return this.prefs.urls[this.url];
   }
 , data: function(data, cb){
-    var trains = data
-      , self = this
+    var trains = data.ctatt.eta
+    var self = this
       , station = {
-          trains: self.cleanDate(trains.ctatt.eta)
-        , name: trains.ctatt.eta[0].staNm
+          trains: self.cleanDate(trains)
+        , name: trains[0].staNm
       };
     cb(station);
   }

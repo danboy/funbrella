@@ -22,6 +22,24 @@
 }
 .ltrain table tr td:nth-child(1n+2){
   text-align: right;
+  animation: fadein 2s;
+  -moz-animation: fadein 2s; /* Firefox */
+  -webkit-animation: fadein 2s; /* Safari and Chrome */
+  -o-animation: fadein 2s; /* Opera */
+}
+
+@-webkit-keyframes fadein{
+  from { opacity:0; }
+  to { opacity:1; }
+}
+
+@keyframes fadein {
+  from {
+    opacity:0;
+  }
+  to {
+    opacity:1;
+  }
 }
 .ltrain .arriving{
   font-weight: 300;

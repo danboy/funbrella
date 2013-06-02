@@ -19,12 +19,19 @@ Funbrella.ctabus = Funbrella.WidgetView.extend({
 , data: function(data, cb){
     this.url = this.getUrl();
     var self = this;
-    var busses = data['bustime-response']['prd']
-      , mustache = {
-          busses: self.cleanDate(busses)
-        , stop: busses[0].stpnm.replace(self.prefs.strip, '')
-        };
-    cb(mustache);
+    if(data['bustime-response'] == 0){
+      var data = {stop: 'No upcoming busses.'}
+    }else{
+      var busses = data['bustime-response']['prd']
+      console.log(typeof(busses),data);
+      if(typeof(busses) == 'object')
+        busses = [busses]
+      var data = {
+        busses: self.cleanDate(busses)
+      , stop: busses[0].stpnm.replace(self.prefs.strip, '')
+      };
+    }
+    cb(data);
   }
 , cleanDate: function(data){
     data = data.map(function(stop){
