@@ -5,7 +5,54 @@ String.prototype.toCamel = function(){
 };
 
 module.exports = {
-  create: function(req, res){
+  index: function(req, res){
+    Widget.find({},function(err, widgets){
+      res.format({
+        html: function(){
+          res.render('widget',  { values: { error: err
+                                          , widgets: widgets
+                                          }
+                              , partials: { content: '{{>widgets/index}}' }});
+        }
+      , json: function(){
+          res.send(widgets)
+        }
+      });
+    });
+  }
+, show: function(req, res){
+    Widget.findOne({_id: req.params.id.toString() },function(err, widget){
+      res.format({
+        html: function(){
+          res.render('widget',  { values: { error: err
+                                          , widget: widget
+                                          , script: "var widget = new Funbrella."+widget.name+"({ model: "+ JSON.stringify(widget)+", el: '#widget' });"
+                                          }
+                              , partials: { content: '{{>widgets/show}}' }});
+        }
+      , json: function(){
+          res.send({error: err, widget: widget})
+        }
+    });
+    });
+  }
+, find: function(req, res){
+    Widget.findOne({name: req.params.id.toString() },function(err, widget){
+      res.format({
+        html: function(){
+          res.render('widget',  { values: { error: err
+                                          , widget: widget
+                                          , script: "var widget = new Funbrella."+widget.name+"({ model: "+ JSON.stringify(widget)+", el: '#widget' });"
+                                          }
+                              , partials: { content: '{{>widgets/show}}' }});
+        }
+      , json: function(){
+          res.send({error: err, widget: widget})
+        }
+    });
+    });
+  }
+, create: function(req, res){
     widget = new Widget(templates[name]);
     widget.save(function(err,w){
       if(err){res.send(err)}
@@ -18,6 +65,6 @@ module.exports = {
     Widget.update({_id: id },{$set: req.body}, function(err,w){
       if(err){res.send(err)}
       res.send(w);
-    }) 
+    })
   }
 }

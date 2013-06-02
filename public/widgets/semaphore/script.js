@@ -40,7 +40,6 @@ Funbrella.semaphore = Funbrella.WidgetView.extend({
     }
   }
 , data: function(data, cb){
-  console.log(data);
     this.getUrl();
     this.alertStatusChange(data);
     cb(data);

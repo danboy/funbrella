@@ -1,0 +1,5 @@
+<link rel='stylesheet' href='/widgets/{{widget.name}}/css/style.css' />
+<div id="widget" class="widget {{widget.name}}">
+  {{widget.name}}
+</div>
+<script src="/widgets/{{widget.name}}/script.js"></script>

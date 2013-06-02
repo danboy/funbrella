@@ -166,12 +166,11 @@ menu{
   }
 }
 #available-widgets{
-  width: 100vw;
-  margin: 0;
+  width: 10vw;
+  margin: 0 auto;
   padding: 0;
   position: absolute;
   top: 0;
-  left: 0;
   height: 2%vh;
   opacity: 0;
   z-index: 2;
@@ -207,6 +206,7 @@ menu{
   opacityt: .7;
 }
 #available-widgets:hover{
+  width: 100vw;
   opacity: 1;
   height: auto;
 }
@@ -246,4 +246,8 @@ menu{
   position: absolute;
   right: 0;
   bottom: 0;
+}
+.widget-view .widget{
+  width: 100%vw;
+  min-height: 100%vh;
 }

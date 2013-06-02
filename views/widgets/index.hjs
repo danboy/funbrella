@@ -1,0 +1,7 @@
+<ul>
+  {{#widgets}}
+  <li>
+    <a href="/widgets/{{_id}}">{{name}}</a>
+  </li>
+  {{/widgets}}
+</ul>

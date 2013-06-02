@@ -30,7 +30,6 @@ Funbrella.WidgetView = Backbone.View.extend({
   }
 , doesFetch: function(){
     if(this.doFetch == false){
-      console.log('skip fetch');
       this.data('{"data": "no widget."}',function(data){this.render(data)}.bind(this));
     }else{
       this.fetch();
@@ -87,10 +86,8 @@ Funbrella.WidgetView = Backbone.View.extend({
     this.model.prefs = [{fetch: null}]
     this.model.save(widget, {
       success: function(err, r){
-        console.log('SUCCESS');
         location.reload();
       }, error: function(m,e,o){
-        console.log('ERROR',m,e,o,m._id);
         location.reload();
       }});
   }

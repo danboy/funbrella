@@ -16,9 +16,7 @@ Funbrella.news = Funbrella.WidgetView.extend({
   }
 , data: function(data, cb){
     this.buildUrl();
-    console.log('dsjkakdaslkjjldska',data,data.articles);
     var article = this.random(data.articles);
-    console.log('ARTICLE',article)
     cb(article)
   }
 , buildUrl: function(){

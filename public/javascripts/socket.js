@@ -8,7 +8,6 @@ Socket.prototype = {
   open: function(){
     self = this;
     this.socket.onmessage = function(message){
-      console.log('RAW MESSAGE:',message);
       self.routeMessage(JSON.parse(message.data));
     }
     this.socket.onclose = self.open;

@@ -23,8 +23,7 @@ Funbrella.ctabus = Funbrella.WidgetView.extend({
       var data = {stop: 'No upcoming busses.'}
     }else{
       var busses = data['bustime-response']['prd']
-      console.log(typeof(busses),data);
-      if(typeof(busses) == 'object')
+      if(!busses[0])
         busses = [busses]
       var data = {
         busses: self.cleanDate(busses)
