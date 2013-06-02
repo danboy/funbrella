@@ -6,6 +6,10 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Funbrella';
+  src: url("fonts/funbrella.otf");
+}
 body {
   padding: 0;
   margin: 0;
@@ -99,15 +103,16 @@ menu {
   color: #777;
 }
 .widget .prefs-button {
+  font-family: 'Funbrella';
   display: none;
   position: absolute;
-  top: 10px;
+  top: 10%;
   right: 10px;
-  font-size: 40%;
   opacity: 0.5;
+  font-size: 150%;
 }
 .widget:hover .prefs-button {
-  display: block;
+  display: inline-block;
 }
 .widget .prefs {
   display: none;

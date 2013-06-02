@@ -13,6 +13,7 @@ Funbrella.WidgetView = Backbone.View.extend({
     this.prefs = $.extend( this.prefs, options.model.prefs[0]);
     this.setup();
     this.doesFetch();
+    this.start();
     this.setDropTarget();
     this.collection.bind('add', this.doesFetch, this);
   }
@@ -34,7 +35,6 @@ Funbrella.WidgetView = Backbone.View.extend({
     }else{
       this.fetch();
     }
-    this.start();
   }
 , events: {
   'click .prefs-button': 'togglePrefs'
@@ -75,7 +75,7 @@ Funbrella.WidgetView = Backbone.View.extend({
   }
 , render: function(data){
     this.$el.html(this.template.render(data));
-    this.$el.append($('<a/>',{text: 'prefs', 'class': 'prefs-button'}))
+    this.$el.append($('<a/>',{text: '\u2217', 'class': 'prefs-button'}))
     this.getPrefs();
   }
 , setDropTarget: function(){

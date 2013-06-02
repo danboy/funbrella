@@ -9,7 +9,7 @@ Funbrella.ltrain = Funbrella.WidgetView.extend({
 , setup: function(){
     this.url = this.getUrl();
   }
-, template: Hogan.compile('<h1>{{{name}}}</h1><img src="/widgets/ltrain/images/train.png" /><table>{{#trains}}<tr class="{{rt}}"><td>{{stpDe}}</td><td>{{arrival}}</td></tr>{{/trains}}</dl>')
+, template: Hogan.compile('<h1>{{{name}}}</h1><table>{{#trains}}<tr class="{{rt}}"><td>{{stpDe}}</td><td>{{arrival}}</td></tr>{{/trains}}</dl>')
 , getUrl: function(){
     this.url = (this.url < this.prefs.urls.length-1) ? this.url+1 : 0;
     return this.prefs.urls[this.url];

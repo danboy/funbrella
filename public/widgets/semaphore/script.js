@@ -8,7 +8,7 @@ Funbrella.semaphore = Funbrella.WidgetView.extend({
           , 'a19db27940d9828c281e2693e2728b47eaf66590/31155' ]
   , url: 0
   , token:  'bKYHFCwNyygF4U5RKY2z'
-  , alerts: false
+  , audioAlerts: false
   , status: []
   , frequency: 20
   }
@@ -16,14 +16,16 @@ Funbrella.semaphore = Funbrella.WidgetView.extend({
     this.url = (this.url < this.prefs.urls.length-1) ? this.url+1 : 0;
     return 'https://semaphoreapp.com/api/v1/projects/'+this.prefs.urls[this.url]+'/status?auth_token='+this.prefs.token;
   }
-
+, setup: function(){
+    this.url = this.getUrl();
+  }
 , template: Hogan.compile('<a name="ring" class="{{result}} ring"/><h1>{{project_name}}: <strong class="{{result}}">{{branch_name}}</strong></h1>{{#commit}}<h3>{{author_name}}</h3><p>{{message}}</p>{{/commit}}')
-, alertStatusChange: function(data, self){
+, alertStatusChange: function(data){
     var result = data.result
       , project = data.project_name+data.branch_name;
 
-    if(result !== self.prefs.status[project] ){
-      self.prefs.status[project] = result;
+    if(result !== this.prefs.status[project] ){
+      this.prefs.status[project] = result;
       if(result == 'passed'){
         var message = data.project_name+' branch '+data.branch_name+' '+data.result+' thanks to '+data.commit.author_name;
       }
@@ -33,19 +35,12 @@ Funbrella.semaphore = Funbrella.WidgetView.extend({
       else{
         var message = data.commit.author_name+ ' pushed "'+data.commit.message+'" to branch '+ data.branch_name + ' on '+ data.project_name
       }
-      if(this.prefs.alerts){speak(message)};
+      if(this.prefs.audioAlerts){speak(message)};
       Funbrella.Messages.send({type: "semaphore "+data.result, sender: "semaphore", content: message })
     }
   }
-, fetch: function(cb){
-    var self = this;
-    $.ajax(document.location.origin+'/fetch'
-    , { type: 'POST'
-      , data: {'url': self.getUrl() }
-      , success: function(data){
-        self.data(data,function(data){self.render(data)});
-        self.alertStatusChange(JSON.parse(data), self);
-      }
-    });
+, data: function(data, cb){
+    this.alertStatusChange(data);
+    cb(data);
   }
 });

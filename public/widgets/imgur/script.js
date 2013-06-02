@@ -12,6 +12,7 @@ Funbrella.imgur = Funbrella.WidgetView.extend({
   }
 , data: function(data, cb){
     var img = this.random(data.data);
+    img.scale = (img.width/img.height)? 'wide' : 'tall';
     if(img.nsfw && !this.prefs.showNsfw){
       this.data(data)
     }else{

@@ -1,8 +1,9 @@
-.ltrain img{
+.ltrain h1:after{
+  content: '∞';
   display: block;
   margin: 4% auto;
-  opacity: .47;
-  height: 12vh;
+  font-family: 'Funbrella';
+  font-size: 300%;
 }
 .ltrain h1{
   color: #000;

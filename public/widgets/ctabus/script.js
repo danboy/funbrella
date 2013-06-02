@@ -11,7 +11,7 @@ Funbrella.ctabus = Funbrella.WidgetView.extend({
   , strip: / \(Brown Line\)/g
   , frequency: 30
 }
-, template: Hogan.compile('<h1>{{{stop}}}</h1><img src="/widgets/ctabus/images/bus.png" /><table>{{#busses}}<tr {{#arriving}}class="arriving"{{/arriving}}><td>{{rtdir}} to {{des}}</td><td>{{arrival}}</td></tr>{{/busses}}</dl>')
+, template: Hogan.compile('<h1>{{{stop}}}</h1><table>{{#busses}}<tr {{#arriving}}class="arriving"{{/arriving}}><td>{{rtdir}} to {{des}}</td><td>{{arrival}}</td></tr>{{/busses}}</dl>')
 , getUrl: function(){
     this.url = (this.prefs.startUrl < this.prefs.urls.length-1) ? this.prefs.startUrl+1 : 0;
     return this.prefs.urls[this.prefs.startUrl];

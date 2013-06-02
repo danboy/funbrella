@@ -4,11 +4,13 @@
   padding: 0;
   overflow: hidden;
 }
-.imgur img{
+.imgur img.wide {
   width: 100%;
 }
+.imgur img.tall{
+  height: 100%;
+}
 .imgur h1{
-  opacity: .5;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -16,4 +18,6 @@
   margin: 0;
   padding: 10px;
   font-size: 60%;
+  color: #000;
+  opacity: .7;
 }
