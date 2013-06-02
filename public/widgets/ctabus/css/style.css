@@ -1,13 +1,11 @@
 .ctabus h1:after{
-  content: '∞';
+  content: '∝';
   display: block;
   margin: 4% auto;
   font-family: 'Funbrella';
   font-size: 300%;
 }
 .ctabus h1{
-  color: #000;
-  opacity: .3;
   display: block;
   margin: 0 auto 2%;
   text-align: center;
