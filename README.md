@@ -14,4 +14,6 @@ node app.js
 
 widgets are in public/widgets
 
-they have a script, css and prefs.
+they have a script.js and cs/style.css.
+
+checkout the imgur widget for an example of how simple it can be..
