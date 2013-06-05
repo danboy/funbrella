@@ -7,9 +7,11 @@ Funbrella.ctabus = Funbrella.WidgetView.extend({
 , prefs: {
     urls: [ 'http://www.ctabustracker.com/bustime/api/v1/getpredictions?key=ET5WjsrDL2XZ9eD9qLVRiWuRq&rt=66&stpid=606']
   , startUrl: 0
-  , xml: true
   , strip: / \(Brown Line\)/g
   , frequency: 30
+}
+, config: {
+  xml: true
 }
 , template: Hogan.compile('<h1>{{{stop}}}</h1><table>{{#busses}}<tr {{#arriving}}class="arriving"{{/arriving}}><td>{{rtdir}} to {{des}}</td><td>{{arrival}}</td></tr>{{/busses}}</dl>')
 , getUrl: function(){

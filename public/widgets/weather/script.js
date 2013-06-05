@@ -3,11 +3,12 @@ var Funbrella = Funbrella || {};
 Funbrella.weather = Funbrella.WidgetView.extend({
   setup: function(){
     this.url = "https://api.forecast.io/forecast/"+this.prefs.key+"/"+this.prefs.location;
+    this.getLocation();
   }
 , prefs: {
-      key: "cdcab8b7f08c89677d0b5053b787bf0a"
-    , location: "41.919932687221504,-87.71064193658447"
-    , frequency: 900
+    key: ""
+  , location: ""
+  , frequency: 900
 }
 , requires: ['key','location']
 , data: function(data, cb){
@@ -32,5 +33,15 @@ Funbrella.weather = Funbrella.WidgetView.extend({
   });
   return data;
 }
+, getLocation: function(cb){
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(this.updatePrefs);
+  } else {
+    // no native support; maybe try a fallback?
+  }
+}
+, updatePrefs: function(position){
+    console.log(position);
+  }
 , template: Hogan.compile('{{#currently}}<h1 class="climacon large {{icon}}"></h1><h2 class="temp">{{temperature}}<small>{{summary}}</small></h2>{{/currently}}{{#minutely}}<h3>{{summary}}</h3>{{/minutely}}<ul class="forecast">{{#daily.data}}<li class="icon"><h2>{{date.weekday_short}}</h2><figure class="climacon {{icon}}"><figcaption>{{temperatureMin}}/<strong>{{temperatureMax}}</strong></figcaption></figure></li>{{/daily.data}}</ul>')
 });

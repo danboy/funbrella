@@ -4,7 +4,9 @@ Funbrella.ltrain = Funbrella.WidgetView.extend({
   prefs: {
     urls: [ 'http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=3654c77e9dcd4acaa89b6e5ded7fbf86&max=5&mapid=40710']
   , frequency: 30
-  , xml: true
+  }
+, config: {
+    xml: true
   }
 , setup: function(){
     this.url = this.getUrl();

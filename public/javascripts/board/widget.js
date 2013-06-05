@@ -11,17 +11,24 @@ Funbrella.WidgetView = Backbone.View.extend({
     this.model = new Funbrella.Widget(options.model)
     this.collection = new Funbrella.Widgets;
     this.prefs = $.extend( this.prefs, options.model.prefs[0]);
-    this.setup();
-    this.doesFetch();
-    this.start();
     this.setDropTarget();
-    this.collection.bind('add', this.doesFetch, this);
+    if(this.hasRequiredPrefs()){
+      this.setup();
+      this.doesFetch();
+      this.start();
+      this.collection.bind('add', this.doesFetch, this);
+    }else{
+      this.render({});
+      this.togglePrefs();
+    };
   }
+, required: []
 , random: function(array){
     position = Math.floor((Math.random()*array.length));
     return array[position];
   }
 , start: function(){
+    this.doesFetch();
     this.timer = setInterval(function(){this.doesFetch();}.bind(this), this.prefs.frequency*1000);
   }
 , stop: function(){
@@ -32,6 +39,7 @@ Funbrella.WidgetView = Backbone.View.extend({
     if(this.doFetch == false){
       this.data('{"data": "no widget."}',function(data){this.render(data)}.bind(this));
     }else{
+      this.render({})
       this.fetch();
     }
   }
@@ -44,7 +52,19 @@ Funbrella.WidgetView = Backbone.View.extend({
   }
 , prefs: {
     frequency: 60
-  , xml: false
+  }
+, config: {
+    xml: false
+  }
+, requires: []
+, hasRequiredPrefs: function(){
+    var hasRequired = true;
+    this.requires.forEach(function(required){
+      if(this.prefs[required] == undefined || this.prefs[required] == ""){
+        hasRequired = false;
+      }
+    }.bind(this));
+    return hasRequired;
   }
 , template: Hogan.compile("<h1>Please add a widget.</h1>")
 , prefsTemplate: Hogan.compile('<form class="prefs">{{#prefs}}<div class="input"><label for="{{name}}">{{name}}</label><input name="{{name}}" data-type="{{type}}" value="{{value}}" /></div>{{/prefs}}<a name="save" class="btn save">save</a></form>')
@@ -52,7 +72,7 @@ Funbrella.WidgetView = Backbone.View.extend({
     var self = this;
     $.ajax(document.location.origin+'/fetch'
       , { type: 'POST'
-      , data: {'url': self.url, xml: self.prefs.xml }
+      , data: {'url': self.url, xml: self.config.xml, Authorization: self.prefs.authKey }
       , success: function(data){
         if(typeof(data) === 'string'){
           self.data(JSON.parse(data), function(data){self.render(data)});
@@ -83,7 +103,7 @@ Funbrella.WidgetView = Backbone.View.extend({
     }.bind(this)})
   }
 , updateWidget: function(widget){
-    this.model.prefs = [{fetch: null}]
+    this.model.unset('prefs');
     this.model.save(widget, {
       success: function(err, r){
         location.reload();
@@ -92,7 +112,7 @@ Funbrella.WidgetView = Backbone.View.extend({
       }});
   }
 , savePrefs: function(){
-    $('.prefs input').each(function(index,input){
+    this.$el.find('.prefs input').each(function(index,input){
       input = $(input);
       if(input.data('type') == 'object'){
         val = input.val().split(',');
@@ -104,7 +124,6 @@ Funbrella.WidgetView = Backbone.View.extend({
       this.prefs[$(input).attr('name')] = val;
     }.bind(this));
     var prefs = this.prefs;
-    delete( prefs['fetch'] )
     this.model.set("prefs", prefs);
     this.model.save(function(err, r){console.log(err,r)});
     this.togglePrefs();
