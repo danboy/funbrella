@@ -7,36 +7,31 @@ Funbrella.Widgets = Backbone.Collection.extend({
 
 Funbrella.WidgetView = Backbone.View.extend({
   initialize: function(options){
-    this.doFetch = true;
     this.model = new Funbrella.Widget(options.model)
     this.collection = new Funbrella.Widgets;
     this.prefs = $.extend( this.prefs, options.model.prefs[0]);
     this.setDropTarget();
     if(this.hasRequiredPrefs()){
       this.setup();
-      this.doesFetch();
+      this.retrieveData();
       this.start();
-      this.collection.bind('add', this.doesFetch, this);
+      this.collection.bind('add', this.retrieveData, this);
     }else{
       this.render({});
-      this.togglePrefs();
+      this.$el.find('.prefs').toggle();
     };
   }
 , required: []
-, random: function(array){
-    position = Math.floor((Math.random()*array.length));
-    return array[position];
-  }
 , start: function(){
-    this.doesFetch();
-    this.timer = setInterval(function(){this.doesFetch();}.bind(this), this.prefs.frequency*1000);
+    this.retrieveData();
+    this.timer = setInterval(function(){this.retrieveData();}.bind(this), this.prefs.frequency*1000);
   }
 , stop: function(){
     clearInterval(this.timer);
     this.timer = false;
   }
-, doesFetch: function(){
-    if(this.doFetch == false){
+, retrieveData: function(){
+    if(this.config.fetch == false){
       this.data('{"data": "no widget."}',function(data){this.render(data)}.bind(this));
     }else{
       this.render({})
@@ -94,8 +89,7 @@ Funbrella.WidgetView = Backbone.View.extend({
   }
 , render: function(data){
     this.$el.html(this.template.render(data));
-    this.$el.append($('<a/>',{text: '\u2217', 'class': 'prefs-button'}))
-    this.getPrefs();
+    this.addWidgetPrefs();
   }
 , setDropTarget: function(){
     this.$el.droppable({drop: function(w){
@@ -111,17 +105,24 @@ Funbrella.WidgetView = Backbone.View.extend({
         location.reload();
       }});
   }
+, typeofPref: {
+    object: function(input){
+      return input.val().split(',');
+    }
+  , boolean: function(input){
+      return (input.val() == "true") ? true : false;
+    }
+  , string: function(input){
+      return input.val();
+    }
+  , number: function(input){
+      return parseInt(input.val());
+    }
+  }
 , savePrefs: function(){
     this.$el.find('.prefs input').each(function(index,input){
-      input = $(input);
-      if(input.data('type') == 'object'){
-        val = input.val().split(',');
-      }else if(input.data('type') == 'boolean'){
-        val = (input.val() == "true") ? true : false;
-      }else{
-        val = input.val();
-      }
-      this.prefs[$(input).attr('name')] = val;
+      var input = $(input);
+      this.prefs[$(input).attr('name')] = this.typeofPref[input.data('type')](input);
     }.bind(this));
     var prefs = this.prefs;
     this.model.set("prefs", prefs);
@@ -132,7 +133,7 @@ Funbrella.WidgetView = Backbone.View.extend({
   this.$el.find('.prefs').toggle();
   this.timer ? this.stop() : this.start();
 }
-, getPrefs: function(){
+, addWidgetPrefs: function(){
     var prefs = [];
     for( var pref in this.prefs ){
       if( pref == 'fetch'){
@@ -142,5 +143,10 @@ Funbrella.WidgetView = Backbone.View.extend({
       }
     }
     this.$el.append(this.prefsTemplate.render({prefs: prefs}));
+    this.$el.append($('<a/>',{text: '\u2217', 'class': 'prefs-button'}))
+  }
+, random: function(array){
+    position = Math.floor((Math.random()*array.length));
+    return array[position];
   }
 });

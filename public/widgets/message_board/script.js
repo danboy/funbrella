@@ -1,8 +1,8 @@
 var Funbrella = Funbrella || {};
 
 Funbrella.messageBoard = Funbrella.WidgetView.extend({
-  prefs: {
-    frequency: 300
+  config: {
+    fetch: false
   }
 , template: Hogan.compile('<h1 class="clock">{{time}}</h1><ul class="message-list">{{#messages}}<li class="{{type}}">{{#sender}}<strong>{{sender}}:</strong> {{/sender}}{{{content}}}</li>{{/messages}}</ul>')
 , send: function(message){
