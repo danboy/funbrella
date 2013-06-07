@@ -1,4 +1,5 @@
 var Widget = require('../models/widget.js')
+  , Templates = require('../lib/widgets.js');
 
 String.prototype.toCamel = function(){
     return this.replace(/(\_[a-z])/g, function($1){return $1.toUpperCase().replace('_','');});

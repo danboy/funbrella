@@ -215,11 +215,26 @@ menu {
   display: block;
   margin: 10px auto;
   width: 24vw;
-  height: 20vh;
+  height: 15vh;
+}
+#message label {
+  font-size: 75%;
+  width: auto;
+  margin-left: 10px;
+}
+#message input {
+  margin: 0 5px;
+  display: inline-block;
+  width: 20px;
 }
 #message .btn {
-  float: right;
-  margin: 10px 20px 10px;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background: #999;
+  border: 1px #333 solid;
+  color: #333;
+  padding: 0 5px;
 }
 #message:hover {
   opacity: 1;

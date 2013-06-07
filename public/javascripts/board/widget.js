@@ -15,11 +15,11 @@ Funbrella.WidgetView = Backbone.View.extend({
       this.setup();
       this.retrieveData();
       this.start();
-      this.collection.bind('add', this.retrieveData, this);
     }else{
       this.render({});
       this.$el.find('.prefs').toggle();
     };
+    this.collection.bind('add', this.retrieveData, this);
   }
 , required: []
 , start: function(){

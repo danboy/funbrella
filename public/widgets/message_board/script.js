@@ -6,7 +6,8 @@ Funbrella.messageBoard = Funbrella.WidgetView.extend({
   }
 , template: Hogan.compile('<h1 class="clock">{{time}}</h1><ul class="message-list">{{#messages}}<li class="{{type}}">{{#sender}}<strong>{{sender}}:</strong> {{/sender}}{{{content}}}</li>{{/messages}}</ul>')
 , send: function(message){
-    message.timestamp = new Date();
+    var stick = message.stickFor || 0;
+    message.timestamp = this.stickyFor(new Date(),stick);
     var m = this.collection.push(message);
   }
 , setup: function(){
@@ -19,6 +20,9 @@ Funbrella.messageBoard = Funbrella.WidgetView.extend({
 , data: function(data, cb){
     this.collection.sort();
     cb({time: this.getTime(), messages: this.collection.toJSON()});
+  }
+, stickyFor: function(date, minutes) {
+    return new Date(date.getTime() + minutes*60000);
   }
 , getTime: function(time){
     var time = time || new Date()
@@ -40,11 +44,11 @@ Funbrella.messageBoard = Funbrella.WidgetView.extend({
       time = time + date.getSeconds().toString().fatten();
     return time;
   }
-, messageTemplate: Hogan.compile('<div id="message"><textarea placeholder="send a message."></textarea><a class="send btn">send</a></div>')
+, messageTemplate: Hogan.compile('<div id="message"><textarea placeholder="send a message."></textarea><div><label for="sticky">Stick for</label><input name="sticky" value="0"></div><a class="send btn">send</a></div>')
 , addMessageForm: function(){
     $('body').append(this.messageTemplate.render());
     $('#message .send').click(function(){
-      sock.socket.send(JSON.stringify({ content: $('#message textarea').val() }));
+      sock.socket.send(JSON.stringify({ content: $('#message textarea').val(), stickFor: $('#message input[name=sticky]').val() }));
       $('#message textarea').val('')
     });
   }
