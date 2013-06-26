@@ -6,6 +6,7 @@ var mongoose = require('mongoose')
     , _board: { type: Number, ref: 'Board' }
     , name: { type: String }
     , script: { type: String }
+    , enabled: { type: Boolean }
     , template: { type: String}
     , prefs: []
     , current_status: { type: Number, default: 0}

@@ -54,10 +54,10 @@ module.exports = {
     });
   }
 , create: function(req, res){
-    widget = new Widget(templates[name]);
+    widget = new Widget(req.body);
     widget.save(function(err,w){
-      if(err){res.send(err)}
-      res.send(w);
+      if(err){res.json(500, {errors: err})}
+      res.json(200, w);
     })
   }
 , update: function(req, res){
@@ -66,7 +66,7 @@ module.exports = {
     Widget.update({_id: id },{$unset: {prefs: 1}}, function(err,wi){
       Widget.update({_id: id },{$set: req.body}, function(er,w){
         if(er){res.send(er)}
-        res.send(w);
+        res.send(200, req.body);
       })
     })
   }

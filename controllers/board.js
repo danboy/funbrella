@@ -14,19 +14,22 @@ module.exports = {
   }
 
 , show: function(req, res){
-    Board.findOne({name: req.params.id.toString() }).populate('widgets').exec( function(err, board){
+    Board.findOne({name: req.params.id.toString() }).populate('widgets').populate('watchers').exec( function(err, board){
       if(!board){
         res.redirect('/')
         return
       }
-        WidgetTemplates.getAll(function(w){
-          console.log('WIDGETS',w);
+        WidgetTemplates.getAll(function(widgets, watchers){
           res.format({
             html: function(){
+              var boardView = "var board = new Funbrella.BoardView({ board: '"+ board.name + "', el: '#board' });";
+              var settingsView = "var settings = new Funbrella.SettingsView({watchers: "+JSON.stringify(watchers)+", collection: "+JSON.stringify(board.watchers)+", el: '#watchers', board: '"+JSON.stringify(board)+"'})";
               res.render('layout',  { values: { error: err
                                               , board: board
-                                              , allWidgets: w
-                                              , script: "var board = new Funbrella.BoardView({ board: '"+ board.name + "', el: '#board' });"
+                                              , templates: nap.jst('templates')
+                                              , allWidgets: widgets
+                                              , allWatchers: watchers
+                                              , script: boardView+settingsView
                                               }
                                   , partials: { content: '{{>boards/show}}' }});
             }
@@ -59,6 +62,16 @@ module.exports = {
         });
       });
     });
+  }
+, update: function(req, res){
+    var id = req.body._id;
+    delete(req.body._id)
+    Board.update({_id: id },{$unset: {watchers: 1, widgets: 1}}, function(err,wi){
+      Board.update({_id: id },{$set: req.body}, function(er,w){
+        if(er){res.send(500, {errors: er})}
+        res.send(w);
+      })
+    })
   }
 , message: function(req, res){
     Board.find(function(err, boards){

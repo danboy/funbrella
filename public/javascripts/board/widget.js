@@ -76,7 +76,7 @@ Funbrella.WidgetView = Backbone.View.extend({
         }
       }
       , error: function(e){
-        console.log('WIDGET.js ERROR', self.url, e);
+        console.log('WIDGET.js fetch ERROR', self.url, e);
       }
     });
   }
@@ -88,7 +88,9 @@ Funbrella.WidgetView = Backbone.View.extend({
     }
   }
 , render: function(data){
-    this.$el.html(this.template.render(data));
+    this.unbind();
+    var html = this.template.render(data);
+    this.$el.html(html);
     this.addWidgetPrefs();
   }
 , setDropTarget: function(){
@@ -97,11 +99,13 @@ Funbrella.WidgetView = Backbone.View.extend({
     }.bind(this)})
   }
 , updateWidget: function(widget){
+    this.model.set('id', this.model.get('_id'))
     this.model.unset('prefs');
     this.model.save(widget, {
       success: function(err, r){
         location.reload();
       }, error: function(m,e,o){
+        console.log('ERROR',e);
         location.reload();
       }});
   }
@@ -126,8 +130,17 @@ Funbrella.WidgetView = Backbone.View.extend({
     }.bind(this));
     var prefs = this.prefs;
     this.model.set("prefs", prefs);
-    this.model.save(function(err, r){console.log(err,r)});
-    this.togglePrefs();
+    this.model.set("id", this.model.get("_id"));
+    this.model.save(this.model.toJSON(),{
+      error:    function(err, r){
+                  console.log('Prefs Save ERROR:',err,r)
+                  this.togglePrefs();
+                }
+    , success:  function(){
+                  console.log(this.togglePrefs);
+                }
+
+    });
   }
 , togglePrefs: function(){
   this.$el.find('.prefs').toggle();

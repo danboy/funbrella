@@ -1,16 +1,20 @@
 {
   "name": "funbrella",
-  "version": "0.0.2-10",
+  "version": "0.0.2-11",
   "private": true,
   "main": "index.html",
   "dependencies": {
+    "walk": "*",
     "express": "3.1.0",
+    "hogan.js": "*",
     "h4e": "*",
+    "nap": "*",
     "stylus": "*",
     "sockjs": "*",
     "request": "*",
     "xml2json": "*",
     "mongoose": "*",
+    "connect-mongo": "*",
     "everyauth": "*"
   },
   "subdomain": "funbrella",

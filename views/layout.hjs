@@ -3,11 +3,11 @@
   <head>
     <title>{{ title }}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel='stylesheet' href='/widgets/news/css/style.css' />
 
   </head>
   <body>
     {{>content}}
+    {{{templates}}}
     <script src="/speakClient.js" type="text/javascript"></script>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
@@ -17,13 +17,13 @@
     <script src="/javascripts/lib/backbone-min.js"></script>
     <script src="/javascripts/board/widget.js"></script>
     <script src="/javascripts/board/watcher.js"></script>
+    <script src="/javascripts/board/settings.js"></script>
     <script src="/javascripts/board/view.js"></script>
     <script src="/widgets/news/watcher.js"></script>
     <script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
     <script type="text/javascript">
       {{{script}}}
       var sock = new Socket( '/board/{{board.name}}', function(message){Funbrella.Messages.send(message)} );
-      var news = new Funbrella.Watch.News({model: {params: []}});
     </script>
     <div id="audio"></div>
   </body>

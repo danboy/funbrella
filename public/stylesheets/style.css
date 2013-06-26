@@ -17,7 +17,7 @@ body {
   font-weight: 100;
   font-size: 3vh;
   scroll: none !important;
-  background: #999;
+  background: #fff;
 }
 a {
   color: #666;
@@ -68,20 +68,20 @@ menu {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   vertical-align: top;
-  background: #eee;
+  background: #fff;
   color: #555;
   overflow: hidden;
-  border: 2px solid #666;
+  border: 2px solid #fff;
 }
 .widget:first-child {
   width: 50%;
   min-height: 100vh;
   max-height: 100vh;
-  background: #eee;
+  background: #fff;
   color: #777;
 }
 .widget:nth-child(5n+2) {
-  background: #bbb;
+  background: #e9e9e9;
   color: #444;
   border-left: 0 none;
   border-right: 0 none;
@@ -93,13 +93,13 @@ menu {
   border-bottom: 0 none;
 }
 .widget:nth-child(5n+4) {
-  background: #ddd;
+  background: #e3e3e3;
   color: #555;
   border-left: 0 none;
   border-right: 0 none;
 }
 .widget:nth-child(5n+5) {
-  background: #ccc;
+  background: #efefef;
   color: #777;
 }
 .widget .prefs-button {
@@ -165,7 +165,7 @@ menu {
   overflow: hidden;
   text-align: center;
   background: #fff;
-  border: 2px solid #666;
+  border: 2px solid #fff;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -178,7 +178,7 @@ menu {
   width: 18vh;
   height: 18vh;
   text-align: center;
-  border: 2px solid #666;
+  border: 2px solid #fff;
   font-size: 70%;
 }
 #available-widgets li:hover {
@@ -208,7 +208,7 @@ menu {
   bottom: 0;
   left: 50%;
   margin-left: -12%;
-  border: 2px solid #666;
+  border: 2px solid #fff;
   -webkit-transition: opacity 2s;
 }
 #message textarea {
@@ -252,4 +252,56 @@ menu {
 .widget-view .widget {
   width: 100vw;
   min-height: 100vh;
+}
+#watchers {
+  display: none;
+}
+#watchers.watcher-show {
+  display: block;
+  z-index: 999999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #333;
+  opacity: 0.9;
+}
+.watcher-settings,
+.settings-board {
+  width: 70vw;
+  height: 70vh;
+  margin: 2.5vh 2.5vw;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.settings-board-widget {
+  height: 35vh;
+  float: left;
+  width: 25%;
+  border: 2px solid #000;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.settings-board-widget:first-child {
+  width: 50%;
+  height: 70vh;
+  border-right: none;
+}
+.settings-list {
+  margin: 0;
+  padding: 0;
+}
+.settings-list-item {
+  background: #fff;
+  border-bottom: 4px solid #333;
+  padding: 1%;
+  width: 100%;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.settings-list-item h1 {
+  font-size: 130%;
+  margin: 0;
 }

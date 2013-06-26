@@ -1,3 +1,4 @@
+<div id="watchers"></div>
 <ul id="available-widgets">
   {{#allWidgets}}
     <li class="widget-item" data-widget='{ "name": "{{name}}", "script": "{{script}}" }'>{{name}}</li>

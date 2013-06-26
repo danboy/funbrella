@@ -1,5 +1,5 @@
 Funbrella.Watch = Funbrella.Watch || {};
-Funbrella.Watch.News = Funbrella.Watcher.extend({
+Funbrella.Watch.news = Funbrella.Watcher.extend({
   options: {
       category: 25
     , categories: [36, 25, 10, 16, 8, 31, 13, 22, 1168, 11, 14, 28, 20, 29, 34, 30, 26, 19]

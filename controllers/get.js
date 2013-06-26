@@ -7,7 +7,6 @@ var Get = {
       url: req.body.url
     , headers: req.params.data
       },function(err,resp,body){
-        console.log('XML', req.body.xml, typeof(req.body.xml))
         if(req.body.xml == 'true'){
           res.send(parser.toJson(body,{arrayNotation: true, sanitize: false}));
         }else{

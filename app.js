@@ -1,11 +1,15 @@
 var express     = require('express')
+  , everyauth   = require('everyauth')
   , controllers = require('./lib/controllers')
   , http        = require('http')
+  , MongoStore = require('connect-mongo')(express)
   , h4e         = require('h4e')
   , path        = require('path')
   , mongoose    = require('mongoose')
   , app         = express()
   , server      = http.createServer(app);
+
+global.nap = require('nap');
 
 app.configure('production', function(){
   app.db = 'mongodb://funbrella:koCbUkLM5@dharma.mongohq.com:10064/funbrella'
@@ -47,7 +51,15 @@ global.server = server;
 app.configure('development', function(){
   app.use(express.errorHandler());
 });
-
+nap({
+  assets: {
+    jst: {
+      templates: [
+        '/public/javascripts/templates/*'
+      ]
+    }
+  }
+})
 require('./lib/routes')(app, controllers)
 
 server.listen(app.get('port'), function(){

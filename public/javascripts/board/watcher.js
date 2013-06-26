@@ -5,7 +5,7 @@ Funbrella.Watcher = Backbone.View.extend({
     this.options = $.extend( this.options, options.model.params);
     this.setup();
     this.fetch();
-    setInterval(function(){this.fetch();}.bind(this), this.options.frequency*1000);
+    this.start();
   }
 , setup: function(){
   return true;
@@ -14,7 +14,12 @@ Funbrella.Watcher = Backbone.View.extend({
     frequency: 10
   }
 , template: Hogan.compile("<h1>{{data}}</h1>")
-
+, start: function(){
+    this.timer = setInterval(function(){this.fetch();}.bind(this), this.options.frequency*1000);
+  }
+, stop: function(){
+    clearInterval(this.timer);
+  }
 , fetch: function(){
     var self = this;
     if(this.options.fetch == false){
@@ -39,3 +44,4 @@ Funbrella.Watcher = Backbone.View.extend({
     Funbrella.Messages.send(data);
   }
 });
+

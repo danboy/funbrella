@@ -1,0 +1,35 @@
+.nytimes{
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.nytimes img{
+  height: 120%;
+  margin: -25% 0 0 -25%;
+}
+.nytimes h1{
+  color: #FFF;
+  margin: 0;
+  padding: 0 5%;
+  background: #000;
+  opacity: .8;
+  display: inline;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+  font-size: 100%;
+}
+.nytimes p{
+  color: #FFF;
+  margin: 0;
+  padding: .5%;
+  background: #000;
+  opacity: .8;
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: left;
+  font-size: 60%;
+}

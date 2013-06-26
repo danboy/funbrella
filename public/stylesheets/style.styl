@@ -1,12 +1,18 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:300,100,100italic,300italic,900,900italic);
-border-color = #666;
+border-color = #FFF;
 border-width = 2px;
 border-active = #38c0f4;
 
-background-one = #BBB;
+background =  #F60;
+background-one = #00F;
+background-two = #800080;
+background-three = #D40000;
+background-four = #FF0;
+
+background-one = #E9E9E9;
 background-two = #EEE;
-background-three = #DDD;
-background-four = #CCC;
+background-three = #E3E3E3;
+background-four = #EFEFEF;
 @font-face {
   font-family: 'Climacons-Font';
   src:url('fonts/climacons-webfont.eot');
@@ -29,7 +35,7 @@ body{
   font-weight: 100;
   font-size: 3vh;
   scroll: none !important;
-  background: #999;
+  background: #FFF;
 }
 a{
   color: #666
@@ -78,7 +84,7 @@ menu{
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   vertical-align: top;
-  background: #EEE;
+  background: #FFF;
   color: #555;
   overflow: hidden;
   border: border-width solid border-color;
@@ -86,7 +92,7 @@ menu{
     width: 50%;
     min-height: 100%vh;
     max-height: 100%vh;
-    background: #EEE;
+    background: #FFF;
     color: #777;
   }
   &:nth-child(5n+2){
@@ -264,4 +270,57 @@ menu{
 .widget-view .widget{
   width: 100%vw;
   min-height: 100%vh;
+}
+#watchers{
+  display: none;
+}
+#watchers.watcher-show{
+  display: block;
+  z-index: 999999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #333;
+  opacity: .9;
+}
+.watcher-settings{}
+
+.settings-board{
+  width: 70vw;
+  height: 70vh;
+  margin: 2.5vh 2.5vw;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.settings-board-widget{
+  height: 35vh;
+  float: left;
+  width: 25%;
+  border: 2px solid #000;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.settings-board-widget:first-child{
+  width: 50%;
+  height: 70vh;
+  border-right: none;
+}
+.settings-list{
+  margin: 0;
+  padding: 0;
+}
+.settings-list-item{
+  background: #FFF;
+  border-bottom: 4px solid #333;
+  padding: 1%;
+  width: 100%;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  h1{
+    font-size: 130%;
+    margin: 0;
+  }
 }
