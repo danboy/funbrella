@@ -10,7 +10,7 @@ Funbrella.messageBoard = Funbrella.WidgetView.extend({
     message.timestamp = this.stickyFor(new Date(),stick);
     var m = this.collection.push(message);
   }
-, setup: function(){
+, init: function(){
     this.doFetch = false;
     this.collection.comparator = function(message){
       return -message.get('timestamp').getTime();

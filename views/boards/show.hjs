@@ -1,9 +1,6 @@
-<div id="watchers"></div>
-<ul id="available-widgets">
-  {{#allWidgets}}
-    <li class="widget-item" data-widget='{ "name": "{{name}}", "script": "{{script}}" }'>{{name}}</li>
-  {{/allWidgets}}
-</ul>
+{{#board.widgets}}
+  <link rel="stylesheet" href="/widgets/{{name}}/css/style.css" />
+{{/board.widgets}}
 {{#error}}
   <p>{{error}}</p>
 {{/error}}
@@ -15,9 +12,6 @@
       </div>
     {{/widgets}}
   </div>
-  {{#widgets}}
-    <link rel="stylesheet" href="/widgets/{{name}}/css/style.css" />
-  {{/widgets}}
 {{/board}}
 {{^board}}
   <p class="error">No board found with id {{socket}}.</p>

@@ -7,7 +7,7 @@ Funbrella.imgur = Funbrella.WidgetView.extend({
 
   },
   template: Hogan.compile('<div class="imgur"><h1>{{title}}</h1><img src="http://i.imgur.com/{{hash}}{{ext}}" class="{{scale}}" /></div>')
-, setup: function(){
+, init: function(){
     this.url = "http://imgur.com/gallery/top/all.json"
   }
 , data: function(data, cb){

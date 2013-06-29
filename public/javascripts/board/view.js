@@ -28,29 +28,18 @@ Funbrella.BoardView = Backbone.View.extend({
     this.collection.fetch({ success: function(){
       this.render();
     }.bind(this)});
-    $('#available-widgets li').draggable({
-      helper:'clone',
-      appendTo: 'body'
-    });
   }
-, template:   Hogan.compile('{{#board}}{{#widgets}}<div class="widget {{name}}" id="{{_id}}">loading... it up...</div>{{/widgets}}{{/board}}')
+, template:   Hogan.compile('{{#board}}{{#widgets}}<div class="widget {{name}}" id="{{_id}}">loading {{name}}...</div>{{/widgets}}{{/board}}')
 , render:     function(){
     var template = this.template.render({ board: this.collection.toJSON() });
     this.$el.html(template);
     this.runScript();
   }
 , runScript: function(){
-    this.collection.toJSON()[0].widgets.forEach(function(widget,i){
+    this.collection.at(0).toJSON().widgets.forEach(function(widget,i){
       Funbrella.addEl('script', '/widgets/'+widget.name+'/script.js'
     , function(err){
-        if(widget.script === 'messageBoard'){
-          Funbrella.Messages = new Funbrella[widget.script]({ model: widget , el: '#'+widget._id });
-        }else if(!err){
-          var w = new Funbrella[widget.script]({ model: widget , el: '#'+widget._id });
-        }else{
-          widget.prefs = [{fetch: false}];
-          var s = new Funbrella.WidgetView({ el: '#'+widget._id, model: widget});
-        }
+        var w = new Funbrella[widget.script]({ model: widget , el: '#'+widget._id });
       }.bind(this));
     }.bind(this));
   }

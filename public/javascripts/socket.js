@@ -2,19 +2,20 @@ var Socket = function(socket, send){
   this.socketpath = socket;
   this.socket = new SockJS(socket);
   this.send = send;
-  this.open();
+  this.open(this.socket, this.send);
 }
 
 Socket.prototype = {
-  open: function(){
+  open: function(socket, send){
     self = this;
-    this.socket.onmessage = function(message){
+    socket.onmessage = function(message){
       self.routeMessage(JSON.parse(message.data));
     }
-    this.socket.onclose = function(){
-      console.log('SOCK CLOSED',self.socketpath);
+    socket.onclose = function(e){
+      console.log('SOCK CLOSED',self.socketpath, e);
       setTimeout(function(){
-        self.socket = new SockJS(self.socketpath)
+        self.socket = new SockJS(self.socketpath);
+        window.socket = self.socket
         self.open(self.socket, self.send);
       },5000);
     }

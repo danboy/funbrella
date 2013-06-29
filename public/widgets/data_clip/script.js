@@ -8,7 +8,7 @@ Funbrella.dataClip = Funbrella.WidgetView.extend({
   }
 , requires: ['title', 'url']
 , template: Hogan.compile('<h1>{{title}}</h1><table>{{#d}}<tr><td>{{name}}</td><td>{{value}}</td></tr>{{/d}}</table>')
-, setup: function(){
+, init: function(){
     this.url = this.prefs.url;
   }
 , data: function(data, cb){

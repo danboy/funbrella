@@ -5,7 +5,7 @@ Funbrella.espnnews = Funbrella.WidgetView.extend({
     frequency: 20
   }
 , template: Hogan.compile('{{#img}}<img src="{{img}}" />{{/img}}<h1>{{{headline}}}</h1><p>{{{description}}}</p>')
-, setup: function(){
+, init: function(){
     this.url = "http://api.espn.com/v1/now/top?apikey=64dq8h6m5wdsjyn4p6fnnm7n"
   }
 , data: function(data, cb){

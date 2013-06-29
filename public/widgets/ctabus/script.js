@@ -1,7 +1,7 @@
 var Funbrella = Funbrella || {};
 
 Funbrella.ctabus = Funbrella.WidgetView.extend({
-  setup: function(){
+  init: function(){
     this.url = this.getUrl();
   }
 , prefs: {

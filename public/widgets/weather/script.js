@@ -1,7 +1,7 @@
 var Funbrella = Funbrella || {};
 
 Funbrella.weather = Funbrella.WidgetView.extend({
-  setup: function(){
+  init: function(){
     this.url = "https://api.forecast.io/forecast/"+this.prefs.key+"/"+this.prefs.location;
   }
 , prefs: {

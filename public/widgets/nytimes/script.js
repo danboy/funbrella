@@ -7,7 +7,7 @@ Funbrella.nytimes = Funbrella.WidgetView.extend({
   }
 , requires: ['key']
 , template: Hogan.compile('{{#img}}<img src="{{img}}" />{{/img}}<h1>{{{title}}}</h1><p>{{{abstract}}}</p>')
-, setup: function(){
+, init: function(){
     this.url = "http://api.nytimes.com/svc/mostpopular/v2/mostviewed/all-sections/1.json?api-key="+this.prefs.key;
   }
 , data: function(data, cb){

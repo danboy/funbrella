@@ -16,10 +16,10 @@ Funbrella.semaphore = Funbrella.WidgetView.extend({
     this.prefs.url = (this.prefs.url < this.prefs.urls.length-1) ? this.prefs.url+1 : 0;
     this.url = 'https://semaphoreapp.com/api/v1/projects/'+this.prefs.urls[this.prefs.url]+'/status?auth_token='+this.prefs.token;
   }
-, setup: function(){
+, init: function(){
     this.getUrl();
   }
-, template: Hogan.compile('<a name="ring" class="{{result}} ring"/><h1>{{project_name}}: <strong class="{{result}}">{{branch_name}}</strong></h1>{{#commit}}<h3>{{author_name}}</h3><p>{{message}}</p>{{/commit}}')
+, template: Hogan.compile('<div><a name="ring" class="{{result}} ring"/><h1>{{project_name}}: <strong class="{{result}}">{{branch_name}}</strong></h1>{{#commit}}<h3>{{author_name}}</h3><p>{{message}}</p>{{/commit}}</div>')
 , alertStatusChange: function(data){
     var result = data.result
       , project = data.project_name+data.branch_name;

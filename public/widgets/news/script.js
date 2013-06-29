@@ -11,7 +11,7 @@ Funbrella.news = Funbrella.WidgetView.extend({
     , frequency: 30
     , randomize: true
   }
-, setup: function(){
+, init: function(){
     this.buildUrl();
   }
 , data: function(data, cb){

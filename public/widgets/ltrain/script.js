@@ -8,7 +8,7 @@ Funbrella.ltrain = Funbrella.WidgetView.extend({
 , config: {
     xml: true
   }
-, setup: function(){
+, init: function(){
     this.url = this.getUrl();
   }
 , template: Hogan.compile('<h1>{{{name}}}</h1><table>{{#trains}}<tr class="{{rt}}"><td>{{stpDe}}</td><td>{{arrival}}</td></tr>{{/trains}}</dl>')
