@@ -9,10 +9,13 @@ Funbrella.WidgetView = Backbone.View.extend({
   initialize: function(options){
     this.model = new Funbrella.Widget(options.model)
     this.collection = new Funbrella.Widgets;
-    this.prefs = $.extend( this.prefs, options.model.prefs[0]);
+    this.prefs = $.extend( this.prefs, this.getArray(options.model));
     this.init();
     this.start();
     this.collection.bind('add', this.retrieveData, this);
+  }
+, getArray: function(object){
+  return object.prefs
   }
 , required: []
 , start: function(){

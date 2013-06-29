@@ -53,6 +53,11 @@ app.configure('development', function(){
 });
 nap({
   assets: {
+    js: {
+      scripts: [
+        '/public/coffeescripts/**/*',
+      ]
+    },
     jst: {
       templates: [
         '/public/javascripts/templates/*'

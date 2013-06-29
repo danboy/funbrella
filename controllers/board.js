@@ -27,6 +27,7 @@ module.exports = {
               res.render('layout',  { values: { error: err
                                               , board: board
                                               , templates: nap.jst('templates')
+                                              , scripts: nap.js('scripts')
                                               , allWidgets: widgets
                                               , allWatchers: watchers
                                               , script: boardView+settingsView

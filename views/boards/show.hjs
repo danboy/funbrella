@@ -6,6 +6,7 @@
 {{/error}}
 {{#board}}
   <div id="board">
+      <div class="message-board" id="message-board"></div>
     {{#widgets}}
       <div class="widget {{name}}" id="widget-{{name}}">
         loading...

@@ -18,8 +18,7 @@
     <script src="/javascripts/board/widget.js"></script>
     <script src="/javascripts/board/watcher.js"></script>
     <script src="/javascripts/board/settings.js"></script>
-    <script src="/javascripts/board/view.js"></script>
-    <script src="/widgets/news/watcher.js"></script>
+    {{{scripts}}}
     <script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
     <script type="text/javascript">
       {{{script}}}

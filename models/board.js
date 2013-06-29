@@ -7,6 +7,7 @@ var mongoose = require('mongoose')
     , name: {type: String, unique: true }
     , widgets: [{ type: Schema.Types.ObjectId, ref: 'Widget' }]
     , watchers: [{ type: Schema.Types.ObjectId, ref: 'Widget' }]
+    , prefs: []
     , current_status: { type: Number, default: 0}
   });
 
