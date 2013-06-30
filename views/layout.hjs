@@ -15,6 +15,7 @@
     <script src="/javascripts/socket.js"></script>
     <script src="/javascripts/lib/underscore-min.js"></script>
     <script src="/javascripts/lib/backbone-min.js"></script>
+    <script src="/javascripts/lib/jquery.cookie.js"></script>
     <script src="/javascripts/board/widget.js"></script>
     <script src="/javascripts/board/watcher.js"></script>
     <script src="/javascripts/board/settings.js"></script>

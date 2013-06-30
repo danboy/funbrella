@@ -23,7 +23,7 @@ module.exports = {
           res.format({
             html: function(){
               var boardView = "var board = new Funbrella.BoardView({ board: '"+ board.name + "', el: '#board' });";
-              var settingsView = "var settings = new Funbrella.SettingsView({watchers: "+JSON.stringify(watchers)+", collection: "+JSON.stringify(board.watchers)+", el: '#watchers', board: '"+JSON.stringify(board)+"'})";
+              var settingsView = "var settings = new Funbrella.SettingsView({watchers: "+JSON.stringify(watchers)+", widgets: "+ JSON.stringify(widgets)+", collection: "+JSON.stringify(board)+", el: '#settings', board: '"+JSON.stringify(board)+"'})";
               res.render('layout',  { values: { error: err
                                               , board: board
                                               , templates: nap.jst('templates')

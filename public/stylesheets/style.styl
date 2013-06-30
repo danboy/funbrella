@@ -129,15 +129,6 @@ menu{
     background: background-four;
     color: #777;
   }
-  .prefs-button{
-    font-family: 'Funbrella';
-    display: none;
-    position: absolute;
-    top: 10%;
-    right: 10px;
-    opacity: .5;
-    font-size: 150%;
-  }
   &:hover .prefs-button{
     display: inline-block;
   }
@@ -157,17 +148,23 @@ menu{
     }
   }
 }
-.widget-prefs{
-  display: none;
-  margin: 2%;
-  padding: 2%;
+.settings-menu{
+  font-family: 'Funbrella';
   position: absolute;
-  top: 2%;
-  background: #EEE;
-  border: 4px solid #CCC;
-  margin: 0 auto;
-  min-width: 92%;
-  -webkit-box-sizing: border-box;
+  top: 0;
+  left:0;
+  width: 10vh;
+  height: auto;
+  z-index: 9999;
+  background: #333;
+  color: #fff;
+  font-size: 300%;
+  line-height: 10vh;
+  text-align: center;
+  opacity: 0;
+}
+.settings-menu:hover{
+  opacity: 1;
 }
 .message-list{
   margin: 0;
@@ -184,51 +181,6 @@ menu{
     border-bottom: 4px solid #EEE;
     padding: .5em;
   }
-}
-#available-widgets{
-  width: 10vw;
-  margin: 0 auto;
-  padding: 0;
-  position: absolute;
-  top: 0;
-  height: 2%vh;
-  opacity: 0;
-  z-index: 2;
-  overflow: hidden;
-  text-align: center;
-  background: #fff;
-  border: border-width solid border-color;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  vertical-align: top;
-  padding: 1%;
-  li{
-    position: relative;
-    display: inline-block;
-    width: 18vh;
-    height: 18vh;
-    text-align: center;
-    border: border-width solid border-color;
-    font-size: 70%;
-    &:hover{
-      border-color: border-active;
-      color: border-active;
-    }
-  }
-}
-.widget-item{
-  width: 18vh;
-  height: 18vh;
-  text-align: center;
-  border: border-width solid border-active;
-  background: #fff;
-  opacityt: .7;
-}
-#available-widgets:hover{
-  width: 100vw;
-  opacity: 1;
-  height: auto;
 }
 #message{
   opacity: 0;
@@ -299,42 +251,115 @@ menu{
   background: #333;
   opacity: .9;
 }
-.watcher-settings{}
 
+#settings{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #333;
+  color: #EEE;
+  opacity: .8;
+}
 .settings-board{
-  width: 70vw;
-  height: 70vh;
-  margin: 2.5vh 2.5vw;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
-.settings-board-widget{
-  height: 35vh;
+.settings-item{
+  display: block;
   float: left;
-  width: 25%;
-  border: 2px solid #000;
+}
+.settings-message-board{
+  width: 50vw;
+  height: 100vh;
+}
+.settings-widget{
+  width: 25vw;
+  height: 50vh;
+  &:nth-child(5n+2){
+    background: #444;
+  }
+  &:nth-child(5n+3){
+    background: #222;
+  }
+  &:nth-child(5n+4){
+    background: #343434;
+  }
+}
+.settings-widget h1{
+  text-align: center;
+}
+.button{
+  display: inline-block;
+  width: auto;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 0 0 .5%;
+  background: #666;
+  text-align: center;
+  color: #999;
+  font-weight: bold;
+  border: 1px solid #555;
+  border-radius: 3px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
-.settings-board-widget:first-child{
-  width: 50%;
-  height: 70vh;
-  border-right: none;
+.button.enabled{
+  padding: 0 0 0 .5%;
+}
+.button:after{
+  display: inline-block;
+  content: 'off'
+  padding: 0 1%;
+  margin: 0 0 0 3px;
+  background: #900;
+  width: 30px;
+  height: 28px;
+  border-radius: 3px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.button.enabled:after{
+  content: '';
+  display: none;
+}
+.button.enabled:before{
+  display: inline-block;
+  content: 'on'
+  padding: 0 1%;
+  margin: 0 0 0 3px;
+  background: #8A0;
+  color: #FFF;
+  width: 30px;
+  height: 28px;
+  border-radius: 3px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.widget-list{
+  margin: 0;
+  padding: 0;
+  height: 25vh;
+  overflow: auto;
+}
+.widget-list-item{
+  margin: 1%;
+  display: block;
+  float: left;
+  background: #000;
+  width: 14%;
+  height: 14vh;
+  font-size: 40%;
+  text-align: center;
+  color: #fff;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
 }
 .settings-list{
   margin: 0;
   padding: 0;
-}
-.settings-list-item{
-  background: #FFF;
-  border-bottom: 4px solid #333;
-  padding: 1%;
-  width: 100%;
-  margin: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  h1{
-    font-size: 130%;
-    margin: 0;
-  }
+  height: 75vh;
+  overflow: auto;
 }

@@ -1,0 +1,24 @@
+<div class="settings-board">
+  <div class="settings-message-board settings-item">
+    <ul class="widget-list">
+      {{#widgets}}
+      <li class="widget-list-item" data-widget='{"name":"{{name}}", "script": "{{script}}"}'>
+          <h1>{{name}}</h1>
+        </li>
+      {{/widgets}}
+    </ul>
+    <ul class="settings-list">
+      {{#watchers}}
+      <li class="watcher settings-list-item">
+        <h1>{{name}}</h1>
+        <a class="button" data-watcher='{"name": "{{name}}", "script": "{{script}}", "enabled": {{#enabled}}true{{/enabled}}{{^enabled}}false{{/enabled}}}' name="{{name}}">{{#enabled}}off{{/enabled}}{{^enabled}}on{{/enabled}}</a>
+      </li>
+      {{/watchers}}
+    </ul>
+  </div>
+  {{#collection.widgets}}
+  <div class="settings-widget settings-item" data-widget='{"id": "{{_id}}", "_id": "{{_id}}"}'>
+      <h1>{{name}}</h1>
+    </div>
+  {{/collection.widgets}}
+</div>

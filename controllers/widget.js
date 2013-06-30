@@ -54,6 +54,7 @@ module.exports = {
     });
   }
 , create: function(req, res){
+    console.log('create');
     widget = new Widget(req.body);
     widget.save(function(err,w){
       if(err){res.json(500, {errors: err})}
@@ -61,10 +62,12 @@ module.exports = {
     })
   }
 , update: function(req, res){
+    console.log('update');
     var id = req.body._id;
     delete(req.body._id)
     Widget.update({_id: id },{$unset: {prefs: 1}}, function(err,wi){
       Widget.update({_id: id },{$set: req.body}, function(er,w){
+        console.log(er,w);
         if(er){res.send(er)}
         res.send(200, req.body);
       })

@@ -6,14 +6,12 @@
 {{/error}}
 {{#board}}
   <div id="board">
-      <div class="message-board" id="message-board"></div>
     {{#widgets}}
-      <div class="widget {{name}}" id="widget-{{name}}">
-        loading...
-      </div>
+      <div class="widget {{name}}" id="widget-{{name}}"></div>
     {{/widgets}}
   </div>
 {{/board}}
 {{^board}}
   <p class="error">No board found with id {{socket}}.</p>
 {{/board}}
+<div id="settings"></div>

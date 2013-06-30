@@ -24,7 +24,7 @@ Funbrella.BoardView = Backbone.View.extend(
     @collection.fetch success: =>
       @render()
 
-  template: Hogan.compile("{{#board}}<div class=\"message-board\" id=\"message-board\"></div>{{#widgets}}<div class=\"widget {{name}}\" id=\"{{_id}}\">loading... it up...</div>{{/widgets}}{{/board}}")
+  template: Hogan.compile("{{#board}}<div class=\"message-board\" id=\"message-board\"></div>{{#widgets}}<div class=\"widget {{name}}\" id=\"{{_id}}\">loading {{name}} up...</div>{{/widgets}}{{/board}}")
   render: ->
     template = @template.render(board: @collection.toJSON())
     @$el.html template

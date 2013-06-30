@@ -74,7 +74,6 @@ Funbrella.WidgetView = Backbone.View.extend({
     this.unbind();
     var html = this.template.render(data);
     this.$el.html(html);
-    console.log('RENDERING');
   }
 , random: function(array){
     position = Math.floor((Math.random()*array.length));
