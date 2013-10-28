@@ -1,2 +1,2 @@
-#= require 'semaphore'
-#= require 'script'
+#= require ./semaphore
+#= require ./script

@@ -1,2 +1,2 @@
-#= require 'pivotal'
-#= require 'script'
+#= require ./pivotal
+#= require ./script

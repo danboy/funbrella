@@ -1,2 +1,2 @@
-#= require weather
-#= require script
+#= require ./weather
+#= require ./script

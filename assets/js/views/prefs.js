@@ -1,4 +1,4 @@
-//= require settings
+//= require ./settings
 
 Funbrella.PrefsView = function(options){
   if(options.type == 'watcher'){

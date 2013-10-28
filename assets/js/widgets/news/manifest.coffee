@@ -1,2 +1,2 @@
-#= require news
-#= require script
+#= require ./news
+#= require ./script

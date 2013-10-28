@@ -1,2 +1,2 @@
-#= require 'helloWorld'
-#= require 'script'
+#= require ./helloWorld
+#= require ./script

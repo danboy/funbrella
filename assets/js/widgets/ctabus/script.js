@@ -22,11 +22,12 @@ Funbrella.ctabus = Funbrella.WidgetView.extend({
     this.url = this.getUrl();
     var self = this;
     if(data['bustime-response'] == 0){
-      var data = {stop: 'No upcoming busses.'}
+      var data = {stop: 'No upcoming busses.'};
     }else{
       var busses = data['bustime-response']['prd']
-      if(!busses[0])
-        busses = [busses]
+      if(!busses[0]){
+        busses = [busses];
+      }
       var data = {
         busses: self.cleanDate(busses)
       , stop: busses[0].stpnm.replace(self.prefs.strip, '')
@@ -46,10 +47,10 @@ Funbrella.ctabus = Funbrella.WidgetView.extend({
   }
 , getDate: function(time){
     var iso = /^(\d{4})?(\d{2})?(\d{2})[T ]0?(\d+:\d+)$/;
-    var date = time.replace(iso, "$2 $3 $1 $4")
+    var date = time.replace(iso, "$2 $3 $1 $4");
     var arrival = new Date(date);
     var now = new Date();
     var minutesTil = Math.floor( ( arrival.getTime() - now.getTime() )/6e4 );
     return minutesTil;
   }
-})
+});

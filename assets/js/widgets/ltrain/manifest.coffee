@@ -1,2 +1,2 @@
-#= require 'ltrain'
-#= require 'script'
+#= require ./ltrain
+#= require ./script

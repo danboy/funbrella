@@ -1,2 +1,2 @@
-#= require 'newsWatcher'
-#= require 'watcher'
+#= require ./newsWatcher
+#= require ./watcher

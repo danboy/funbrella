@@ -1,4 +1,4 @@
-//= require settings
+//= require ./settings
 
 Funbrella.WidgetView = Funbrella.SettingsView.extend({
   retrieveData: function(){

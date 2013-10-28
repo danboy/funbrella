@@ -1,2 +1,2 @@
-#= require 'nytimes'
-#= require 'script'
+#= require ./nytimes
+#= require ./script

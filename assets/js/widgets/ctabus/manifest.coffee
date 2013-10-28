@@ -1,2 +1,2 @@
-#= require ctabus
-#= require script
+#= require ./ctabus
+#= require ./script

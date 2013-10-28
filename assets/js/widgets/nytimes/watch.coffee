@@ -1,2 +1,2 @@
-#= require nytimesMessage
-#= require watcher
+#= require ./nytimesMessage
+#= require ./watcher

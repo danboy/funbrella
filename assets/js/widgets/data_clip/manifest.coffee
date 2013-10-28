@@ -1,2 +1,2 @@
-#= require 'dataClip'
-#= require 'script'
+#= require ./dataClip
+#= require ./script
