@@ -13,7 +13,7 @@
     "mongoose-cache": "*",
     "mongoose-nested-set": "*",
     "everyauth": "*",
-    "connect-assets": "*",
+    "connect-assets": "2.5.2",
     "connect-mongo": "*",
     "less": "*",
     "bootstrap-stylus": "*",
