@@ -20,6 +20,8 @@ app.configure('development', function(){
 
 mongoose.connect(app.db);
 
+app.locals.title = 'Funbrella'
+
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
