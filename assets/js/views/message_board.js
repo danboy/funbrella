@@ -1,4 +1,4 @@
-//= require 'widget'
+//= require widget
 var Funbrella = Funbrella || {};
 
 Funbrella.messageBoard = Funbrella.WidgetView.extend({
