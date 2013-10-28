@@ -1,8 +1,8 @@
 //= require_tree ./lib
-//= require_tree ./templates/messageBoard.jade
-//= require_tree ./templates/messageTemplate.jade
-//= require_tree ./templates/prefs.jade
-//= require_tree ./templates/watcher.jade
+//= require ./templates/messageBoard.jade
+//= require ./templates/messageTemplate.jade
+//= require ./templates/prefs.jade
+//= require ./templates/watcher.jade
 //= require_tree ./models
 //= require_tree ./views
 
