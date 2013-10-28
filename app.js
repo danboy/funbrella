@@ -36,7 +36,7 @@ app.use(express.session({
       })
     }))
   .use(everyauth.middleware())
-  .use(require('connect-assets')({jsCompilers: require('./lib/jade-assets')}))
+  .use(require('connect-assets')({jsCompilers: require('./lib/jade-assets'), build: true}))
   .use(express.csrf())
   .use(app.router)
   .use(express.static(path.join(__dirname, 'public')))
