@@ -1,6 +1,6 @@
 {
   "name": "funbrella",
-  "version": "0.5.0-3",
+  "version": "0.5.0-4",
   "private": true,
   "scripts": {
     "start": "node app.js"
@@ -23,7 +23,7 @@
   },
   "subdomain": "funbrella",
   "engines": {
-    "node": "0.10.21"
-  , "npm": "1.3.11"
+    "node": "0.10.21",
+    "npm": "1.3.11"
   }
 }
