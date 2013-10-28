@@ -1,6 +1,6 @@
 {
   "name": "funbrella",
-  "version": "0.5.0-2",
+  "version": "0.5.0-3",
   "private": true,
   "scripts": {
     "start": "node app.js"

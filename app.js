@@ -50,6 +50,7 @@ app.socketServers = {};
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
+  app.use(express.errorHandler());
 
 require('./lib/routes')(app, controllers)
 
