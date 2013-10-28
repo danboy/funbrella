@@ -10,7 +10,6 @@ Funbrella.ltrain = Funbrella.WidgetView.extend({
   }
 , setup: function(){
     this.url = this.getUrl();
-    console.log('setup')
   }
 , template: ltrain
 , getUrl: function(){

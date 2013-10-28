@@ -11,4 +11,10 @@ html
         include shared/menu
     .pure-g-r
       block content
+    script(src='http://code.jquery.com/jquery-2.0.3.min.js')
+    script(src='http://underscorejs.org/underscore-min.js')
+    script(src='http://backbonejs.org/backbone-min.js')
+    script
+      window._csrf = '#{_csrf}'
+    block scripts
 

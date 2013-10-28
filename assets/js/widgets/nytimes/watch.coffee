@@ -1,1 +1,2 @@
-#= 'watcher'
+#= require nytimesMessage
+#= require watcher

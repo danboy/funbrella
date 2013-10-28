@@ -13,4 +13,7 @@ html
     script(src='http://backbonejs.org/backbone-min.js')
     != js('board')
     block scripts
+    script(src="http://cdn.sockjs.org/sockjs-0.3.min.js")
+    script
+      var sock = new Socket( '/board/#{board.name}', function(message){Funbrella.Messages.send(message)} );
 

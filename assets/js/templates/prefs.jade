@@ -1,10 +1,11 @@
-h1 #{help.title}
-p 
-  | #{help.description}&nbsp;
-  a(href="#{help.link.url}") #{help.link.text}
-form.pure-form.pure-form-stacked(action='/widgets/update-prefs', method='POST')
-  input( type='hidden', name='_csrf', value='#{_csrf}')
-  input( type='hidden', name='_id', value='#{model._id}')
-  each pref in prefs
-    input(type="text", name="#{pref.name}", placeholder='#{pref.name}', value="#{pref.value}", data-type='#{pref.type}', class='pref')
-  input.pure-button.prefs-submit(type='submit', value='configure');
+.widget-prefs
+  h1 #{help.title}
+  p 
+    | #{help.description}&nbsp;
+    a(href="#{help.link.url}", target="_new") #{help.link.text}
+  form.pure-form.pure-form-stacked(action='/widgets/update-prefs', method='POST')
+    input( type='hidden', name='_csrf', value='#{_csrf}')
+    input( type='hidden', name='_id', value='#{model._id}')
+    each pref in prefs
+      input(type="text", name="#{pref.name}", placeholder='#{pref.name}', value="#{pref.value}", data-type='#{pref.type}', class='pref')
+    input.pure-button.prefs-submit(type='submit', value='configure');

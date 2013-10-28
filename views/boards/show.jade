@@ -29,3 +29,4 @@ block scripts
     != js('widgets/'+watcher.type+'/watch')
     script
       window.watcherScript['#{index}'] = new Funbrella.Watch['#{watcher.type}']({el: 'body', model: !{JSON.stringify(watcher)}});
+

@@ -40,9 +40,9 @@ module.exports = {
   }
 , edit: function(req, res){
     Widget.findById(req.params.id, function(err, widget){
-      console.log(widget.prefs[0]);
       Widgets.getAvailable(function(widgets){
-       res.render('widgets/edit', {widget: widget, availableWidgets: _.map(widgets, function(w){return [w.name, w.name]})})
+        var type = req.params.type || 'widget'
+        res.render('widgets/edit', {widget: widget, availableWidgets: _.map(widgets, function(w){return [w.name, w.name]}), type: type})
       })
     });
   }
@@ -63,7 +63,6 @@ module.exports = {
     })
   }
 , prefs: function(req, res){
-    console.log(typeof(req.body.prefs.urls), req.body.prefs.urls);
     if(req.body.prefs.urls && typeof(req.body.prefs.urls) == 'string'){
       req.body.prefs.urls = req.body.prefs.urls.split(',');
     }

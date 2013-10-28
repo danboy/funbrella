@@ -1,10 +1,7 @@
 //= require settings
 
 Funbrella.WidgetView = Funbrella.SettingsView.extend({
-  setup: function(){
-    return true;
-  }
-, retrieveData: function(){
+  retrieveData: function(){
     if(this.fetchData == false){
       this.data('{"data": "no widget."}',function(data){this.render(data)}.bind(this));
     }else{

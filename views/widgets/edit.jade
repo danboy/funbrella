@@ -9,9 +9,18 @@ block content
         mixin hidden('_csrf', _csrf)
         mixin select('type', 'Widget Type', availableWidgets, widget.type )
         input.pure-button(type='submit', value='add' );
-      form.pure-form.pure-form-stacked(action='/widgets/update-prefs', method='POST')
-        input( type='hidden', name='_csrf', value='#{_csrf}')
-        input( type='hidden', name='_id', value='#{widget._id}')
-        each pref, key in widget.prefs
-          input(type="text", name="#{key}", placeholder='#{key}', value="#{pref}", class='pref')
-        input.pure-button.prefs-submit(type='submit', value='update prefs');
+      #prefs-form
+        form.pure-form.pure-form-stacked(action='/widgets/update-prefs', method='POST')
+          input( type='hidden', name='_csrf', value='#{_csrf}')
+          input( type='hidden', name='_id', value='#{widget._id}')
+          each pref, key in widget.prefs
+            input(type="text", name="#{key}", placeholder='#{key}', value="#{pref}", class='pref')
+          input.pure-button.prefs-submit(type='submit', value='update prefs');
+block scripts
+  != js('board')
+  if type == 'watcher'
+    != js('widgets/'+widget.type+'/watch')
+  else
+    != js('widgets/'+widget.type+'/manifest')
+  script
+    window.prefs = new Funbrella.PrefsView({el: '#prefs-form', model: !{JSON.stringify(widget)}, type: '#{type}'})

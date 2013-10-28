@@ -1,29 +1,30 @@
 Funbrella.Watch = Funbrella.Watch || {};
 Funbrella.Watch.nytimes = Funbrella.Watcher.extend({
-  options: {
-      category: 25
-    , categories: [36, 25, 10, 16, 8, 31, 13, 22, 1168, 11, 14, 28, 20, 29, 34, 30, 26, 19]
-    , type: 0
-    , query: 'design'
-    , count: 10
-    , frequency: 300
-    , randomize: true
+  prefs: {
+  frequency: 300
+, key: ''
   }
-, prefs: {
-  key: ''
-}
+, help: {
+    title: 'I need some settings'
+  , description: 'I need a new youk times api key in order to get your articles.'
+  , link: {url: 'http://developer.nytimes.com/', text: 'nytimes developer portal'}
+  }
+, requires: ['key']
 , setup: function(){
   this.url = "http://api.nytimes.com/svc/mostpopular/v2/mostviewed/all-sections/1.json?api-key="+this.prefs.key;
 }
-, template: newsWatcher
+, template: nytimesMessage
 , random: function(array){
     position = Math.floor((Math.random()*array.length));
     return array[position];
   }
 , data: function(data, cb){
-  this.buildUrl();
-  var article = this.random(data.articles);
-  var message = {type: 'news', content: this.template.render(article)};
+  var article = this.random(data.results);
+  if(article.media[0]){
+    var images = article.media[0]['media-metadata'] || [];
+    article.image = (images[3]) ? images[3].url : images[0].url;
+  }
+  var message = {type: 'nytimes', content: this.template(article)};
   cb(message)
 }
 });

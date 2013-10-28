@@ -21,7 +21,6 @@ Funbrella.pivotal = Funbrella.WidgetView.extend({
       , data: {'url': stories, xml: false, _csrf: window._csrf, Authorization: self.prefs.headers }
       , success: function(stories){
         data.stories = JSON.parse(stories);
-        console.log('p:', data);
         cb(data);
       }
       , error: function(e){

@@ -4,17 +4,23 @@ Funbrella.SettingsView = Backbone.View.extend({
   initialize: function(options){
     this.model = new Funbrella.Widget(options.model)
     this.prefs = $.extend( this.prefs, options.model.prefs);
-    this.$el.addClass(this.model.get('type'))
-    if(this.hasRequiredPrefs()){
+    if(this.hasRequiredPrefs() && !options.stopped){
       this.setup();
       this.start();
+      this.addClass();
     }else{
       this.configure();
     }
   }
+, addClass: function(){
+    this.$el.addClass(this.model.get('type'))
+  }
 , events: {
   'click .prefs-submit': 'updatePrefs'
 }
+, setup: function(){
+    return true;
+  }
 , prefs: {
     frequency: 60
   }
@@ -38,6 +44,7 @@ Funbrella.SettingsView = Backbone.View.extend({
     return hasRequired;
   }
 , configure: function(){
+    this.$el.removeClass(this.model.get('type'))
     this.$el.html(this.prefsTemplate({prefs: this.getPrefs(), _csrf: window._csrf, model: this.model.toJSON(), help: this.help}))
   }
 , typeofPref: {
@@ -69,7 +76,6 @@ Funbrella.SettingsView = Backbone.View.extend({
     var prefs = this.prefs;
     var widgetId = this.$el.find('input[name=_id]')[0].value;
     var self = this;
-    console.log(widgetId);
     $.ajax({
       type: 'POST'
     , url: '/widgets/update-prefs'
@@ -79,7 +85,6 @@ Funbrella.SettingsView = Backbone.View.extend({
       , _id: widgetId
       }
     , success: function(e,r){
-        console.log('success',e,r); 
         document.location.reload();
       }
     });

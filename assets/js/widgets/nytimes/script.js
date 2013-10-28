@@ -5,6 +5,11 @@ Funbrella.nytimes = Funbrella.WidgetView.extend({
     frequency: 20
   , key: ''
   }
+, help: {
+    title: 'NYtimes widget needs some settings'
+  , description: 'I need a new youk times api key in order to get your articles.'
+  , link: {url: 'http://developer.nytimes.com/', text: 'nytimes developer portal'}
+  }
 , requires: ['key']
 , template: nytimes
 , setup: function(){

@@ -5,4 +5,7 @@ Funbrella.Watcher = Funbrella.WidgetView.extend({
 , render: function(data){
     Funbrella.Messages.send(data);
   }
+, addClass: function(){
+    return true;
+  }
 });

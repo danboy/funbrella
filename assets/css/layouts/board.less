@@ -1,15 +1,7 @@
-@border: #2C2C2C;
-@highlight1: #5f8dd3;
-@highlight2: #FEA;
-@highlight3: #95F;
-@highlight4: #de87aa;
-@button-background: #FC0;
-@main-text: #F95;
-
 #messages{
   width: 100%;
   height: 100vh;
-  background: #333;
+  background: @background;
   color: @main-text;
   border: 2px solid @border;
   border-left: 4px solid @border;
@@ -57,6 +49,33 @@
     }
   }
 }
-#message{
-  display: none;
+.widget-prefs{
+  box-sizing: border-box;
+  padding: 10px 0 10px 10px;
+  margin-left: -20px;
+  width: auto;
+  height: 50vh;
+  overflow: auto;
+}
+#message{ 
+  position: absolute;
+  left: 50%;
+  bottom: 0px;
+  height: 30vh;
+  width: 400px;
+  margin-left: -200px;
+  display: block;
+  .form{
+    background: @background;
+    border: 4px solid @border;
+    padding: 20px;
+    visibility: hidden;
+    .send{
+      margin: 10px 0;
+    }
+  }
+}
+
+#message:hover .form{
+  visibility: visible;
 }
