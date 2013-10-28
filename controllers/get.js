@@ -5,7 +5,7 @@ var Get = {
   fetch: function(req, res){
     request({
       url: req.body.url
-    , headers: req.params.data
+    , headers: req.body.headers
       },function(err,resp,body){
         console.log('XML', req.body.xml, typeof(req.body.xml))
         if(req.body.xml == 'true'){

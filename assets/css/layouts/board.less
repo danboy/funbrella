@@ -1,16 +1,23 @@
 @border: #2C2C2C;
+@highlight1: #5f8dd3;
+@highlight2: #FEA;
+@highlight3: #95F;
+@highlight4: #de87aa;
+@button-background: #FC0;
+@main-text: #F95;
+
 #messages{
   width: 100%;
   height: 100vh;
   background: #333;
-  color: #F95;
+  color: @main-text;
   border: 2px solid @border;
   border-left: 4px solid @border;
 }
 #widgets{
   width: 100%;
   height: 100vh;
-  color: #de87aa;
+  color: @highlight4;
   *{
     color: inherit;
   }
@@ -21,6 +28,7 @@
   list-style: none;
 }
 #widgets ul li.widget{
+  position: relative;
   border: 2px solid @border;
   background: #333;
   padding: 0 20px;
@@ -31,16 +39,16 @@
   box-sizing: border-box;
   overflow: hidden;
   &:nth-child(4n+2){
-    color: #95F;
+    color: @highlight1;
   }
   &:nth-child(4n+3){
-    color: #5f8dd3;
+    color: @highlight2;
   }
   &:nth-child(4n+4){
-    color: #5fd38d;
+    color: @highlight3;
   }
   .pure-button{
-    background: #FC0;
+    background: @button-background;
     color: #FFF;
     font-weight: 300;
     &.pure-button-add{

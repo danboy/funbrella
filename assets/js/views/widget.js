@@ -23,7 +23,7 @@ Funbrella.WidgetView = Funbrella.SettingsView.extend({
     var self = this;
     $.ajax(document.location.origin+'/fetch'
       , { type: 'POST'
-      , data: {'url': self.url, xml: self.config.xml, _csrf: window._csrf, Authorization: self.prefs.authKey }
+      , data: {'url': self.url, xml: self.config.xml, _csrf: window._csrf, Authorization: self.headers }
       , success: function(data){
         if(typeof(data) === 'string'){
           try{

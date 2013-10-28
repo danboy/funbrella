@@ -14,7 +14,6 @@ Funbrella.nytimes = Funbrella.WidgetView.extend({
     var article = this.random(data.results);
     if(article.media[0]){
       var images = article.media[0]['media-metadata'] || [];
-      console.log('ARTICLE',article)
       article.image = (images[3]) ? images[3].url : images[0].url;
     }
     cb(article);
