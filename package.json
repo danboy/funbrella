@@ -21,9 +21,5 @@
     "request": "*",
     "xml2json": "*"
   },
-  "subdomain": "funbrella",
-  "engines": {
-    "node": "0.10.21"
-  , "npm": "1.2.x"
-  }
+  "subdomain": "funbrella"
 }
