@@ -23,6 +23,6 @@
   },
   "subdomain": "funbrella",
   "engines": {
-    "node": "*"
+    "node": "0.10.*"
   }
 }
