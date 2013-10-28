@@ -1,8 +1,7 @@
 var Socket = function(socket, send){
   this.socketpath = socket;
-  this.socket = new SockJS(socket);
   this.send = send;
-  this.open(this.socket, this.send);
+  this.createSocket();
 }
 
 Socket.prototype = {
@@ -14,12 +13,14 @@ Socket.prototype = {
     socket.onclose = function(e){
       console.log('SOCK CLOSED',self.socketpath, e);
       setTimeout(function(){
-        self.socket = new SockJS(self.socketpath);
-        window.socket = self.socket
-        self.open(self.socket, self.send);
+        self.createSocket();
       },5000);
     }
   }
+, createSocket: function(){
+  this.socket = new SockJS(this.socketpath);
+  this.open(this.socket, this.send);
+}
 , routeMessage: function(message){
     if(message.type){
       self[message.type](message)
