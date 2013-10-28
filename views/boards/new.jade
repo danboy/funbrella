@@ -1,0 +1,13 @@
+extends ../layout
+include ../mixins/forms
+
+block content
+  .pure-u-1
+    .l-box
+      form.pure-form.pure-form-stacked(action='/boards', method='POST')
+        mixin hidden('_csrf', _csrf)
+        mixin input('name', 'Name')
+        mixin hidden('owner', user._id)
+        input.pure-button.pure-button-primary(type='submit')
+      
+

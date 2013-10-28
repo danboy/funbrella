@@ -1,0 +1,17 @@
+extends ../layout
+include ../mixins/forms
+
+block content
+  .pure-u-1
+    .l-box
+      a(href='/boards/#{widget.board}/edit') back to board
+      form.pure-form.pure-form-stacked(action='/widgets/#{widget._id}', method='POST')
+        mixin hidden('_csrf', _csrf)
+        mixin select('type', 'Widget Type', availableWidgets, widget.type )
+        input.pure-button(type='submit', value='add' );
+      form.pure-form.pure-form-stacked(action='/widgets/update-prefs', method='POST')
+        input( type='hidden', name='_csrf', value='#{_csrf}')
+        input( type='hidden', name='_id', value='#{widget._id}')
+        each pref, key in widget.prefs
+          input(type="text", name="#{key}", placeholder='#{key}', value="#{pref}", class='pref')
+        input.pure-button.prefs-submit(type='submit', value='update prefs');

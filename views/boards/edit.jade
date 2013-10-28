@@ -1,0 +1,43 @@
+extends ../layout
+include ../mixins/forms
+
+block content
+  .pure-u-1
+    .l-box
+      h2
+        a(href='/boards/#{board.name}') #{board.name}
+      form.pure-form.pure-form-stacked(action='/boards', method='POST')
+        mixin hidden('_csrf', _csrf)
+        mixin input('name', 'Name', 'text', board.name)
+        mixin hidden('owner', user._id)
+        input.pure-button.pure-button-primary(type='submit', value='save')
+  .pure-u-1-3
+    .l-box
+      h2 Widgets
+      ul.settings-widgets
+        each widget in board.widgets
+          li.settings-widget 
+            | #{widget.type}
+            | &nbsp;
+            a(href='/widgets/#{widget._id}') (edit)
+        if (board.widgets.length <= 3)
+          li.settings-widget.new 
+            form.pure-form.pure-form-stacked(action='/widgets', method='POST')
+              mixin hidden('_csrf', _csrf)
+              mixin hidden('board', board._id)
+              mixin simple_select('type', availableWidgets )
+              input.pure-button(type='submit', value='add' )
+  .pure-u-2-3
+    .l-box
+      h2 Watchers
+      ul.settings-watchers
+        each watcher in board.watchers
+          li.settings-watcher
+            | #{watcher.type}
+        li.settings-watcher.new 
+          form.pure-form.pure-form-stacked(action='/watchers', method='POST')
+            mixin hidden('_csrf', _csrf)
+            mixin hidden('board', board._id)
+            mixin simple_select('type', availableWatchers )
+            input.pure-button(type='submit', value='add' )
+

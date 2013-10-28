@@ -1,0 +1,29 @@
+mixin input(name, label, type, value)
+  type = type || "text";
+  value = value || '';
+  .pure-control-group
+    if (type != 'hidden')
+      label( for="#{name}" ) #{label}
+    input( type="#{type}", name="#{name}", value="#{value}") 
+
+mixin text(name, label, value)
+  type = type || "text";
+  value = value || '';
+  .pure-control-group
+    label( for="#{name}" ) #{label}
+    textarea( type="#{type}", name="#{name}") #{value} 
+
+mixin hidden(name, value)
+  input( type="hidden", name="#{name}", value="#{value}") 
+
+mixin select(name, label, collection, value)
+  .pure-control-group
+    label( for="#{name}" ) #{label}
+    mixin simple_select(name, collection, value) 
+
+mixin simple_select(name, collection, value)
+  select( name="#{name}")
+    each option in collection
+      - var selected = (value == option[1]) ? "selected" : false;
+      option(value="#{option[1]}", selected=selected) #{option[0]}
+

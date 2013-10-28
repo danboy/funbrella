@@ -1,0 +1,9 @@
+mixin getPoints(scale, value)
+  value = value || "selected";
+  ul.point-scale
+    li.point-scale-point(class="#{value}") -
+    each point in scale
+      if(value == point[1])
+        li.point-scale-point.selected #{point[0]}
+      else
+        li.point-scale-point #{point[0]}

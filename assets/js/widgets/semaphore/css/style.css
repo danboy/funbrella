@@ -1,0 +1,54 @@
+@-webkit-keyframes pulsate {
+  0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
+  50% {opacity: 1.0;}
+  100% {-webkit-transform: scale(1, 1); opacity: 0.0;}
+}
+.semaphore .passed{
+  color: #88AA00;
+}
+.semaphore .passed.ring{
+  background: #8A0;
+}
+.semaphore .failed{
+  color: #ad3b0e;
+}
+.semaphore .failed.ring{
+  background: #ad3b0e;
+  -webkit-animation: pulsate 1s ease-out;
+  -webkit-animation-iteration-count: infinite;
+}
+.semaphore .pending{
+  color: #fc4;
+}
+.semaphore .pending.ring{
+  background: #FC0;
+  -webkit-animation: pulsate 1s ease-out;
+  -webkit-animation-iteration-count: infinite;
+}
+.semaphore strong{
+  font-weight: 300;
+}
+.ring{
+  display: block;
+  -webkit-border-radius: 8vh;
+  height: 16vh;
+  width: 16vh;
+  margin: 2vh auto 4vh;
+  clear: both;
+  text-align: center;
+}
+.semaphore h1{
+  font-size: 3.0vh;
+}
+.semaphore h3{
+  font-size: 2.8vh;
+}
+.semaphore p{
+  font-size: 2.2vh;
+}
+.message-list .semaphore strong{
+  color: #8A0;
+}
+.message-list .semaphore.failed strong{
+  color: #ad3b0e;
+}

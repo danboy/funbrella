@@ -1,0 +1,15 @@
+.pure-menu.pure-menu-open.pure-menu-horizontal.funbrella-menu
+  if everyauth.loggedIn
+    a(href='/').pure-menu-heading Funbrella
+    ul
+      li
+        a(href="/") My boards
+      li
+        a(href="/logout") Logout
+  else
+    a.pure-menu-heading Login with
+    ul
+      li
+        a(href="/auth/github") Github
+      li
+        a(href="/auth/google") Google

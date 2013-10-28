@@ -1,0 +1,62 @@
+@import 'typography';
+@import 'message_board';
+@import 'widgets/all';
+@import 'layouts/board.less';
+
+body{
+  background: #FFF;
+}
+.pure-button{
+  border-radius: 2px;
+}
+.l-box{
+  padding: 10px;
+}
+.pure-menu-open.funbrella-menu{
+  background: #F95;
+}
+.splash-text{
+  text-align: center;
+}
+#boards{
+  margin: 0;
+  padding: 0;
+}
+#messages{
+  padding: 10px;
+  overflow: hidden;
+}
+.settings-watcher,
+.settings-widget,
+.board{
+  list-style: none;
+  border-radius: 3px;
+  width: 30%;
+  height: 90px;
+  line-height: 90px;
+  background: #00ff66;
+  margin: 20px 20px 20px 0;
+  text-align: center;
+  display: inline-block;
+  a{
+    text-decoration: none;
+    color: #FEC;
+    font-weight: 400;
+  }
+}
+.settings-widget{
+  width: 45%;
+}
+.watcher{
+  background: #de87aa;
+}
+.settings-watchers,
+.settings-widgets{
+  margin: 0;
+  padding: 0;
+};
+.settings-watcher select,
+.settings-widget select{
+  display: inline-block;
+  margin-right: 5px;
+}

@@ -1,0 +1,2 @@
+#= require 'newsWatcher'
+#= require 'watcher'

@@ -1,0 +1,7 @@
+h1 #{stop}
+table
+  each bus in busses
+    tr( class='#{bus.arriving || ""}' )
+      td #{bus.rtdir} #{bus.des}
+      td #{bus.arrival}
+

@@ -1,0 +1,31 @@
+extends ../board
+
+block content
+  .pure-u-1-2
+    #messages
+  .pure-u-1-2
+    #widgets
+      ul#widget-list
+        li.widget
+          a.pure-button.pure-button-add(href='/boards/#{board._id}/edit') add a widget 
+        li.widget
+          a.pure-button.pure-button-add(href='/boards/#{board._id}/edit') add a widget 
+        li.widget
+          a.pure-button.pure-button-add(href='/boards/#{board._id}/edit') add a widget 
+        li.widget
+          a.pure-button.pure-button-add(href='/boards/#{board._id}/edit') add a widget 
+block scripts
+  script
+    window.widgetScript = [];
+    window.watcherScript = [];
+    var stubModel = {type: 'message_board', prefs: []};
+    window._csrf = '#{_csrf}'
+    Funbrella.Messages = new Funbrella.messageBoard({el: '#messages', model: stubModel });
+  each widget, index in board.widgets
+    != js('widgets/'+widget.type+'/manifest')
+    script
+      window.widgetScript['#{index}'] = new Funbrella['#{widget.type}']({el: $('#widget-list li')[#{index}], model: !{JSON.stringify(widget)} })
+  each watcher, index in board.watchers
+    != js('widgets/'+watcher.type+'/watch')
+    script
+      window.watcherScript['#{index}'] = new Funbrella.Watch['#{watcher.type}']({el: 'body', model: !{JSON.stringify(watcher)}});

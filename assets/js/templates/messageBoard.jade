@@ -1,0 +1,8 @@
+
+h1(class="clock") #{time}
+ul( class="message-list") 
+  each message in messages
+    li( class="#{message.type}")
+      if message.sender
+        strong #{message.sender}:
+      | !{message.content}

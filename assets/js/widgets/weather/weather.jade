@@ -1,0 +1,16 @@
+h1(class="climacon large #{currently.icon}")
+h2(class="temp") 
+  | #{currently.temperature}
+  small #{currently.summary}
+h3 #{minutely.summary}
+ul( class="forecast" )
+  each forecast in daily.data
+    li(class="icon") 
+      h2
+      figure(class="climacon #{forecast.icon}")
+        figcaption 
+        | #{forecast.temperatureMin}/
+        strong #{forecast.temperatureMax}
+small( class="weather-brand" )
+  | powered by
+  a( href="http://forecast.io" ) Forcast.io 

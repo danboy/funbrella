@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  .pure-u-1
+    .l-box.splash-text
+      h1 Hi there, #{user.name}
+      ul#boards
+        each board in boards
+          li.board
+            a(href='/boards/#{board.name}')= board.name
+            | &nbsp;
+            a(href='/boards/#{board._id}/edit') (edit)
+        li.board.board-new
+          a(href='/boards/new') New
