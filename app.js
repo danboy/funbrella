@@ -6,10 +6,10 @@ var path = require('path')
   , MongoStore = require('connect-mongo')(express)
   , mongoose = require('mongoose');
 
-auth = require('./lib/auth.js').init(everyauth);
 
 var app = express();
 
+auth = require('./lib/auth.js').init(everyauth, app.get('env'));
 app.configure('production', function(){
   app.db = 'mongodb://funbrella:koCbUkLM5@dharma.mongohq.com:10064/funbrella'
 });

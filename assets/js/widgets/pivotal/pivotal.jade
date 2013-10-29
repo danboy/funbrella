@@ -1,4 +1,6 @@
-h2 Recent stories in #{name}
+h2 #{name}
+p #{totalPoints} points in #{stories.length} stories. #{finished} finished stories. #{stories.length - finished} stories totaling #{remainingPoints} points remaining. 
 ul.stories
-  each story in stories
-    li #{story.name}
+  each story, index in stories
+    if index < 4
+      li #{story.name}
