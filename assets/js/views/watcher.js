@@ -1,4 +1,4 @@
-//= ./widget
+//= require ./widget
 
 Funbrella.Watcher = Funbrella.WidgetView.extend({
   template: watcher

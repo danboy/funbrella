@@ -14,6 +14,17 @@ var Get = {
         }
     });
   }
+, ping: function(req, res){
+    request({
+      url: req.body.url
+      },function(err,resp,body){
+        if(!err && req.statusCode === 200){
+          res.send(200,{site: req.body.site, status: 'ok'})
+        }else{
+          res.send(200,{site: req.body.site, status: 'error'})
+        }
+    });
+  }
 
 };
 

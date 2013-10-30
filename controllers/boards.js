@@ -17,7 +17,7 @@ module.exports = {
   }
 , edit: function(req, res){
     Board.findById(req.params.id).populate('widgets watchers').exec(function(err, board){
-      Widgets.getAvailable(function(widgets){
+      Widgets.getAll(function(widgets){
         Widgets.getWatchers(function(watchers){
           res.render('boards/edit', {board: board, availableWidgets: _.map(widgets, function(w){return [w.name, w.name]}), availableWatchers: _.map(watchers, function(w){return [w.name, w.name]})});
         });

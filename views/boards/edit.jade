@@ -35,7 +35,7 @@ block content
           li.settings-watcher
             | #{watcher.type}
             | &nbsp;
-            a(href='/widgets/#{watcher._id}') (edit)
+            a(href='/widgets/#{watcher._id}/watcher') (edit)
         li.settings-watcher.new 
           form.pure-form.pure-form-stacked(action='/watchers', method='POST')
             mixin hidden('_csrf', _csrf)

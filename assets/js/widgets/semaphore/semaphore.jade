@@ -4,3 +4,7 @@ h1
   strong( class="#{result}") #{branch_name}
   h3 #{commit.author_name}
   p #{commit.message}
+  ul.semaphore-history
+    each build in history.builds
+      li.ring(class="#{build.result}")
+    

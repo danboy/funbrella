@@ -34,7 +34,6 @@ Funbrella.pivotal = Funbrella.WidgetView.extend({
       , add = this.addPoints;
     data.stories.forEach(function(story, index){
       var points = add(story.estimate);
-      console.log(story);
       if(story.estimate){
         totalPoints = totalPoints+story.estimate;
       }

@@ -4,19 +4,15 @@ var path = require('path')
   , everyauth = require('everyauth')
   , controllers = require('./lib/controllers')
   , MongoStore = require('connect-mongo')(express)
+  , Config = require('./config/app.js')
   , mongoose = require('mongoose');
 
 
 var app = express();
 
-auth = require('./lib/auth.js').init(everyauth, app.get('env'));
-app.configure('production', function(){
-  app.db = 'mongodb://funbrella:koCbUkLM5@dharma.mongohq.com:10064/funbrella'
-});
+auth = require('./lib/auth.js').init(everyauth, app);
 
-app.configure('development', function(){
-  app.db = 'mongodb://localhost/funbrella'
-});
+app.db = Config[app.get('env')].db;
 
 mongoose.connect(app.db);
 

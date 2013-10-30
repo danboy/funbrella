@@ -18,6 +18,7 @@ Socket.prototype = {
     }
   }
 , createSocket: function(){
+  console.log('SOCKETPATH',this.socketpath);
   this.socket = new SockJS(this.socketpath);
   this.open(this.socket, this.send);
 }

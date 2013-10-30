@@ -33,12 +33,30 @@
 }
 .ring{
   display: block;
+  -moz-border-radius: 8vh;
   -webkit-border-radius: 8vh;
+  border-radius: 8vh;
   height: 16vh;
   width: 16vh;
   margin: 2vh auto 4vh;
   clear: both;
   text-align: center;
+}
+#widgets ul.semaphore-history{
+  margin: 0 0 0 -20px;
+  padding: 0;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  opacity: .5;
+}
+.semaphore-history .ring{
+  display: inline-block;
+  height: 2vh;
+  width:  2vh;
+  margin: .5vh 5px;
+  clear: none;
 }
 #widgets .semaphore h1,
 .semaphore h1{
