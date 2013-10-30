@@ -12,7 +12,11 @@ module.exports = {
   }
 , show: function(req, res){
     Board.findOne({name: req.params.id}).populate('widgets watchers').exec(function(err, board){
-      res.render('boards/show',{board: board, error: err})
+      if(err || board === null){
+        res.send({error: 'no board found with that id', id: req.params.id});
+      }else{
+        res.render('boards/show',{board: board, error: err});
+      }
     });
   }
 , edit: function(req, res){
